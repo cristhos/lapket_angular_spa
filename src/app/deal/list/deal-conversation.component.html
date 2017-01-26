@@ -1,0 +1,19 @@
+<div class="container row">
+  <user-mini-sugestion class="col s12 m3 right"></user-mini-sugestion>
+  <div class="col s12 m9" *ngIf="dealConversations != null">
+    <ul class="collection with-header" 
+        infinite-scroll [infiniteScrollDistance]="2"
+        [infiniteScrollUpDistance]="1.5"
+        [infiniteScrollThrottle]="3000"
+        (scrolled)="onScrollDown()">
+      <li class="collection-header">
+        CONVERSATIONS
+      </li>
+      <a  *ngFor="let dc of dealConversations" [routerLink]="['/deal/message',dc.id]"  routerLinkActive="active" class="collection-item" >
+            <deal-conversation-common [dc]="dc"></deal-conversation-common>
+      </a> 
+    </ul>
+  </div>
+
+</div>
+

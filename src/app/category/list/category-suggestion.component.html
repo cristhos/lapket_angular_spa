@@ -1,0 +1,11 @@
+<div class="container" *ngIf="categories != null">
+      <h4>Definir (+3) votre centre d'interêt?</h4>
+      <div class="row">
+            <div class="col s12 m3" *ngFor="let category of categories._embedded.items">
+              <div class="card-panel">
+                <category-common [category] = "category"></category-common>
+              </div>
+            </div>
+      </div>
+      <button (click)="refreshPage()" class="btn right">Terminer</button>
+</div>

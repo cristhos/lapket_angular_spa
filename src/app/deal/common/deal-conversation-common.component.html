@@ -1,0 +1,14 @@
+<span *ngIf="dc != null">
+      <span  *ngIf="dc.author.is_author == true " class="center" >
+        <i *ngIf="dc.product.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
+        <img class="avatar-profile-pict  avatar" *ngIf="dc.product.author.profile_picture != null" src="{{dc.product.author.profile_picture.web_path}}" alt="{{dc.product.author.profile_picture.alt}}"/>
+         <strong>@{{dc.product.author.username}}</strong><br >
+         sujet : {{dc.product.name}}
+      </span>
+      <span  *ngIf="dc.author.is_author == false" class="center"  routerLinkActive="active" >
+          <i *ngIf="dc.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
+          <img class="avatar-profile-pict  avatar" *ngIf="dc.author.profile_picture != null" src="{{dc.author.profile_picture.web_path}}" alt="{{dc.author.profile_picture.alt}}"/>
+           <strong>@{{dc.author.username}}</strong><br>
+           Object : {{dc.product.name}}
+      </span>
+</span>

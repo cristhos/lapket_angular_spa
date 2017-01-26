@@ -1,0 +1,7 @@
+<div *ngIf="category != null" >
+      <a *ngIf="category.is_follow == false" class="align-right btn-flat" (click)="postCategoryFollow(category.id)"  ><i class="fa fa-circle-o"></i></a>
+      <a *ngIf="category.is_follow == true" class="align-right btn-flat" (click)="removeCategoryFollow(category.id)"  ><i class="fa fa-check-circle-o"></i></a>
+      <a [routerLink]="['/category',category.id ]" routerLinkActive="active">
+              {{ category.name }}
+      </a>
+</div>

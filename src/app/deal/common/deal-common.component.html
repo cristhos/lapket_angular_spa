@@ -1,0 +1,20 @@
+<div *ngIf="deal != null" >
+  <div class="row">
+    <span *ngIf="deal.author.is_author==true" class="message-text-right pull-right">
+        <div  class="col s12 m12">
+            <span>
+                {{deal.content}}<br>
+              <small class="right">{{deal.publishedAt | amTimeAgo}}</small>
+            </span>
+      </div>
+    </span>
+    <span *ngIf="deal.author.is_author!=true" class="message-text-left pull-left">
+        <div  class="col s12 m12">
+          <span>
+            {{deal.content}}<br>
+            <small class="right">{{deal.publishedAt | amTimeAgo}}</small>
+         </span>
+        </div>
+    </span>
+  </div>
+</div>

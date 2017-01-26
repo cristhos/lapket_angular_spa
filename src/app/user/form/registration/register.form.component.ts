@@ -1,0 +1,62 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgForm }    from '@angular/forms';
+import { Router } from '@angular/router';
+
+import {  UserService } from '../../service/user.service';
+import {  CategoryService } from '../../../category/service/category.service';
+import {  RegisterFormModel } from './register.form';
+
+@Component({
+  selector: 'register-form',
+  template: require('./register.form.component.html'),
+})
+
+export class RegisterFormComponent {
+  user : Object;
+  loading = false;
+  constructor(private userService : UserService, public router: Router) {}
+
+  model = new RegisterFormModel(null,null,null);
+  submitted = false;
+  onSubmit() {
+    this.loading = true;
+    this.userService.register(this.model).subscribe(
+        data => {
+          this.userService.login(this.model).subscribe(
+              data => {
+                localStorage.clear();
+                localStorage.setItem("authent" , "O");
+                localStorage.setItem("access_token" , data.access_token);
+                localStorage.setItem("expires_in" , data.expires_in);
+                localStorage.setItem("token_type" , data.access_token);
+                localStorage.setItem("refresh_token" , data.refresh_token);
+                this.router.navigate(['/']);
+                window.location.reload();
+              },
+              error => {
+                this.router.navigate(['/login']);
+                console.log(error);
+                this.loading = false;
+              },
+              () => {
+                this.loading = false;
+                console.log("finish");
+              }
+          );
+        },
+        error => {
+          console.log(error);
+          this.model = new RegisterFormModel(this.model.username,this.model.email,"");
+          this.loading = false;
+        },
+        () => {
+          console.log("finish");
+          this.loading = false;
+        }
+    );
+    this.submitted = true;
+
+  }
+
+  get diagnostic() { return JSON.stringify(this.model); }
+}

@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m4 offset-m4">
+      <div class="card-panel z-depth-5">
+      		<h5 class="center">Completer l'inscription </h5>
+            <div class="progress">
+              <div class="determinate" style="width: 60%"></div>
+            </div>
+          <form (ngSubmit)="onSubmit()" #albumForm="ngForm" >
+            <div class="input-field col s12 m12">
+              <i class="fa fa-envelope fa-user prefix"></i>
+              <label for="fullName">Nom complet</label>
+              <input id="fullName" type="text" class="form-control" required [(ngModel)]="model.fullName" name="fullName" #name="ngModel" >
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+
+            <div *ngIf="genders != NULL" class="input-field col s12 m12">
+             <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.gender" [ngModelOptions]="{standalone: true}" >
+               <option value="" disabled="" selected="">Je suis un(e)</option>
+               <option *ngFor="let g of genders" [value]="g.type" >{{g.name}}</option>
+              </select>
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+            <div *ngIf="countries != NULL" class="input-field col s12 m12">
+             <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.country" [ngModelOptions]="{standalone: true}" (change)="onSelect($event)" >
+               <option value="" disabled="" selected="">Choisir un pays</option>
+               <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+              </select>
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+
+            <div *ngIf="cities != NULL" class="input-field col s12 m12">
+             <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.city" [ngModelOptions]="{standalone: true}">
+               <option value="" disabled="" selected="">Choisir une ville</option>
+               <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
+              </select>
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+                       
+            <div class="row">
+                       <div class="col s12 m12">
+                           <p class="right">
+                               <button class="btn  waves-effect waves-light" type="submit" name="action">
+                                 Suivant
+                                <i *ngIf="loading == false" class="fa fa-sign-in right"></i>
+                                <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse right"></i>
+                               </button>
+                           </p>
+                       </div>
+             </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

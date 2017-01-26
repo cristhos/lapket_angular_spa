@@ -1,0 +1,52 @@
+<ul>
+  <span *ngIf="user != null">
+    <li>
+      <div class="userView">
+        <div class="background">
+          <img class="image-responsive" src="../../../assets/images/background1.jpg" alt="back">
+        </div>
+          <a [routerLink]="['/user', user.username]">
+          <i *ngIf="user.profile_picture == null" class="fa fa-user fa-4x"></i>
+          <img *ngIf="user.profile_picture != null" class="circle" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}">
+
+          <span class="white-text name">{{user.full_name}} <em>@{{user.username}}</em></span>
+        </a>
+      </div>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a [routerLink]="['/deal/conversation']" routerLinkActive="active">
+        <i class="fa fa-envelope-o"></i>
+        Message
+        <small *ngIf="user.nb_messages > 0" class="red-badge">{{user.nb_messages}}</small>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/notification']" routerLinkActive="active" >
+        <i class="fa fa-bell-o"></i>
+        Notification
+        <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
+      </a>
+    </li>
+  </span>
+  <li class="divider"></li>
+  <li>
+    <a [routerLink]="['/']" ><i class="fa fa-home"></i> Aceuill</a>
+  </li>
+  <li>
+    <a [routerLink]="['/category']" routerLinkActive="active" ><i class="fa fa-bars"></i> Decouvrir</a>
+  </li>
+
+  <span *ngIf="user == null">
+    <li class="divider"></li>
+    <li>
+      <a [routerLink]="['/register']" routerLinkActive="active"><i class="fa fa-sign-in "></i>S'inscrire</a>
+    </li>
+    <li><a [routerLink]="['/login']" ><i class="fa fa-sign-in "></i>Se Connecter</a></li>
+  </span>
+  <span *ngIf="user != null">
+    <li class="divider"></li>
+    <li><a [routerLink]="['/setting']"><i class="fa fa-cog "></i> Parametres</a></li>
+    <li ><a (click)="logout()"><i class="fa fa-power-off "></i> Déconnexion</a></li>
+  </span>
+</ul>

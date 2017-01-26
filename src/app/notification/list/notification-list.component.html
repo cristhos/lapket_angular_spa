@@ -1,0 +1,28 @@
+<div class="container row" *ngIf ="notifications != null">
+  <div class="col s12 m3 right">
+      <user-mini-sugestion></user-mini-sugestion>
+  </div>
+  <div class="col s12 m6 offset-m3">
+    <ul class="collection with-header"
+                infinite-scroll [infiniteScrollDistance]="2"
+                [infiniteScrollUpDistance]="1.5"
+                [infiniteScrollThrottle]="3000"
+                (scrolled)="onScrollDown()">
+                <li class="collection-header">
+                    NOTIFICATIONS 
+                </li>
+                <li *ngFor = "let notification of notifications"  >
+                    <a class="right" (click)="removeNotification(notification)">
+                        <i class="fa fa-close"></i>
+                    </a>
+                    <a [routerLink]="['/product',notification.object_id ]" class="collection-item avatar">
+                        <notification-common [notification]="notification" ></notification-common>
+                    </a>
+                </li>   
+    </ul>
+     <p class="center">
+        <button (click)="onScrollDown()" class="btn-flat">Suivant</button>
+    </p>
+  </div>
+
+</div>

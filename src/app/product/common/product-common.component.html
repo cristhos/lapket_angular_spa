@@ -1,0 +1,52 @@
+<!-- card Structure -->
+<div class="card hoverable" *ngIf="product != null">
+   <div class="card-action"> 
+     <a class="center" [routerLink]="['/user', product.author.username]" routerLinkActive="active" >
+       <i *ngIf="product.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
+       <img class="avatar-profile-pict  avatar" *ngIf="product.author.profile_picture != null" src="{{product.author.profile_picture.web_path}}" alt="{{product.author.profile_picture.alt}}" />
+        @{{product.author.username}}
+     </a>
+     <span  *ngIf="product.is_voted == true || product.is_author" class="right">
+       <a materialize="dropdown" routerLinkActive="active" class="dropdown-button" attr.data-activates="product-{{product.id}}"><i class="fa fa-caret-down"></i></a>
+         <!-- Dropdown Structure -->
+         <ul id="product-{{product.id}}" class='dropdown-content'>
+          
+           <span *ngIf="product.is_voted == true">
+              <li *ngIf="product.is_notify == true"><a  (click)="desactiveNotification(product.id)" class="waves-effect waves-light" >Ne plus etre notifier</a></li>
+              <li *ngIf="product.is_notify == false"><a  (click)="activeNotification(product.id)" class="waves-effect waves-light" >Etre notifier</a></li>
+           </span>
+           <span *ngIf="product.is_author == true">
+              <li ><a [routerLink]="['/edit/product',product.id]" >Modifier</a></li>
+              <li *ngIf="product.is_expired == false"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Epuiser</a></li>
+              <li *ngIf="product.is_expired == true"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Renouveller</a></li>
+              <li ><a  (click)="deleteProduct(product.id)" class="waves-effect waves-light" >Supprimer</a></li>
+           </span>
+         </ul>
+     </span>
+     <br>
+     <time ><small>{{product.published_at | amTimeAgo}}</small></time>
+   </div>
+   <div class="card-content">
+        <a title="{{ product.name }}||{{ product.description }} " [routerLink]="['/product',product.id]">
+                <h5  class="truncate">{{ product.name }}</h5>
+                <span class="truncate" >{{ product.description }}</span>
+        </a>
+   </div>
+   <div *ngIf="product.picture != null" class="card-image waves-effect waves-block waves-light">
+        <img  materialize class="materialboxed" [src]="defaultImage" [lazyLoad]="product.picture.web_path" [offset]="offset">
+        <h4 class="card-title">
+          {{ product.price}} $
+        </h4>
+  </div>
+   <div class="card-action">
+         <button *ngIf="product.is_voted == false" (click)="postProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart-o "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
+         <button *ngIf="product.is_voted == true" (click)="removeProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
+         <button *ngIf="product.is_author == false" class="btn-flat" (click)="beginConversation(product.id)" ><i class="fa fa-envelope"></i></button>
+         <button class="btn-flat right">
+                 <a [routerLink]="['/album',product.album.id]" routerLinkActive="active" [title]="product.album.name">
+                   <i class="fa fa-list"></i>
+                 </a>
+         </button>
+   </div>
+</div>
+<!-- end card Structure -->

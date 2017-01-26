@@ -1,0 +1,15 @@
+
+<div class="container" *ngIf="category != null">
+  <div  class="card-panel"*ngIf="category != null">
+      <category-common [category] = "category"></category-common>
+  </div>
+  <div class="row">
+       <user-mini-sugestion class="col s12 m3 right"></user-mini-sugestion>
+       <menu-category class="col s12 m3 hide-on-med-and-down"></menu-category>
+       <div *ngIf="products != null" class="col s12 m6">
+                <div *ngFor="let product of products">
+                  <product-common [product]="product"></product-common>
+                </div>
+        </div>
+    </div>
+</div>

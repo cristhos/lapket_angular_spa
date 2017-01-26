@@ -1,0 +1,146 @@
+<div *ngIf="user != null" class="container">
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <div class="card-panel z-depth-5">
+          <form materialize (ngSubmit)="onSubmit()" #albumForm="ngForm" >
+            <ul class="collection with-header">
+            <li class="collection-header">Informations de base</li>
+            <li class="collection-item">
+                 <div class="file-field input-field col s12 m12">
+                  <div class="btn-flat">
+                    <span><i class="fa fa-image"></i> Image</span>
+                    <input type="file" ng2FileSelect [uploader]="uploader" (change)="fileChange($event)"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div *ngIf="file_src != null" class="col s12">
+                    <img class="responsive-img" [src]="file_src"/>          
+                  </div>
+                </div>
+
+              <div class="input-field col s12 m12">
+                <i class="fa fa-envelope fa-cicle prefix"></i>
+                <label for="email">Adresse Email</label>
+                <input placeholder="Adresse Email" id="email" type="email" class="form-control" required [(ngModel)]="model.email" name="email" #name="ngModel" >
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  Name is required
+                </div>
+              </div>
+                <div class="input-field col s12 m12">
+                  <i class="fa fa-user prefix"></i>
+                  <label for="username">Nom d'utilisateur</label>
+                  <input placeholder="Nom d'utilisateur'" id="username" type="text" class="form-control" required [(ngModel)]="model.username" name="username" #name="ngModel" >
+                  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+              </div>
+              <div class="input-field col s12 m12">
+                <i class="fa fa-envelope fa-cicle prefix"></i>
+                <label for="fullName">Nom complet</label>
+                <input placeholder="Nom complet" id="fullName" type="text" class="form-control" required [(ngModel)]="model.fullName" name="fullName" #name="ngModel" >
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  Name is required
+                </div>
+              </div>
+
+              <div *ngIf="genders != NULL" class="input-field col s12 m12">
+                <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.gender" [ngModelOptions]="{standalone: true}" >
+                  <option value="" disabled="" selected="">Je suis un(e)</option>
+                  <option *ngFor="let g of genders" [value]="g.type" >{{g.name}}</option>
+                </select>
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  Name is required
+                </div>
+              </div>
+
+              <div *ngIf="countries != NULL" class="input-field col s12 m12">
+                <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.country" [ngModelOptions]="{standalone: true}" (change)="onSelect($event)" >
+                  <option value="" disabled="" selected="">Choisir un pays</option>
+                  <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+                </select>
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                  Name is required
+                </div>
+              </div>
+
+            <div *ngIf="cities != NULL" class="input-field col s12 m12">
+             <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.city" [ngModelOptions]="{standalone: true}">
+               <option value="" disabled="" selected="">Choisir une ville</option>
+               <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
+              </select>
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+            
+              <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
+                <i class="fa fa-sign-in right"></i>
+              </button>
+            </li>
+            <li class="collection-header">Informations avancée</li>
+            <li class="collection-item">
+              <div class="input-field col s12 m12">
+                <i class="fa fa-phone prefix"></i>
+                <label for="phone_number">Télephone({{ user.country.indicative}})</label>
+                <input placeholder="telephone" id="phone_number" type="text" class="form-control"  [(ngModel)]="model.phone_number" name="telephone" #name="ngModel" >
+              </div>
+              <div class="input-field col s12 m12">
+                <i class="fa fa-calendar prefix"></i>
+                <label for="birthdate">Date de naissance</label>
+                <input  placeholder="Date de naissance" id="birthdate"
+                      materialize="pickadate"
+                      [materializeParams]="[{selectMonths: true, selectYears: 15}]"
+                      type="text"  [(ngModel)]="model.birthday" name="birthday" #name="ngModel" >
+              </div>
+              <div class="input-field col s12 m12">
+                <i class="fa fa-info prefix"></i>
+                <label for="bio">Mini bio</label>
+                <textarea placeholder="Biographie" id="bio" [(ngModel)]="model.description" name="description" #name="ngModel" ></textarea>
+              </div>
+
+              <div class="input-field col s12 m12">
+                <i class="fa fa-envelope fa-cicle prefix"></i>
+                <label for="web_site">Site web</label>
+                <input placeholder="Adresse Email" id="web_site" type="url" class="form-control" [(ngModel)]="model.web_site" name="web_site" #name="ngModel" >
+              </div>
+
+              
+              
+                <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
+                  <i class="fa fa-sign-in right"></i>
+                </button>
+             </li>
+            <li class="collection-header">
+              Status du compte 
+                <span class="right">
+                  <a materialize="dropdown"  class="dropdown-button" data-activates="user-setting">
+                    Réglage avancé
+                    <i class="fa fa-cog"></i>
+                    <i class="fa fa-caret-down"></i>
+                  </a>
+                    <!-- Dropdown Structure -->
+                    <ul id="user-setting" class='dropdown-content'>
+                      <li>
+                        <a routerLink="/change-password" routerLinkActive="active">Modifier le mot de passe</a>
+                      </li>
+                      <li><a >Supprimer le compte</a></li>
+                    </ul>
+                </span>
+            </li>
+            <li class="collection-item">
+              <div class="input-field col s12 m12">              
+                <input id="is_mail_notify" type="checkbox" class="form-control" [(ngModel)]="model.is_mail_notify" name="is_mail_notify" #name="ngModel" >
+                <label for="is_mail_notify">Emailling</label>
+              </div>
+
+              
+              <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
+                  <i class="fa fa-sign-in right"></i>
+              </button>
+            </li>
+            </ul>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

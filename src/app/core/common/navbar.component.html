@@ -1,0 +1,42 @@
+<div class="navbar-fixed">
+  <nav role="navigation">
+      <div class="container">
+        <a [routerLink]="['/']" routerLinkActive="active" class="brand-logo center">yaket</a>  
+        <a [routerLink]="['/']" class="btn-flat"><i class="fa fa-home"></i></a>
+ 
+        <!-- Search form -->
+        <div class="input-field header-search-wrapper hide-on-med-and-down">
+              <search-form></search-form>  
+        </div>
+        <!-- End-Search form --> 
+ 
+         <ul  *ngIf="user == null" class="right ">
+             <li><a [routerLink]="['/login']"  class="btn-flat">Connexion</a></li>
+         </ul> 
+        <span *ngIf="user != null" class="right">
+              
+              <a class="btn-flat "[routerLink]="['/deal/conversation']" routerLinkActive="active" >
+                        <i class="fa fa-envelope-o"></i>
+                        <small *ngIf="user.nb_messages > 0" class="red-badge">{{user.nb_messages}}</small>
+              </a>
+               
+              <a class="btn-flat" [routerLink]="['/notification']" routerLinkActive="active" >
+                        <i class="fa fa-commenting-o"></i>
+                        <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
+              </a>
+            
+              <a materialize="dropdown" href='#' class="btn-floating" routerLinkActive="active"  data-activates='userdrop'>
+                <i *ngIf="user.profile_picture == null" class="fa fa-user fa-4x circle"></i>
+                <img class="avatar-nav circle" *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
+              </a>
+                <!-- Dropdown Structure -->
+                <ul id='userdrop' class='dropdown-content'>
+                  <li  ><a [routerLink]="['/user', user.username]"><i class="fa fa-user "></i> {{user.username}}</a></li>
+                  <li  ><a [routerLink]="['/setting']"><i class="fa fa-cog "></i> Parametres</a></li>
+                  <li class="divider"></li>
+                  <li ><a (click)="logout()"><i class="fa fa-power-off "></i> Déconnexion</a></li>
+                </ul>
+        </span>
+      </div>
+  </nav>
+</div>

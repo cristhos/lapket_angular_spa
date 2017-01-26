@@ -1,0 +1,129 @@
+.container {
+  width: 80%;
+}
+.btn, .btn-large {
+    background-color:#4db6ac;
+    padding: 0 1rem;
+}
+
+.btn-flat{
+  padding: 0 1rem;
+}
+
+body{
+  background-color: #eeeeee;
+}
+
+/*Nav design*/
+nav {
+  background-color: #fff ;
+}
+nav .brand-logo {
+  color: #4db6ac;
+}
+nav ul a {
+  color: black;
+  position: relative;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+  text-transform: none;
+  color: #333;
+}
+
+.card.small {
+    height: 150px;
+}
+
+/*flex design*/
+.flex-design{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+.flex-design .col{
+  float : left;
+}
+
+/*Avatar design*/
+.avatar{
+  border-radius: 5px;
+  float:left;
+  margin-right: 10px;
+  color:#4db6ac;
+}
+.avatar-nav{
+   border-radius: 19px;
+   width: 38px;
+   height: 38px;
+   color: #4db6ac;
+   overflow: hidden;
+}
+.profile-pict{
+  width: 160px;
+  height: 160px;
+  color: #4db6ac;
+  
+}
+.mini-profile-pict{
+  width: 18px;
+  height: 18px;
+}
+
+.avatar-profile-pict{
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+.brand-image{
+  width: 192px;
+  height: 192px;
+  border-radius:96px;
+  overflow: hidden;
+}
+a {
+  color: #4db6ac;
+}
+strong{
+  color: black;
+  font-family: bold;
+}
+.card .card-action {
+    padding: 5px;
+    border-radius:5px;
+}
+
+.card ,.collection{
+  border-radius : 5px;
+}
+
+.red-badge{
+    background-color: #fa3e3e;
+    border-radius: 2px;
+    color: #fff;
+    padding: 2px 2px;
+
+}
+
+.link-hover:hover{
+  background-color: red;
+}
+.text{
+  color:black;
+}
+.inline-block{
+  display: inline-block;
+}
+
+nav .button-collapse {
+    color: black;
+}
+
+.input-field input, .input-field textarea, .input-field select{
+      border-radius : 5px;
+  background-color: #eeeeee;
+  border:none;
+}
