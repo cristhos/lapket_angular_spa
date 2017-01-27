@@ -73,6 +73,15 @@ export class UserService {
     ;
   }
 
+  getPasswordRequestReset(email){
+
+    this.url = this.baseUrl + '/passwords/requests/reset.json?slug='+email;
+    return this.http
+               .get(this.url)
+               .map(res => res.json())
+    ;
+  }
+
   getUserMiniSugestion(page: number){
     let limit = 3;
     this.url = this.baseUrl + '/user/sugestions.json?page='+page+'&limit='+limit;

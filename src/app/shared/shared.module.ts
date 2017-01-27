@@ -42,6 +42,7 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { Ng2PopupModule } from 'ng2-popup';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
+
 @NgModule({
   imports:[ 
       CommonModule,
