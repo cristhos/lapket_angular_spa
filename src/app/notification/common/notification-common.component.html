@@ -1,16 +1,17 @@
-<span *ngIf="notification != null">
+<div class="card" *ngIf="notification != null">
     <a [routerLink]="['/user',notification.author.username ]" [title]="notification.author.full_name">
-      <i *ngIf="notification.author.profile_picture == null" class="fa fa-user fa-3x circle"></i>
-      <img class="circle" *ngIf="notification.author.profile_picture != null" src="{{notification.author.profile_picture.web_path}}" alt="{{notification.author.profile_picture.alt}}"/>
+      <i *ngIf="notification.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict  avatar"></i>
+      <img class="avatar-profile-pict  avatar" *ngIf="notification.author.profile_picture != null" src="{{notification.author.profile_picture.web_path}}" alt="{{notification.author.profile_picture.alt}}"/>
        <strong class="title">{{ notification.author.full_name }}</strong><em> @{{ notification.author.username }}</em>
     </a>
     <span *ngIf="notification.destinator.is_author == false">
         <span *ngIf="notification.type == 'ProductVote'"> <span class="text"> aime une publication dans laquelle vous apparaissez</span></span>
         <span *ngIf="notification.type == 'Follower'"> <span class="text">commence à suivre vos publications </span></span>
-        <small> {{notification.published_at | amTimeAgo}}</small>
+        <br><br><small> {{notification.published_at | amTimeAgo}}</small>
     </span>
     <span *ngIf="notification.destinator.is_author == true">
         <span *ngIf="notification.type == 'ProductVote'"> <span class="text"> aime votre publication </span></span>
-        <small> {{notification.published_at | amTimeAgo}}</small>
+        <br><br><small> {{notification.published_at | amTimeAgo}}</small>
     </span>
-</span>
+    
+</div>

@@ -14,6 +14,8 @@ export class UserService {
   //authentification_pro
   isLoggedIn: boolean = false; // L'utilisateur est-il connecté ?
   redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
+  client_id = "2_18b2u4vyyf9c4kssgs8wgw80ssk4w4wsw8wg4gk0k8gock4w4o";
+  client_secret = "715mhjygo7ockok0ksgwsggg0s4ogkko4w0cgkc0o484g0o44";
 
   constructor(private http: Http, private apiUrlService : ApiUrlService){
     this.baseUrl = this.apiUrlService.getBaseUrl();
@@ -23,14 +25,25 @@ export class UserService {
   }
 
   login( user : any){
-      let client_id = "2_18b2u4vyyf9c4kssgs8wgw80ssk4w4wsw8wg4gk0k8gock4w4o";
-      let client_secret = "715mhjygo7ockok0ksgwsggg0s4ogkko4w0cgkc0o484g0o44";
+
       this.tokenUrl = this.tokenUrl 
-                      +"?client_id="+client_id
-                      +"&client_secret="+client_secret
+                      +"?client_id="+this.client_id
+                      +"&client_secret="+this.client_secret
                       +"&username="+user.username
                       +"&password="+user.password
                       +'&grant_type=password';
+
+      return this.http
+               .get(this.tokenUrl)
+               .map(res => res.json());
+  }
+
+  getRefreshToken(){
+      this.tokenUrl = this.tokenUrl 
+                      +"?client_id="+this.client_id
+                      +"&client_secret="+this.client_secret
+                      +"&refresh_token="+localStorage.getItem('refresh_token')
+                      +'&grant_type=refresh_token';
 
       return this.http
                .get(this.tokenUrl)

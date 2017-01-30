@@ -1,5 +1,5 @@
 import { Component,ViewEncapsulation, OnInit, AfterViewInit  } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AppModule } from './app.module';
 import { UserService } from './user/service/user.service';
@@ -21,7 +21,7 @@ import	{Observable}	from	'rxjs/Observable';
 export class AppComponent implements AfterViewInit{
    user ;
    timerSub ;
-    public constructor(private titleService: Title, private userService : UserService ) {}
+    public constructor(private titleService: Title, private userService : UserService, public router: Router ) {}
 
     ngAfterViewInit(){
       this.setTitle("Acceuil");
@@ -33,9 +33,11 @@ export class AppComponent implements AfterViewInit{
     }
 
     public getInitialUser(){
-      if(localStorage.getItem("authent") == "O")
-      {
-        this.userService.getUserSession().subscribe(
+
+        if(localStorage.getItem("new_token")){
+          this.refreshToken();   
+        }else{
+          this.userService.getUserSession().subscribe(
             data =>{
               this.user = data;
               localStorage.setItem('user_id',this.user.id);
@@ -43,18 +45,33 @@ export class AppComponent implements AfterViewInit{
               this.setTitle("Acceuil | "+this.user.username);
             },
             error => {
-                console.log(error);
-                localStorage.clear();
-                localStorage.setItem("authent" , "N");
+                   switch (error.status) {
+                     case 401:
+                           console.log('token expired')
+                           this.refreshToken();
+                       break;
+                     case 403: 
+                        console.log("Visiteur");  
+                       break;
+                     case 0 :
+                        if(window.confirm('Aucune Connexion avec le serveur de resource! Voulez-vous actualiser')){
+                            window.location.reload();
+                        }
+                       break;
+                     default:
+                        localStorage.clear();
+                        localStorage.setItem("authent" , "N");
+                       break;
+                   }
             },
             () => console.log("finish")
         );
-      }else{
-        localStorage.clear();
-        localStorage.setItem("authent" , "N");
-      }
+
+        }
+        
   }
 
+  //verify user session very time
   private subscribeToData(): void {
       if(localStorage.getItem("authent") == "O")
       {
@@ -65,5 +82,37 @@ export class AppComponent implements AfterViewInit{
           );
 
       }
+  }
+ 
+  //refreshToken and reaload page
+  public refreshToken()
+  {
+    localStorage.setItem('new_token','true');
+    this.userService.getRefreshToken().subscribe(
+        data => {
+    
+          localStorage.setItem("authent" , "O");
+          localStorage.setItem("access_token" , data.access_token);
+          localStorage.setItem("expires_in" , data.expires_in);
+          localStorage.setItem("token_type" , data.token_type);
+          localStorage.setItem("refresh_token" , data.refresh_token);
+          localStorage.removeItem("new_token");
+
+          this.userService.isLoggedIn = true;
+          if (this.userService.isLoggedIn) {
+             let redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/';
+             this.router.navigate([redirect]);
+           }
+          window.location.reload();
+          
+        },
+        error =>{
+          
+          console.log(error)
+         
+        } 
+        ,
+        () => console.log("finish")
+    );
   }
 }
