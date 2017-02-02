@@ -36,7 +36,6 @@
                 </ul>
                 <span >
                         <a  class="btn-flat" [routerLink]="['/user/products',user_detail.username]" routerLinkActive="active" > Products<small *ngIf="user_detail.nb_products > 0"> {{user_detail.nb_products}}</small></a>
-                        <a  class="btn-flat" [routerLink]="['/user/albums',user_detail.username ]" routerLinkActive="active" > Collections<small *ngIf="user_detail.nb_albums > 0"> {{user_detail.nb_albums}}</small></a>
                         <a  class="btn-flat" [routerLink]="['/user/products/vote', user_detail.username ]" routerLinkActive="active" > Aimés<small *ngIf="user_detail.nb_product_votes > 0"> {{user_detail.nb_product_votes}}</small></a>
                         <a  class="btn-flat" [routerLink]="['/user/follows', user_detail.username ]" routerLinkActive="active" > Abonnements<small *ngIf="user_detail.nb_follows > 0"> {{user_detail.nb_follows}}</small></a>
                         <a  class="btn-flat" [routerLink]="['/user/followers', user_detail.username ]" routerLinkActive="active" > Abonés<small *ngIf="user_detail.nb_followers > 0"> {{user_detail.nb_followers}}</small></a>

@@ -28,11 +28,6 @@ import {
   ProductFormCommonComponent,
 } from '../product/product.component';
 
-import {
-        AlbumFormComponent,
-        AlbumCommonComponent,
-} from '../album/album.component';
-
 import {MomentModule} from 'angular2-moment';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import {MaterializeDirective} from "angular2-materialize";
@@ -70,8 +65,6 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     ProductLastComponent,
     ProductFormComponent,
     ProductFormCommonComponent,
-    AlbumFormComponent,
-    AlbumCommonComponent,
     MaterializeDirective,
     FileSelectDirective
   ],
@@ -91,8 +84,6 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     ProductLastComponent,
     ProductFormComponent,
     ProductFormCommonComponent,
-    AlbumFormComponent,
-    AlbumCommonComponent,
     FormsModule,
     HttpModule,
     JsonpModule,
@@ -102,7 +93,8 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     InfiniteScrollModule,
     MaterializeDirective,
     FileSelectDirective,
-    Ng2PopupModule
+    Ng2PopupModule,
+    //Ng2AutoCompleteModule
    ]
 })
 export class SharedModule { }

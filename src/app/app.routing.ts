@@ -29,7 +29,6 @@ import { UserSuggestionComponent,
          UserProductVoteComponent,
          UserFollowerComponent,
          UserFollowingComponent,
-         UserAlbumComponent,
          LoginFormComponent,
          RegisterFormComponent,
          RessetingPasswordFormComponent,
@@ -40,7 +39,6 @@ import { UserSuggestionComponent,
 
 import { NotificationListComponent } from './notification/notification.component';
 import { ProductDetailComponent, ProductFormComponent } from './product/product.component';
-import { AlbumDetailComponent, AlbumFormComponent } from './album/album.component';
 
 const appRoutes : Routes = [
   {path: '', component: CoreDetailComponent},
@@ -62,7 +60,6 @@ const appRoutes : Routes = [
       {path: ':username', component: UserProductComponent},
       {path: 'follows/:username', component: UserFollowingComponent},
       {path: 'followers/:username', component: UserFollowerComponent},
-      {path: 'albums/:username', component: UserAlbumComponent},
       {path: 'products/:username', component: UserProductComponent},
       {path: 'products/vote/:username', component: UserProductVoteComponent},
     ]
@@ -85,22 +82,6 @@ const appRoutes : Routes = [
         {path: ':id', component: CategoryDetailComponent},
     ]
   },
-
-  {path: 'album',
-     children :[
-    {
-        path: ':id', 
-        component: AlbumDetailComponent
-    },
-    {
-        path: 'edit/:id', 
-        component: AlbumFormComponent,
-        canActivate: [CanActivateViaAuthGuard]
-    }
-
-  ]
-    
-   },
   {
     path: 'add/product', component: ProductFormComponent,
     canActivate: [CanActivateViaAuthGuard]

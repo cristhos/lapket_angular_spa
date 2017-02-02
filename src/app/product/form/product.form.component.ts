@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 
 import { ProductFormModel } from './product.form';
-import { AlbumService } from '../../album/service/album.service';
+import { CategoryService } from '../../category/service/category.service';
 import { ProductService } from '../service/product.service';
 import { ApiUrlService } from '../../utils/api-url.service';
 import { ImageResizerService } from '../../utils/image-resizer.service';
@@ -27,7 +27,7 @@ import { ImageResizerService } from '../../utils/image-resizer.service';
 
 export class ProductFormComponent implements OnInit{
  
-  albums =[];
+  categories:Object;
   product : any;
   form_album = false;
   loading = false;
@@ -36,7 +36,7 @@ export class ProductFormComponent implements OnInit{
   file_src;
   request : boolean;
   constructor(
-    private albumService : AlbumService,
+    private categoryService : CategoryService,
     private productService: ProductService,
     public router: Router,
     private route: ActivatedRoute,
@@ -46,30 +46,19 @@ export class ProductFormComponent implements OnInit{
 
    ngOnInit(){
      //$('.materialboxed').materialbox();
-
-     this.getMyAlbums();
+     this.getProductDetail();
+     this.getCategory();
 
    }
 
-   getMyAlbums(): void {
-     this.albumService.getMyAlbums().subscribe(
-         data => {
-            for(let i=1; i < data.total ;i++) this.albums.push(data._embedded.items[i]);
-            //active album form lorsque l'utilisateur a zero album
-            if(data.total == 0) this.formAlbum(1);
-            this.getProductDetail();
-         },
-         error => console.log(error),
-         () => console.log("finish")
-     );
-   }
-   formAlbum(arg: number ){
-     if(arg == 1) this.form_album = true;
-     if(arg == 0) {
-       this.form_album = false;
-       this.getMyAlbums();
-     }   
-   }
+  getCategory(){
+    let limit=16;
+    this.categoryService.getCategory(16).subscribe(
+        data => this.categories = data._embedded.items,
+        error => console.log(error),
+        () => console.log("finish")
+    );
+  }
 
    onSubmit(): void {
       this.loading = true;
@@ -96,7 +85,7 @@ export class ProductFormComponent implements OnInit{
    {
          this.productService.postProduct(this.model).subscribe(
            data =>{
-             this.model = new ProductFormModel(null,'','',0,null);
+             this.model = new ProductFormModel(null,'',0,null);
              this.product = data;
              this.router.navigate(['/product',data.id]);
            },
@@ -111,7 +100,7 @@ export class ProductFormComponent implements OnInit{
       
       this.productService.putProduct(this.model, this.product.id).subscribe(
            data =>{
-             this.model = new ProductFormModel(null,'','',0,null);
+             this.model = new ProductFormModel(null,'',0,null);
              this.product = data;
              this.router.navigate(['/product',data.id]);
            },
@@ -134,7 +123,7 @@ export class ProductFormComponent implements OnInit{
          this.productService.getProductDetail(id).subscribe(
              data =>{
                this.product = data;
-               this.model = new ProductFormModel(data.picture.id,data.name,data.description,data.price,data.album.id);
+               this.model = new ProductFormModel(data.picture.id,data.description,data.price,data.category.id);
                this.file_src = data.picture.web_path;
                this.request = true;
              },
@@ -142,7 +131,7 @@ export class ProductFormComponent implements OnInit{
              () => console.log("finish")
          );
        }else{
-          this.model = new ProductFormModel(null,'','',0,null);
+          this.model = new ProductFormModel(null,'',0,null);
           this.request = true;
        }
      });

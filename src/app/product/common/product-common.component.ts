@@ -60,7 +60,8 @@ export class ProductCommonComponent implements OnInit{
 
   postProductVote(product_id: number)
   {
-    this.productService.postProductVote(product_id).subscribe(
+     if(localStorage.getItem('access_token')){
+       this.productService.postProductVote(product_id).subscribe(
         data =>{
           //this.product = data;
           this.product.is_voted = true;
@@ -68,12 +69,15 @@ export class ProductCommonComponent implements OnInit{
         },
         error => console.log(error),
         () => console.log('finish')
-    );
-
+     );
+     }else{
+        
+     }
   }
   removeProductVote(product_id: number)
   {
-    this.productService.deleteProductVote(product_id).subscribe(
+    if(localStorage.getItem('access_token')){
+      this.productService.deleteProductVote(product_id).subscribe(
         data => {
           //this.product = data;
           this.product.is_voted = false;
@@ -81,8 +85,8 @@ export class ProductCommonComponent implements OnInit{
         },
         error => console.log(error),
         () => console.log("finish")
-    );
-
+     );
+    }
   }
 
   
@@ -100,7 +104,7 @@ export class ProductCommonComponent implements OnInit{
         },
         error => console.log(error),
         () => console.log("finish")
-    );
+     );
     }
      
   }
@@ -119,16 +123,19 @@ export class ProductCommonComponent implements OnInit{
   }
 
   beginConversation(product_id){
-    if(window.confirm('Etes vous sur de vouloir demarer une conversation'))
-    {
-        this.dealService.postConversation(product_id).subscribe(
-        data => {
-          this.router.navigateByUrl('deal/message/'+data.id)
-        },
-        error => console.log(error),
-        () => console.log("finish")
-        );
-    }
+
+     if(localStorage.getItem('access_token')){
+        if(window.confirm('Etes vous sur de vouloir demarer une conversation'))
+        {
+          this.dealService.postConversation(product_id).subscribe(
+            data => {
+              this.router.navigateByUrl('deal/message/'+data.id)
+            },
+            error => console.log(error),
+            () => console.log("finish")
+          );
+      }
+     }
   }
 
   desactiveNotification(product_id : number){

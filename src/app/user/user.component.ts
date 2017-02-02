@@ -1,6 +1,5 @@
 export { UserBandComponent } from './common/user-band.component';
 export { UserMiniDetailComponent } from './detail/user-mini-detail.component';
-export { UserAlbumComponent } from './list/user-album.component';
 export { UserFollowerComponent } from './list/user-follower.component';
 export { UserFollowingComponent } from './list/user-following.component';
 export { UserSuggestionComponent } from './list/user-suggestion.component';

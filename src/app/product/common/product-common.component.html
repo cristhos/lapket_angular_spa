@@ -27,9 +27,8 @@
      <time ><small>{{product.published_at | amTimeAgo}}</small></time>
    </div>
    <div class="card-content">
-        <a title="{{ product.name }}||{{ product.description }} " [routerLink]="['/product',product.id]">
-                <h5  class="truncate">{{ product.name }}</h5>
-                <span class="truncate" >{{ product.description }}</span>
+        <a title="{{ product.description }} " [routerLink]="['/product',product.id]">
+           <span class="" >{{ product.description }}</span>
         </a>
    </div>
    <div *ngIf="product.picture != null" class="card-image waves-effect waves-block waves-light">
@@ -43,7 +42,7 @@
          <button *ngIf="product.is_voted == true" (click)="removeProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
          <button *ngIf="product.is_author == false" class="btn-flat" (click)="beginConversation(product.id)" ><i class="fa fa-envelope"></i></button>
          <button class="btn-flat right">
-                 <a [routerLink]="['/album',product.album.id]" routerLinkActive="active" [title]="product.album.name">
+                 <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">
                    <i class="fa fa-list"></i>
                  </a>
          </button>

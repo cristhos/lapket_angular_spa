@@ -78,7 +78,7 @@ export class SearchFormComponent {
    search(){
        let page=1;
        this.loading = true;
-        /*this.productService.search(this.model.term,page).subscribe(
+        this.productService.search(this.model.term,page).subscribe(
          data =>{
            this.resultats = data._embedded.items;
          },
@@ -90,7 +90,7 @@ export class SearchFormComponent {
            this.loading = false;
            console.log("finish");
          }
-     );*/
+     );
    }
 
    get diagnostic() { return JSON.stringify(this.model); }

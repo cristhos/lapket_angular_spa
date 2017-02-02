@@ -1,5 +1,5 @@
 <div *ngIf="request" class="card">
-      <div class="card-content">
+      <div *ngIf="categories != null" class="card-content">
         <form materialize (ngSubmit)="onSubmit()" #productForm="ngForm" enctype="multipart/form-data">
           <div class="row">
               <div class="col s12 m12">
@@ -15,49 +15,29 @@
                   </div>
                 </div>
                 <li class="divider"></li>
-                <div>
-                    <div class="input-field  col s6 m6">
-                      
-                      <input placeholder="nom du produit" id="name1" type="text"  [(ngModel)]="model.name" required [ngModelOptions]="{standalone: true}">
-                      <label for="name1">nom</label> 
-                   </div>
-                   <div class="input-field  col s6 m6">
-                      <label for="price">prix($)</label>
-                      <input placeholder="prix" id="price" type="number"  placeholder="prix($)"class="form-control" [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}">
-                  </div>
-                </div>
-                
+              
                 <div class="input-field  col s12 m12">
                       <label for="description">description</label>
-                      <textarea placeholder="Decriver le produit" id="description" class="materialize-textarea" [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
+                      <textarea placeholder="Que vendez vous ?" id="description" class="materialize-textarea" [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
                       </textarea>
                 </div>
-                
+                <div>
+                   <div class="input-field  col s3 m3">
+                      <label for="price">prix($)</label>
+                      <input placeholder="A que prix ?" id="price" type="number"  placeholder="prix($)"class="form-control" [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}">
+                  </div>
+                   <div class="input-field  col s9 m9">
+                      <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.category_id" [ngModelOptions]="{standalone: true}">
+                        <option value="" disabled="" selected="">Choisir une categorie</option>
+                        <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                      </select>
+                  </div>
+                </div>
+               
               </div>
 
               <div class="col s12 m12">
                 <li class="divider"></li>
-                <span *ngIf="form_album == true" >
-                    <a  (click)="formAlbum(0)" class="btn-flat center"><i class="fa fa-close"></i></a><br />
-                </span>
-                <div *ngIf="form_album == false">
-                    <div *ngIf="albums != null"  >
-                          <div class="row">
-                              <div class="input-field col s8">
-                                  <select [(ngModel)]="model.album_id" [ngModelOptions]="{standalone: true}" id="selectExample" materialize="material_select" [materializeSelectOptions]="options">
-                                      <option value="" disabled selected>Choisir une collection...</option>
-                                      <option *ngFor="let album of albums" [value]="album.id">{{album.name}}</option>
-                                  </select>
-                              </div>
-                              <div class="col s4">
-                                  <a *ngIf="form_album == false" (click)="formAlbum(1)" class="btn-flat right"><i class="fa fa-plus-circle"></i></a>
-                              </div>
-                           </div>
-                    </div>
-                </div>
-                <div *ngIf="form_album == true">
-                  <album-form></album-form>
-                </div>
 
                 <button type="submit" class="btn-large right" >
                   Publier
@@ -66,7 +46,6 @@
                 </button>
               </div>
           </div>
-
           </form>
       </div>
     </div>

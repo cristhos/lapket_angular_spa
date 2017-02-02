@@ -4,7 +4,6 @@ import { CommonModule } from "@angular/common";
 import {
   UserService,
   UserBandComponent,
-  UserAlbumComponent,
   UserProductComponent,
   UserProductVoteComponent,
   UserFollowerComponent,
@@ -30,7 +29,6 @@ import {
   ],
   declarations: [
     UserBandComponent,
-  UserAlbumComponent,
   UserProductComponent,
   UserProductVoteComponent,
   UserFollowerComponent,
@@ -45,7 +43,6 @@ import {
   ],
   exports: [ 
     UserBandComponent,
-    UserAlbumComponent,
     UserProductComponent,
     UserProductVoteComponent,
     UserFollowerComponent,

@@ -10,7 +10,6 @@ import {
   PageNotFoundComponent,
   CoreDetailComponent,
   NavbarComponent,
-  SideNavComponent,
   FooterComponent,
   LoadingComponent,
 } from './core/core.component';
@@ -40,7 +39,6 @@ import {
 //code a reviser
 import { CategoryModule } from './category/category.module';
 import { UserModule } from './user/user.module';
-import { AlbumModule } from './album/album.module';
 import { ProductModule } from './product/product.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -63,7 +61,6 @@ import { requestOptionsProvider } from './utils/default-request-options.service'
     PageNotFoundComponent,
     CoreDetailComponent,
     NavbarComponent,
-    SideNavComponent,
     FooterComponent,
     LoadingComponent,
     SearchFormComponent,
@@ -83,7 +80,6 @@ import { requestOptionsProvider } from './utils/default-request-options.service'
     SharedModule,
     routing,
     CategoryModule,
-    AlbumModule,
     ProductModule,
     UserModule,
     
