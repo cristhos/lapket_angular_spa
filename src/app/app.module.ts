@@ -14,66 +14,20 @@ import {
   LoadingComponent,
 } from './core/core.component';
 
-import {
-  SearchFormComponent,
-  SearchListComponent,
-  SearchCommonComponent,
-  SearchDetailComponent
-} from './search/search.component';
 
-import {
-  NotificationListComponent,
-  NotificationService,
-  NotificationCommonComponent,
-} from './notification/notification.component';
 
-import {
-  DealFormComponent,
-  DealService,
-  DealCommonComponent,
-  DealConversationCommonComponent,
-  DealConversationComponent,
-  DealMessageComponent
-} from './deal/deal.component';
-
-//code a reviser
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 import { CategoryModule } from './category/category.module';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
-import { SharedModule } from './shared/shared.module';
-
-import {
-  CountryService
-} from './country/country.component';
-import {
-  CityService
-} from './city/city.component';
-
-import { ApiUrlService } from './utils/api-url.service';
-import { ImageResizerService } from './utils/image-resizer.service';
-import { requestOptionsProvider } from './utils/default-request-options.service';
+import { DealModule } from './deal/deal.module';
+import { NotificationModule } from './notification/notification.module';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
   declarations : [
     AppComponent,
-    AboutComponent,
-    ConditionComponent,
-    PageNotFoundComponent,
-    CoreDetailComponent,
-    NavbarComponent,
-    FooterComponent,
-    LoadingComponent,
-    SearchFormComponent,
-    SearchListComponent,
-    SearchDetailComponent,
-    SearchCommonComponent,
-    NotificationListComponent,
-    NotificationCommonComponent,
-    DealFormComponent,
-    DealCommonComponent,
-    DealConversationCommonComponent,
-    DealConversationComponent,
-    DealMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -82,17 +36,13 @@ import { requestOptionsProvider } from './utils/default-request-options.service'
     CategoryModule,
     ProductModule,
     UserModule,
-    
+    DealModule,
+    NotificationModule,
+    SearchModule,
+    CoreModule
   ],
   providers : [
      Title,
-    NotificationService,
-    DealService,
-    CityService,
-    CountryService,
-    ApiUrlService,
-    ImageResizerService,
-    requestOptionsProvider,
   ],
   bootstrap :[AppComponent]
 })

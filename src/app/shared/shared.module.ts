@@ -8,6 +8,7 @@ import {
   UserSuggestionComponent,
   UserSuggestionCommonComponent,
   UserMiniSuggestionComponent,
+  RegisterFinalFormComponent,
 } from '../user/user.component';
 
 import {
@@ -25,18 +26,28 @@ import {
   ProductListComponent,
   ProductLastComponent,
   ProductFormComponent,
-  ProductFormCommonComponent,
 } from '../product/product.component';
 
-import {MomentModule} from 'angular2-moment';
-import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import {MaterializeDirective} from "angular2-materialize";
+import {
+  SearchFormComponent,
+} from '../search/search.component';
 
+import {
+  CountryService
+} from '../country/country.component';
+import {
+  CityService
+} from '../city/city.component';
+
+import { ApiUrlService } from '../utils/api-url.service';
+import { ImageResizerService } from '../utils/image-resizer.service';
+import { requestOptionsProvider } from '../utils/default-request-options.service';
+
+import { MomentModule } from 'angular2-moment';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { MaterializeDirective } from "angular2-materialize";
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
-import { Ng2PopupModule } from 'ng2-popup';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
-
 
 @NgModule({
   imports:[ 
@@ -46,8 +57,6 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
       InfiniteScrollModule,
       LazyLoadImageModule,
       RouterModule,
-      Ng2PopupModule,
-      Ng2AutoCompleteModule
       ],
   declarations: [ 
     UserSuggestionComponent,
@@ -64,7 +73,8 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     ProductListComponent,
     ProductLastComponent,
     ProductFormComponent,
-    ProductFormCommonComponent,
+    SearchFormComponent,
+    RegisterFinalFormComponent,
     MaterializeDirective,
     FileSelectDirective
   ],
@@ -83,7 +93,8 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     ProductListComponent,
     ProductLastComponent,
     ProductFormComponent,
-    ProductFormCommonComponent,
+    RegisterFinalFormComponent,
+    SearchFormComponent,
     FormsModule,
     HttpModule,
     JsonpModule,
@@ -92,9 +103,14 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
     LazyLoadImageModule,
     InfiniteScrollModule,
     MaterializeDirective,
-    FileSelectDirective,
-    Ng2PopupModule,
-    //Ng2AutoCompleteModule
-   ]
+    FileSelectDirective
+  ],
+  providers : [
+    CityService,
+    CountryService,
+    ApiUrlService,
+    ImageResizerService,
+    requestOptionsProvider,
+  ],
 })
 export class SharedModule { }

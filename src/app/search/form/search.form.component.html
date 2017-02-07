@@ -1,5 +1,5 @@
 <form  (ngSubmit)="onSubmit()" #productForm="ngForm" >
-    <input class="input-field" auto-complete [attr.source]="tests" #term (keyup)="search(term.value)" id="search_text" type="text" name="term" class="header-search-input z-depth-2" placeholder="Trouver des produits" [(ngModel)]="model.term" [ngModelOptions]="{standalone: true}">
+    <input class="input-field" #term (keyup)="search(term.value)" id="search_text" type="text" name="term" class="header-search-input z-depth-2" placeholder="Trouver des produits" [(ngModel)]="model.term" [ngModelOptions]="{standalone: true}">
     <button type="submit" class="btn-flat" >
         <i class="fa fa-search"></i>
     </button>

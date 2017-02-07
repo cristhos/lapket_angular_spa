@@ -55,8 +55,6 @@ import { ProductService } from '../../product/service/product.service';
 export class SearchFormComponent {
   loading = false;
   resultats;
-  tests: number[] = [100, 200, 300, 400, 500];
-
   constructor(private productService : ProductService, private router : Router){}
 
    model = new SearchFormModel('');
@@ -67,6 +65,7 @@ export class SearchFormComponent {
    }
 
    search(){
+       /*
        let page=1;
        this.loading = true;
         this.productService.search(this.model.term,page).subscribe(
@@ -82,6 +81,7 @@ export class SearchFormComponent {
            console.log("finish");
          }
      );
+     */
    }
 
    get diagnostic() { return JSON.stringify(this.model); }
