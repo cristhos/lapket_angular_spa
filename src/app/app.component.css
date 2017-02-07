@@ -127,3 +127,9 @@ nav .button-collapse {
   background-color: #eeeeee;
   border:none;
 }
+textarea.materialize-textarea {
+    min-height: 2rem;
+    padding: 0.2rem 0 0.2rem 0;
+}
+
+

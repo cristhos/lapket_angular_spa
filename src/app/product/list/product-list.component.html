@@ -7,7 +7,7 @@
         infinite-scroll [infiniteScrollDistance]="2"
         [infiniteScrollThrottle]="1000"
         (scrolled)="onScrollDown()">
-    <product-form-common></product-form-common>    
+     <product-form></product-form>    
     <div *ngFor="let product of products " >
       <product-common [product]="product"></product-common>
     </div>

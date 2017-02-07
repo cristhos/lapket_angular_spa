@@ -13,8 +13,8 @@ import { ProductService } from '../../product/service/product.service';
 })
 
 export class UserProductComponent implements OnInit, OnDestroy{
-  user_detail : Object;
-  products = [];
+  user_detail : any;
+  products : any;
   sub: any;
   pages: number;
   page : number;
@@ -23,9 +23,7 @@ export class UserProductComponent implements OnInit, OnDestroy{
     private userService : UserService,
     private productService: ProductService,
     private route: ActivatedRoute
-  ) {
-
-  }
+  ) {}
   ngOnInit() {
     this.page = 1;
     this.pages = 2;
@@ -37,17 +35,19 @@ export class UserProductComponent implements OnInit, OnDestroy{
   }
   getUserDetail()
   {
+    this.products = [];
     this.sub = this.route.params.subscribe(params => {
       let username = params['username'];
       this.load = true;
       this.userService.getUser(username).subscribe(
           data =>{
             this.user_detail = data;
+            this.getProductAuthor(this.user_detail.username);
           },
           error => console.log(error),
           () => console.log("finish")
       );
-      this.getProductAuthor(username);
+      
       this.load = false;
     });
   }

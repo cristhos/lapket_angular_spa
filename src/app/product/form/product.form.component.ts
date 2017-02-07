@@ -19,6 +19,15 @@ import { ImageResizerService } from '../../utils/image-resizer.service';
       overflow:auto;
     }
     .file-over { border: dotted 3px red; }
+    .card, .card-content{
+      padding:0px;
+    }
+    .fa{
+      color:#4db6ac;
+    }
+    .btn i{
+      color:white;
+    }
   `]
   
 })
@@ -35,6 +44,7 @@ export class ProductFormComponent implements OnInit{
   model;
   file_src;
   request : boolean;
+  formElement = false;
   constructor(
     private categoryService : CategoryService,
     private productService: ProductService,
@@ -136,12 +146,23 @@ export class ProductFormComponent implements OnInit{
        }
      });
    }
+
+   onHover(){
+    this.formElement = true;
+   }
+   showElement(){
+     this.formElement = true;
+   }
+   closeElement(){
+     this.formElement = false;
+   }
   
 
   // file upluad
   public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
   
   fileChange($event){
+     this.formElement = true;
      this.readFiles($event.target.files);
   }
 

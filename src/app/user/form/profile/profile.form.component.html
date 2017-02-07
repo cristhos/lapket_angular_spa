@@ -72,10 +72,11 @@
                 Name is required
               </div>
             </div>
-            
-              <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
+             <div class="col s12 m12"> 
+              <button class="right center btn waves-effect waves-light center" type="submit" name="action">Valider
                 <i class="fa fa-sign-in right"></i>
               </button>
+             </div>
             </li>
             <li class="collection-header">Informations avancée</li>
             <li class="collection-item">
@@ -95,7 +96,7 @@
               <div class="input-field col s12 m12">
                 <i class="fa fa-info prefix"></i>
                 <label for="bio">Mini bio</label>
-                <textarea placeholder="Biographie" id="bio" [(ngModel)]="model.description" name="description" #name="ngModel" ></textarea>
+                <textarea class="materialize-textarea" placeholder="Ma Biographie" id="bio" [(ngModel)]="model.description" name="description" #name="ngModel" ></textarea>
               </div>
 
               <div class="input-field col s12 m12">
@@ -105,10 +106,11 @@
               </div>
 
               
-              
-                <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
+              <div class="col s12 m12"> 
+                <button class="right center btn waves-effect waves-light center" type="submit" name="action">Valider
                   <i class="fa fa-sign-in right"></i>
                 </button>
+              </div>
              </li>
             <li class="collection-header">
               Status du compte 
@@ -127,16 +129,19 @@
                     </ul>
                 </span>
             </li>
-            <li class="collection-item">
-              <div class="input-field col s12 m12">              
-                <input id="is_mail_notify" type="checkbox" class="form-control" [(ngModel)]="model.is_mail_notify" name="is_mail_notify" #name="ngModel" >
-                <label for="is_mail_notify">Emailling</label>
-              </div>
+              <li class="collection-item">
+                <div class="input-field col s12 m12">              
+                  <input id="is_mail_notify" type="checkbox" class="form-control" [(ngModel)]="model.is_mail_notify" name="is_mail_notify" #name="ngModel" >
+                  <label for="is_mail_notify">Emailling</label>
+                </div>
+              </li>
 
-              
-              <button class="center btn waves-effect waves-light center" type="submit" name="action">Valider
-                  <i class="fa fa-sign-in right"></i>
-              </button>
+               <li class="collection-item">
+                 <div class="col s12 m12"> 
+                    <button class="right center btn waves-effect waves-light center" type="submit" name="action">Valider
+                    <i class="fa fa-sign-in right"></i>
+                  </button>
+                 </div>
             </li>
             </ul>
           </form>

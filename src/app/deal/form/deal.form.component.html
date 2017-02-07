@@ -2,11 +2,12 @@
     <form  (ngSubmit)="onSubmit()" #productForm="ngForm" >
                <div class="row">
                     <div class="input-field  col s12 m12">
-                          <textarea rows="10" cols="10" placeholder="Ecrivez un message ...."rows="4" id="content" class="materialize-textarea" [(ngModel)]="model.content" [ngModelOptions]="{standalone: true}"> 
+                          <textarea placeholder="Ecrivez un message ...."rows="4" id="content" class="materialize-textarea" [(ngModel)]="model.content" [ngModelOptions]="{standalone: true}"> 
                           </textarea>
                     </div>
                     <div class="input-fiel col s12 m12">
-                          <button type="submit" class="right btn-flat">
+                      <li class="divider "></li>
+                          <button type="submit" class="right btn">
                              Envoyer
                             <i *ngIf="loading == false" class="fa fa-send-o"></i>
                             <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse "></i>

@@ -2,13 +2,16 @@
       <span  *ngIf="dc.author.is_author == true " class="center" >
         <i *ngIf="dc.product.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
         <img class="avatar-profile-pict  avatar" *ngIf="dc.product.author.profile_picture != null" src="{{dc.product.author.profile_picture.web_path}}" alt="{{dc.product.author.profile_picture.alt}}"/>
-         <strong>@{{dc.product.author.username}}</strong><br >
-         sujet : {{dc.product.name}}
+        <strong>@{{dc.product.author.username}}</strong><br >
       </span>
       <span  *ngIf="dc.author.is_author == false" class="center"  routerLinkActive="active" >
           <i *ngIf="dc.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
           <img class="avatar-profile-pict  avatar" *ngIf="dc.author.profile_picture != null" src="{{dc.author.profile_picture.web_path}}" alt="{{dc.author.profile_picture.alt}}"/>
-           <strong>@{{dc.author.username}}</strong><br>
-           Object : {{dc.product.name}}
+          <strong>@{{dc.author.username}}</strong><br>
       </span>
+     <span class="truncate">{{dc.product.description}}</span> 
+     <span>{{ dc.product.price }} $ <a [routerLink]="['/product', dc.product.id]">Voir</a></span>
+     
+     <span *ngIf="dc.author.is_author == true "><small *ngIf="dc.nb_receiver_messages > 0" class="right red-badge">{{dc.nb_receiver_messages}}</small></span>
+     <span *ngIf="dc.author.is_author == false "><small *ngIf="dc.nb_author_messages > 0" class="right red-badge">{{dc.nb_author_messages}}</small></span>
 </span>

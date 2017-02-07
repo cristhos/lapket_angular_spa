@@ -12,25 +12,17 @@ import { ProductService } from '../../product/service/product.service';
   styles: [`
 
     #search_text{
-        width: 250px;
-        padding: 0;
+        width: 200px;
         font-size: 16px;
-        -webkit-transition: all 200ms ease;
-        transition: all 200ms ease;
-        font-size: 16px;
-        appearance: textfield;
-        border: 0 none;
-        height: 2.5rem;
-        margin-right: 0;
+        border: 0;
+        height: 36px;
         color: black;
-        outline: none;
         background-color: #eeeeee;
-        box-sizing: border-box;
-        transition: all 0.15s;
-        outline: none;
         border-radius: 3px 0px 0px 3px;
-        border: none;
-        margin-right:-10px;
+        margin-right:-4px;
+    }
+    .input-field{
+        display:inline-block;
     }
   ::-webkit-input-placeholder { /* WebKit browsers */
       color: black;
@@ -47,16 +39,15 @@ import { ProductService } from '../../product/service/product.service';
   #search_text:focus {
       background-color: #eeeeee;;
   }
-  #search_button {
+  .btn-flat{
         border: 0 none;
         width: 2.5rem;
         padding: 0;
         text-align: center;
-        height: 2.5rem;
-        background:  #eeeeee;
         color:black
         cursor: pointer;
         border-radius: 0px 3px 3px 0px;
+        background:  #eeeeee;
     }
   `]
 })

@@ -8,8 +8,12 @@ import { DealService } from '../../deal/service/deal.service';
   selector: 'deal-message',
   template: require('./deal-message.component.html'),
   styles: [`
-      .list-auto{
-        height: 20rem;
+      .message-list-auto{
+        height: 15rem;
+        overflow-y: scroll;
+      }
+      .conversation-list-auto{
+        height: 30rem;
         overflow-y: scroll;
       }
   `],
@@ -18,9 +22,11 @@ import { DealService } from '../../deal/service/deal.service';
 export class DealMessageComponent implements OnInit, OnDestroy{
   dealMessages = [];
   dealConversation;
-  dealConversations;
+  dealConversations = [];
   pages: number;
   page : number;
+  conversationPages:number;
+  conversationPage:number;
   sub;
   timerSub;
   constructor(private dealService : DealService,private route: ActivatedRoute){}
@@ -28,30 +34,32 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   ngOnInit(){
     this.page = 1;
     this.pages = 2;
+    this.conversationPage = 1;
+    this.conversationPages = 2;
     this.getDealMyConversations();
     this.getDealMessages();
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
-    //this.timerSub.unsubscribe();
+    this.timerSub.unsubscribe();
   }
   getDealMessages(){
     this.sub = this.route.params.subscribe(params => {
       let conversation_id = +params['conversation_id'];
-       //recuperation de la conversation
-      this.getDealConversation(conversation_id);
-      //recuperation des messages
 
+      this.getDealConversation(conversation_id);
        if(this.page <= this.pages ){
           this.dealService.getDealMessages(conversation_id, this.page).subscribe(
             data =>{
                 this.pages = data.pages;
-                for(let i=0; i<=data.limit; i++) {
+                this.dealMessages = data._embedded.items;
+                /*for(let i=0; i<=data.limit; i++) {
                   if(data._embedded.items[i]){
                     this.dealMessages.push(data._embedded.items[i]);
                     this.page = data.page + 1;
                   }
-                }
+                }*/
+                this.subscribeToData();
             },
             error =>{
               console.log(error)
@@ -61,7 +69,6 @@ export class DealMessageComponent implements OnInit, OnDestroy{
             }
           );
        }
-
 
     });
 
@@ -82,25 +89,37 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   }
 
   getDealMyConversations(){
-      this.dealService.getMyDealConversations(1).subscribe(
-        data => {
-          this.dealConversations = data._embedded.items;
-        },
-        error => console.log(error),
-        () => console.log("finish")
-      );
-      //this.getDealMessages();
+      if(this.conversationPage <= this.conversationPages ){
+          this.dealService.getMyDealConversations(this.conversationPage).subscribe(
+          data => {
+            this.conversationPages = data.pages;
+                for(let i=0; i<=data.limit; i++) {
+                  if(data._embedded.items[i]){
+                    this.dealConversations.push(data._embedded.items[i]);
+                    this.conversationPage = data.page + 1;
+                  }
+                }
+          },
+          error => console.log(error),
+          () => console.log("finish")
+        );
+      }
   }
 
   private subscribeToData(): void {
     this.timerSub = Observable.timer(5000).subscribe(
       () => {
-        //this.getDealMessages();
+            this.page = 1;
+           this.pages = 2;
+        this.getDealMessages();
       }
     );
   }
 
-  onScrollDown(){
+  onScrollDownMessages(){
     this.getDealMessages();
+  }
+  onScrollDownConversations(){
+    this.getDealMyConversations();
   }
 }

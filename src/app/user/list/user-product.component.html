@@ -12,7 +12,7 @@
         [infiniteScrollThrottle]="3000"
         (scrolled)="onScrollDown()">
         
-        <product-form-common *ngIf="user_detail.is_author == true" ></product-form-common> 
+        <product-form *ngIf="user_detail.is_author == true" ></product-form> 
         <div *ngFor="let product of products" >
           <product-common [product]="product"></product-common>
         </div>
