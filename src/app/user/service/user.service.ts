@@ -14,8 +14,8 @@ export class UserService {
   //authentification_pro
   isLoggedIn: boolean = false; // L'utilisateur est-il connecté ?
   redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
-  client_id = "1_g1bs2j3lra0cs4goo4ss084wksskgk4gok8wsk48kkw48ksk4";
-  client_secret = "47iyfy5o17gg0sso8og000wck4484swk8go0wos04ggc8s8ss0";
+  client_id :string;
+  client_secret: string;
 
   constructor(private http: Http, private apiUrlService : ApiUrlService){
     this.baseUrl = this.apiUrlService.getBaseUrl();
@@ -24,11 +24,29 @@ export class UserService {
     this.access_token = localStorage.getItem('access_token');
   }
 
+  getClientId(){
+    if (process.env.ENV === 'production') {
+      this.client_id = "1_g1bs2j3lra0cs4goo4ss084wksskgk4gok8wsk48kkw48ksk4";
+    } else {
+      this.client_id = "3_xp3eetxb2eoscs08swco0080ss04kggcsw8ww0ccwwg0wcog";
+    }
+    return this.client_id;
+  }
+
+  getClientSecret(){
+     if (process.env.ENV === 'production') {
+      this.client_secret = "47iyfy5o17gg0sso8og000wck4484swk8go0wos04ggc8s8ss0";
+    } else {
+      this.client_secret = "3x641r8d2wsg8ogsocogg0scokc04kc8gocwo0c4gkwksgosog";
+    }
+    return this.client_secret;
+  }
+
   login( user : any){
 
       this.tokenUrl = this.tokenUrl 
-                      +"?client_id="+this.client_id
-                      +"&client_secret="+this.client_secret
+                      +"?client_id="+this.getClientId()
+                      +"&client_secret="+this.getClientSecret()
                       +"&username="+user.username
                       +"&password="+user.password
                       +'&grant_type=password';
@@ -40,8 +58,8 @@ export class UserService {
 
   getRefreshToken(){
       this.tokenUrl = this.tokenUrl 
-                      +"?client_id="+this.client_id
-                      +"&client_secret="+this.client_secret
+                      +"?client_id="+this.getClientId()
+                      +"&client_secret="+this.getClientSecret()
                       +"&refresh_token="+localStorage.getItem('refresh_token')
                       +'&grant_type=refresh_token';
 
