@@ -26,8 +26,8 @@ export class CoreDetailComponent implements OnInit{
             error => {
                 console.log(error);
                 this.authent = false;
-                localStorage.clear();
-                localStorage.setItem("authent" , "N");
+                //localStorage.clear();
+                //localStorage.setItem("authent" , "N");
             },
             () => console.log("finish")
         );
