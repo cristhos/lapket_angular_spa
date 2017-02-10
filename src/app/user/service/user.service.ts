@@ -14,8 +14,8 @@ export class UserService {
   //authentification_pro
   isLoggedIn: boolean = false; // L'utilisateur est-il connecté ?
   redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
-  client_id = "2_18b2u4vyyf9c4kssgs8wgw80ssk4w4wsw8wg4gk0k8gock4w4o";
-  client_secret = "715mhjygo7ockok0ksgwsggg0s4ogkko4w0cgkc0o484g0o44";
+  client_id = "1_g1bs2j3lra0cs4goo4ss084wksskgk4gok8wsk48kkw48ksk4";
+  client_secret = "47iyfy5o17gg0sso8og000wck4484swk8go0wos04ggc8s8ss0";
 
   constructor(private http: Http, private apiUrlService : ApiUrlService){
     this.baseUrl = this.apiUrlService.getBaseUrl();
