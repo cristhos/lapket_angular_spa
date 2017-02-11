@@ -5,13 +5,13 @@
               <div class="col s12 m12">
                 <div class="col s12 m12">
                   <div class="input-field">
-                    <button class="btn-flat" (click)="showElement()"><i class="fa fa-pencil"></i> Ecrire</button>
+                    <button class="btn-flat" (click)="showElement()"><i class="fa fa-pencil"></i></button>
                   
                      <button class="file-field  btn-flat">
-                        <span><i class="fa fa-image"></i> Image</span>
-                        <input type="file" ng2FileSelect [uploader]="uploader" (change)="fileChange($event)"/>
+                        <span><i class="green-text text-ligthen-2 fa fa-image"></i></span>
+                        <input type="file" ng2FileSelect [uploader]="uploader" required (change)="fileChange($event)"/>
                     </button>
-                    <button *ngIf="formElement" class="right btn-flat" (click)="closeElement()"><i class="fa fa-close"></i>Fermer</button>
+                    <button *ngIf="formElement" class="right btn-flat " (click)="closeElement()"><i class="red-text text-darken-2 fa fa-close "></i></button>
                   </div>
                  
                 </div>
@@ -21,14 +21,14 @@
                 </div>
 
                 <div class="input-field  col s12 m12">
-                      <textarea placeholder="Que vendez vous ?" id="description" class="materialize-textarea" (keyup)="onHover()" [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
+                      <textarea placeholder="Que vendez vous ?" id="description" class="materialize-textarea" (keyup)="onHover()" required [(ngModel)]="model.description" [ngModelOptions]="{standalone: true}">
                       </textarea>
                 </div>
               
                 <div *ngIf="formElement"> 
                     <div class="input-field  col s3 m3">
                       <label for="price">prix($)</label>
-                      <input placeholder="A que prix ?" id="price" type="number"  placeholder="prix($)" class="form-control"  [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}">
+                      <input placeholder="A que prix ?" id="price" type="number"  placeholder="prix($)" class="form-control" required [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}">
                    </div>
                    <div class="input-field  col s9 m9">
                       <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.category_id" [ngModelOptions]="{standalone: true}">

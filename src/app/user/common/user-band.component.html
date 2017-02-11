@@ -40,7 +40,7 @@
                           <small *ngIf="user_detail.nb_products > 0"> {{user_detail.nb_products}}</small>
                         </a>
                         <a  class="btn-flat" [routerLink]="['/user/products/vote', user_detail.username ]" routerLinkActive="active" >
-                          <i class="fa fa-heart love"></i>
+                          <i class="fa fa-heart red-text text-ligthen-2 "></i>
                           <span class="hide-on-med-and-down"> Aimés</span>
                           <small *ngIf="user_detail.nb_product_votes > 0"> {{user_detail.nb_product_votes}}</small>
                         </a>

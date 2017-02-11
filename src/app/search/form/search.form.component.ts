@@ -24,18 +24,7 @@ import { ProductService } from '../../product/service/product.service';
     .input-field{
         display:inline-block;
     }
-  ::-webkit-input-placeholder { /* WebKit browsers */
-      color: black;
-  }
-  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-      color: black;
-  }
-  ::-moz-placeholder { /* Mozilla Firefox 19+ */
-      color: black;
-  }
-  :-ms-input-placeholder { /* Internet Explorer 10+ */
-      color: black;
-  }
+
   #search_text:focus {
       background-color: #eeeeee;;
   }

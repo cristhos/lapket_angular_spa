@@ -40,8 +40,8 @@
         </figcaption>
   </div>
    <div class="card-action">
-         <button *ngIf="product.is_voted == false" (click)="postProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart-o "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
-         <button *ngIf="product.is_voted == true" (click)="removeProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
+         <button *ngIf="product.is_voted == false" (click)="postProductVote(product.id)" class="btn-flat red-text text-ligthen-2"><i class="fa fa-heart-o "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
+         <button *ngIf="product.is_voted == true" (click)="removeProductVote(product.id)" class="btn-flat red-text text-ligthen-2"><i class="fa fa-heart "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>
          <button *ngIf="product.is_author == false" class="btn-flat" (click)="beginConversation(product.id)" ><i class="fa fa-envelope"></i></button>
          <button class="btn-flat right">
                  <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">
