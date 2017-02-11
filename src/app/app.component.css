@@ -78,12 +78,27 @@ nav ul a {
 }
 
 
-.brand-image{
-  width: 192px;
-  height: 192px;
-  border-radius:96px;
-  overflow: hidden;
+
+
+
+@media only screen and (min-width: 600px) {
+  .brand-image{
+    width: 192px;
+    height: 192px;
+    border-radius:96px;
+    overflow: hidden;
+  }
 }
+
+@media only screen and (max-width: 600px) {
+  .brand-image{
+    width: 96px;
+    height: 96px;
+    border-radius:48px;
+    overflow: hidden;
+  }
+}
+
 a {
   color: #4db6ac;
 }
@@ -131,5 +146,6 @@ textarea.materialize-textarea {
     min-height: 2rem;
     padding: 0.2rem 0 0.2rem 0;
 }
-
-
+.love{
+      color: red;
+}

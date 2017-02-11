@@ -26,16 +26,18 @@
      <br>
      <time ><small>{{product.published_at | amTimeAgo}}</small></time>
    </div>
-   <div class="card-content">
-        <a title="{{ product.description }} " [routerLink]="['/product',product.id]">
-           <span class="" >{{ product.description }}</span>
-        </a>
-   </div>
    <div *ngIf="product.picture != null" class="card-image waves-effect waves-block waves-light">
-        <img  materialize class="materialboxed" [src]="defaultImage" [lazyLoad]="product.picture.web_path" [offset]="offset">
-        <h4 class="card-title">
+        <figure> 
+          <figcaption> 
+            <a title="{{ product.description }} " [routerLink]="['/product',product.id]">
+              <span class="" >{{ product.description }}</span>
+            </a>  
+          </figcaption> 
+          <img  materialize class="materialboxed" [src]="defaultImage" [lazyLoad]="product.picture.web_path" [offset]="offset">
+        </figure>          
+        <figcaption class="card-title">
           {{ product.price}} $
-        </h4>
+        </figcaption>
   </div>
    <div class="card-action">
          <button *ngIf="product.is_voted == false" (click)="postProductVote(product.id)" class="btn-flat  love"><i class="fa fa-heart-o "></i><span *ngIf="product.nb_votes > 0">{{product.nb_votes}}</span></button>

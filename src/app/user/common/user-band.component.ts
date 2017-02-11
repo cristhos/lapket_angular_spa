@@ -9,6 +9,9 @@ import { UserService } from '../service/user.service';
     .card-action, card-content{
        padding: 0px;
     }
+    #band-drop {
+      min-width: 160px;
+    }
   `]
 })
 

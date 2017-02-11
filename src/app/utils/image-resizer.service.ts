@@ -10,7 +10,7 @@ export class ImageResizerService{
         reader.readAsDataURL(file);
     }
 
-    resize(img, MAX_WIDTH:number = 900, MAX_HEIGHT:number = 900, callback){
+    resize(img, MAX_WIDTH:number = 300, MAX_HEIGHT:number = 500, callback){
 
     return img.onload = () => {
 

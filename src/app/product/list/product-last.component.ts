@@ -26,8 +26,9 @@ export class ProductLastComponent implements OnInit{
   }
 
   getLastProducts(){
+      let limit=3;
       if(this.page <= this.pages ){
-        this.productService.getProductLast(this.page).subscribe(
+        this.productService.getProductLast(this.page,limit).subscribe(
             data => {
               this.pages = data.pages;
               for(let i=0; i<=data.limit; i++) {

@@ -15,8 +15,8 @@ export class ProductService {
     this.baseUrl = this.baseUrl + '/api/product';
    }
 
-  getProductLast(page: number){
-    this.url = this.baseUrl +'/last/products.json?page='+page;   
+  getProductLast(page: number,limit:number){
+    this.url = this.baseUrl +'/last/products.json?page='+page+'&limit='+limit;   
     return this.http
                .get(this.url)
                .map(res => res.json())

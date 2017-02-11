@@ -10,19 +10,8 @@ declare var $: any
   selector: 'product-common',
   template:require('./product-common.component.html'),
   styles : [`
-    .love{
-      color: red;
-    }
-    .product-image{
-      
-    }
-
     .card .card-image img {
       border-radius: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-      width: 100%;
-      height:400px;
     }
     .card .card-image .card-title {
       text-shadow : 4px 2px 4px black;

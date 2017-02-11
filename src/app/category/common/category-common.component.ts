@@ -5,7 +5,15 @@ import { CategoryService } from '../service/category.service';
   selector: 'category-common',
   template: require('./category-common.component.html'),
   styles: [`
-
+    .fa{
+      color:#4db6ac;
+    }
+    .btn i{
+      color:white;
+    }
+    a{
+      color:black;
+    }
   `],
 })
 
