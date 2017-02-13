@@ -56,6 +56,22 @@ export class UserService {
                .map(res => res.json());
   }
 
+  facebookConnect(){
+      this.url = this.baseUrl +'/facebook.json';
+      return this.http
+                 .get(this.url)
+                 .map(res => res.json())
+      ;
+  }
+
+  googleConnect(){
+      this.url = this.baseUrl +'/google.json';
+      return this.http
+                 .get(this.url)
+                 .map(res => res.json())
+      ;
+  }
+
   getRefreshToken(){
       this.tokenUrl = this.tokenUrl 
                       +"?client_id="+this.getClientId()
