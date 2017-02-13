@@ -28,7 +28,7 @@ export class UserService {
     if (process.env.ENV === 'production') {
       this.client_id = "1_g1bs2j3lra0cs4goo4ss084wksskgk4gok8wsk48kkw48ksk4";
     } else {
-      this.client_id = "3_xp3eetxb2eoscs08swco0080ss04kggcsw8ww0ccwwg0wcog";
+      this.client_id = "1_3vze4od93m4g4k0coc48w4k0go4owcggs8kc4048w4sosoc4o4";
     }
     return this.client_id;
   }
@@ -37,7 +37,7 @@ export class UserService {
      if (process.env.ENV === 'production') {
       this.client_secret = "47iyfy5o17gg0sso8og000wck4484swk8go0wos04ggc8s8ss0";
     } else {
-      this.client_secret = "3x641r8d2wsg8ogsocogg0scokc04kc8gocwo0c4gkwksgosog";
+      this.client_secret = "nvh0vprhc1wgssg08cks448w04g0o0owo8woc8ckw0ow048c4";
     }
     return this.client_secret;
   }

@@ -10,6 +10,10 @@
   padding: 0 1rem;
 }
 
+.btn-flat:focus, .btn-flat:hover {
+    color: #4db6ac
+}
+
 body{
   background-color: #eeeeee;
 }
@@ -21,8 +25,7 @@ nav {
 nav .brand-logo {
   color: #4db6ac;
 }
-nav ul a {
-  color: black;
+nav a {
   position: relative;
 }
 

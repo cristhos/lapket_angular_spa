@@ -1,8 +1,8 @@
 <div class="card" *ngIf="categories != null">
       <ul class="collection with-header">
           <li class="collection-header">MES PREFERENCES <a [routerLink]="['/category']" class="right"><small>Plus</small></a></li>
-          <li  *ngFor="let category of categories" class="collection-item">
-              <category-common [category] = "category"></category-common>
-          </li>
+          <a  *ngFor="let category of categories" [routerLink]="['/category',category.id ]" routerLinkActive="active"   title="{{category.name}}" class="collection-item" >
+            <category-common [category] = "category"></category-common>
+          </a> 
       </ul>
 </div>

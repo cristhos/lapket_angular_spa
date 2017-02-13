@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'notification-common',
@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styles: [`
 
   `],
+  changeDetection:	ChangeDetectionStrategy.OnPush
 })
 
 export class NotificationCommonComponent {

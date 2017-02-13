@@ -10,8 +10,9 @@ declare var $: any
   selector: 'product-common',
   template:require('./product-common.component.html'),
   styles : [`
-    .card .card-image img {
+    figure img {
       border-radius: 10px;
+      width : 100%;
     }
     .card .card-image .card-title {
       text-shadow : 4px 2px 4px black;
@@ -44,7 +45,7 @@ export class ProductCommonComponent implements OnInit{
              ){}
 
   ngOnInit(){
-    $('.materialboxed').materialbox();
+    //$('.materialboxed').materialbox();
   }
 
   postProductVote(product_id: number)

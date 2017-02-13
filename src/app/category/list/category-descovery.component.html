@@ -1,8 +1,4 @@
 <div *ngIf="category != null" class="card ">
       <category-common [category] = "category"></category-common>
 </div>
-<div *ngIf="products != null" class="row">
-      <div class="col s12 m3" *ngFor="let product of products">
-        <product-common [product]="product"></product-common>
-      </div>
-</div>
+

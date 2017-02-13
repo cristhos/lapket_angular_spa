@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { List, Map } from 'immutable';
 
 import { NotificationService } from '../service/notification.service';
 
@@ -11,14 +12,13 @@ import { NotificationService } from '../service/notification.service';
 })
 
 export class NotificationListComponent implements OnInit {
-  notifications;
+  notifications : any = [] ;
   notification ;
   page :number;
   pages :number;
   constructor(private notificationService : NotificationService) {}
 
   ngOnInit(){
-    this.notifications =[];
     this.page = 1;
     this.pages = 2;
     this.getMyNotifications();
@@ -46,12 +46,11 @@ export class NotificationListComponent implements OnInit {
   removeNotification(notification: any){
     this.notificationService.removeNotification(notification.id).subscribe(
         data =>{
-            this.notification = data;
-
-            for(let i=0;i< this.notifications.length ; i++){
-              if(this.notifications[i].id != notification.id){
-                 this.notifications[i] = this.notifications[i];
-              }
+            this.notifications = [];
+            for(let i=0; i<= this.notifications.length; i++) {
+               if(this.notifications[i].id != notification.id){
+                  this.notifications.push(this.notifications[i]);
+               }
             }
         },
         error => console.log(error),

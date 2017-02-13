@@ -2,12 +2,12 @@
       <h5 class="center teal-text accent-3">Découvrir les produits disponibles dans chaque categorie</h5>
       <div class="row">
             <div class="col s12 m3 block" *ngFor="let category of categories">
-                  <div class="card-panel">
+                  <div class="card-panel hoverable">
                         <category-common [category] = "category"></category-common>
                   </div>
             </div>
             <p class="center">
-                <a [routerLink]="['/category']" class="btn">Toutes les categories</a>
+                <a [routerLink]="['/category']" class="btn btn-large">Toutes les categories</a>
             </p>
       </div>
 </section>

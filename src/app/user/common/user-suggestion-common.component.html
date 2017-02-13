@@ -1,4 +1,4 @@
-<span *ngIf="suggestion != null">
+<div *ngIf="suggestion != null" class="hoverable">
       <a [routerLink]="['/user',suggestion.username ]" [title]="suggestion.full_name">
         <i *ngIf="suggestion.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
         <img class="avatar-profile-pict  avatar" *ngIf="suggestion.profile_picture != null" src="{{suggestion.profile_picture.web_path}}" alt="{{suggestion.profile_picture.alt}}"/>
@@ -15,4 +15,4 @@
         Abonné
         <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse right"></i>
       </button>
-</span>
+</div>
