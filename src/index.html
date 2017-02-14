@@ -25,13 +25,26 @@
       <link href="../node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet" />
       <link rel="icon" type="image/x-icon" href="../src/mapket.png">
      
-     
+  <style>
+     #loader{
+       left:45%;
+       margin-top:20%;
+     }
+  </style>   
   </head>
   <body>
     	<my-app>
-            <h3 class="center">
-              <i class="text-center">Chargement . . .</i>
-            </h3>
+       <div id="loader" class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
       </my-app>
   </body>
 </html>

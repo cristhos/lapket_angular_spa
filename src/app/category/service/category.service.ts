@@ -1,17 +1,22 @@
-import { Injectable }    from '@angular/core';
+import { Injectable,OnInit }    from '@angular/core';
 import {  Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { ApiUrlService } from '../../utils/api-url.service';
 
 @Injectable()
-export class CategoryService {
+export class CategoryService implements OnInit{
   baseUrl: string;
+  autherBaseUrl:string;
   url: any;
 
   constructor(private http: Http, private apiUrlService : ApiUrlService){
-    this.baseUrl = this.apiUrlService.getBaseUrl();
-    this.baseUrl = this.baseUrl + '/api/category';
+    this.baseUrl = this.apiUrlService.getBaseUrl()+'/api/category';
+    this.autherBaseUrl = this.apiUrlService.getBaseUrl()+'/api/category_follow';
+  }
+
+  ngOnInit(){
+    
   }
 
   getCategory(limit=8){
@@ -29,15 +34,14 @@ export class CategoryService {
   }
 
   getCategoryDetail(id: any){
-    this.url = this.baseUrl + '/categories/' + id +'.json';
+    this.url = this.baseUrl + '/categories/'+ id +'.json';
     return this.http
                .get(this.url)
                .map(res => res.json());
   }
 
   postCategoryFollow(category_id: any){
-    this.baseUrl = this.apiUrlService.getBaseUrl()+'/api/category_follow/categories/';
-    this.url = this.baseUrl+category_id+'/followers.json';
+    this.url = this.autherBaseUrl+'/categories/'+category_id+'/followers.json';
     let body = JSON.stringify({category_id});
     return this.http
                .post(this.url,body)
@@ -45,8 +49,7 @@ export class CategoryService {
   }
 
   deleteCategoryFollow(category_id: any){
-    this.baseUrl = this.apiUrlService.getBaseUrl() +'/api/category_follow/categories/';
-    this.url = this.baseUrl+category_id+'/follower/remove.json';
+    this.url = this.autherBaseUrl+'/categories/'+category_id+'/follower/remove.json';
     return this.http
                .get(this.url)
                .map(res => res.json());
