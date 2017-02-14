@@ -57,7 +57,7 @@ export class UserService {
   }
 
   facebookConnect(){
-      this.url = this.baseUrl +'/facebook.json';
+      this.url = this.apiUrlService.getBaseUrl() + '/facebook/check-facebook.json';
       return this.http
                  .get(this.url)
                  .map(res => res.json())
@@ -65,7 +65,7 @@ export class UserService {
   }
 
   googleConnect(){
-      this.url = this.baseUrl +'/google.json';
+      this.url = this.apiUrlService.getBaseUrl() + '/google/check-google.json';
       return this.http
                  .get(this.url)
                  .map(res => res.json())
