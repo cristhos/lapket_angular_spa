@@ -38,12 +38,12 @@ export class LoginFormComponent {
           window.location.reload();
         },
         error => {
-          this.loading = true;
+          this.loading = false;
           console.log(error);
           this.model = new LoginFormModel(this.model.username,"");
         },
         () =>{
-              this.loading = true;
+              this.loading = false;
               console.log("finish")
         }
     );

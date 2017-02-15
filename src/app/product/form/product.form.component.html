@@ -8,8 +8,8 @@
                     <button class="btn-flat" (click)="showElement()"><i class="fa fa-pencil"></i></button>
                   
                      <button class="file-field  btn-flat">
-                        <span><i class="green-text text-ligthen-2 fa fa-image"></i></span>
-                        <input type="file" ng2FileSelect [uploader]="uploader" required (change)="fileChange($event)"/>
+                        <span><i class="green-text text-ligthen-2 fa fa-picture-o"></i></span>
+                        <input type="file" ng2FileSelect [uploader]="uploader" (change)="fileChange($event)"/>
                     </button>
                     <button *ngIf="formElement" class="right btn-flat " (click)="closeElement()"><i class="red-text text-darken-2 fa fa-close "></i></button>
                   </div>

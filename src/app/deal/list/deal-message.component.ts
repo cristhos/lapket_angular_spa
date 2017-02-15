@@ -29,6 +29,7 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   conversationPage:number;
   sub;
   timerSub;
+  timerSubLoad = false;
   constructor(private dealService : DealService,private route: ActivatedRoute){}
 
   ngOnInit(){
@@ -46,7 +47,8 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   getDealMessages(){
     this.sub = this.route.params.subscribe(params => {
       let conversation_id = +params['conversation_id'];
-
+      
+      if(this.timerSubLoad) this.timerSub.unsubscribe();
       this.getDealConversation(conversation_id);
        if(this.page <= this.pages ){
           this.dealService.getDealMessages(conversation_id, this.page).subscribe(
@@ -109,9 +111,10 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   private subscribeToData(): void {
     this.timerSub = Observable.timer(5000).subscribe(
       () => {
+            this.timerSubLoad = true;
             this.page = 1;
-           this.pages = 2;
-        this.getDealMessages();
+            this.pages = 2;
+            this.getDealMessages();
       }
     );
   }
