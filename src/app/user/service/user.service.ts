@@ -56,18 +56,20 @@ export class UserService {
                .map(res => res.json());
   }
 
-  facebookConnect(){
+  facebookConnect(user:any){
       this.url = this.apiUrlService.getBaseUrl() + '/facebook/check-facebook.json';
+      let body = JSON.stringify(user);
       return this.http
-                 .get(this.url)
+                 .post(this.url,body)
                  .map(res => res.json())
       ;
   }
 
-  googleConnect(){
+  googleConnect(user:any){
       this.url = this.apiUrlService.getBaseUrl() + '/google/check-google.json';
+      let body = JSON.stringify(user);
       return this.http
-                 .get(this.url)
+                 .post(this.url,body)
                  .map(res => res.json())
       ;
   }

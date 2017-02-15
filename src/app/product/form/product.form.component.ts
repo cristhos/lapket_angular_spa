@@ -148,13 +148,13 @@ export class ProductFormComponent implements OnInit{
    }
 
    onHover(){
-    this.formElement = true;
+     if(this.formElement==false) this.formElement = true;
    }
    showElement(){
-     this.formElement = true;
+      if(this.formElement==false) this.formElement = true;
    }
    closeElement(){
-     this.formElement = false;
+      if(this.formElement==true) this.formElement = false;
    }
   
 

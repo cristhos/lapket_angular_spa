@@ -46,12 +46,18 @@ export class NotificationListComponent implements OnInit {
   removeNotification(notification: any){
     this.notificationService.removeNotification(notification.id).subscribe(
         data =>{
-            //enlever une notification 
+            for(let i=0; i<=this.notifications.length; i++){
+              if(this.notifications[i].id == notification.id){
+                  this.notifications.splice(i,1);
+                  break;
+              }
+            }
         },
         error => console.log(error),
         () => console.log("finish")
     );
   }
+  
   onScrollDown() {
       this.getMyNotifications();
   }
