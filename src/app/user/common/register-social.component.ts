@@ -117,11 +117,7 @@ export class RegisterSocialComponent {
         })
       }
 
-<<<<<<< HEAD
-  
-=======
       ref.parentNode.insertBefore(gJs, ref);
     }
   }
->>>>>>> feature/facebook-google-connect
 }
