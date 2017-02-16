@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Routes } from '@angular/router';
 
 import { ProductService } from '../service/product.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'all-product',
@@ -20,6 +20,7 @@ export class ProductListComponent implements OnInit{
   constructor(private productService : ProductService) {}
 
   ngOnInit() {
+    moment.locale('fr-fr');
     this.page = 1;
     this.pages = 2;
     this.load = true;
