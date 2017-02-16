@@ -14,10 +14,10 @@ export class RegisterSocialComponent {
   gauth:any;
   infos = {
     "google": {
-      "clientId": "GOOGLE_CLIENT_ID"
+      "clientId": "930057129388-e7uhda305urca6q607aqkj6jjlskqs3b.apps.googleusercontent.com"
     },
     "facebook": {
-      "clientId": "FACEBOOK_CLIENT_ID",
+      "clientId": "1789365264721334",
       "apiVersion": "v2.4"
     }
   };
