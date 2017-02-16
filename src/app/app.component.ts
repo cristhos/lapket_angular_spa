@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit{
     public constructor(private titleService: Title, private userService : UserService, public router: Router ) {}
 
     ngAfterViewInit(){
-      this.setTitle("Acceuil");
+      this.setTitle("lapket");
       this.getInitialUser();
     }
 
@@ -42,7 +42,7 @@ export class AppComponent implements AfterViewInit{
               this.user = data;
               localStorage.setItem('user_id',this.user.id);
               this.subscribeToData();
-              this.setTitle("Acceuil | "+this.user.username);
+              this.setTitle("lapket");
             },
             error => {
                    switch (error.status) {
