@@ -7,7 +7,7 @@ export class ApiUrlService {
   
   getBaseUrl(){
     if (process.env.ENV === 'production') {
-      this.baseUrl = "http://138.68.52.163";
+      this.baseUrl = "https://apis.lapket.com";
     } else {
       
       //this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
