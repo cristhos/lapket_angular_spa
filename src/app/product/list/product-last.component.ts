@@ -15,13 +15,13 @@ export class ProductLastComponent implements OnInit{
   products = [];
   pages: number;
   page : number;
-  load : boolean;
+  product_loading : boolean;
   constructor(private productService : ProductService) {}
 
   ngOnInit() {
     this.page = 1;
     this.pages = 2;
-    this.load = true;
+    this.product_loading = true;
     this.getLastProducts();
   }
 
@@ -37,9 +37,16 @@ export class ProductLastComponent implements OnInit{
                   this.page = data.page + 1;
                 }
               }
+              this.product_loading = false;
             },
-            error => console.log(error),
-            () => console.log("finish")
+            error =>{
+              this.product_loading = false;
+              console.log(error)
+            },
+            () =>{
+              this.product_loading = false;
+              console.log("finish")
+            } 
         );
       }
   }

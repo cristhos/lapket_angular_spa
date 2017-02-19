@@ -5,6 +5,10 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import {
+  LoadingComponent,
+} from '../core/core.component';
+
+import {
   UserSuggestionComponent,
   UserSuggestionCommonComponent,
   UserMiniSuggestionComponent,
@@ -26,6 +30,7 @@ import {
   ProductListComponent,
   ProductLastComponent,
   ProductFormComponent,
+  ProductNullCommonComponent,
 } from '../product/product.component';
 
 import {
@@ -59,6 +64,7 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       RouterModule,
       ],
   declarations: [ 
+    LoadingComponent,
     UserSuggestionComponent,
     UserSuggestionCommonComponent,
     UserMiniSuggestionComponent,
@@ -73,12 +79,14 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductListComponent,
     ProductLastComponent,
     ProductFormComponent,
+    ProductNullCommonComponent,
     SearchFormComponent,
     RegisterFinalFormComponent,
     MaterializeDirective,
     FileSelectDirective
   ],
   exports:      [ 
+    LoadingComponent,
     UserSuggestionComponent,
     UserSuggestionCommonComponent,
     UserMiniSuggestionComponent,
@@ -93,6 +101,7 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductListComponent,
     ProductLastComponent,
     ProductFormComponent,
+    ProductNullCommonComponent,
     RegisterFinalFormComponent,
     SearchFormComponent,
     FormsModule,

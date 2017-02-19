@@ -14,7 +14,7 @@ import { ProductService } from '../../product/service/product.service';
 
 export class UserProductComponent implements OnInit, OnDestroy{
   user_detail : any;
-  products : any;
+  products : any = [];
   sub: any;
   pages: number;
   page : number;

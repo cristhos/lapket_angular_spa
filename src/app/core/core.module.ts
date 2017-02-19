@@ -8,7 +8,6 @@ import {
   CoreDetailComponent,
   NavbarComponent,
   FooterComponent,
-  LoadingComponent,
 } from './core.component';
 
 import {
@@ -27,7 +26,6 @@ import {
     CoreDetailComponent,
     NavbarComponent,
     FooterComponent,
-    LoadingComponent,
   ],
   exports: [ 
     AboutComponent,
@@ -36,7 +34,6 @@ import {
     CoreDetailComponent,
     NavbarComponent,
     FooterComponent,
-    LoadingComponent,
   ],
 })
 export class CoreModule {}

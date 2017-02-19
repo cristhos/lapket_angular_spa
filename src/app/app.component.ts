@@ -11,7 +11,8 @@ import	{Observable}	from	'rxjs/Observable';
   template: `
              <nav-bar [user]="user"></nav-bar>
              <main>
-                <router-outlet ></router-outlet>
+                <router-outlet >
+                </router-outlet>
              </main>
              <core-footer  [user]="user" ></core-footer>
   `,

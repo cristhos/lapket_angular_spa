@@ -1,15 +1,25 @@
-
 <div class="container" *ngIf="category != null">
-  <div  class="card-panel"*ngIf="category != null">
+  <div  class="card-panel" >
       <category-common [category] = "category"></category-common>
   </div>
   <div class="row">
        <user-mini-sugestion class="col s12 m3 right"></user-mini-sugestion>
        <menu-category class="col s12 m3 hide-on-med-and-down"></menu-category>
-       <div *ngIf="products != null" class="col s12 m6">
+       <div class="col s12 m6">
+           <div *ngIf="products != null" >
                 <div *ngFor="let product of products">
                   <product-common [product]="product"></product-common>
                 </div>
+           </div>
+           <div *ngIf="product_loading == false">
+             <product-null-common *ngIf="products.length < 1"></product-null-common>
+           </div>
+           <div *ngIf="product_loading == true">
+              <loading></loading>
+           </div>     
         </div>
     </div>
+</div>
+<div *ngIf="category_loading == true">
+    <loading></loading>
 </div>

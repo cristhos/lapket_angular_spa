@@ -6,16 +6,20 @@
       </div>
       <follow-category  *ngIf=" user_detail.is_author == true"class="col s12 m3 hide-on-med-and-down"></follow-category>
       <menu-category  *ngIf=" user_detail.is_author != true"class="col s12 m3 hide-on-med-and-down"></menu-category>
-      <div class="col s12 m6"
+      <div *ngIf="products != null" class="col s12 m6"
         infinite-scroll [infiniteScrollDistance]="2"
         [infiniteScrollUpDistance]="1.5"
         [infiniteScrollThrottle]="3000"
         (scrolled)="onScrollDown()">
         
         <product-form *ngIf="user_detail.is_author == true" ></product-form> 
+        
         <div *ngFor="let product of products" >
           <product-common [product]="product"></product-common>
         </div>
+      </div>
+      <div  *ngIf="products.length < 1" class="col s12 m6">
+            <product-null-common></product-null-common>
       </div>
     </div>
 </div>

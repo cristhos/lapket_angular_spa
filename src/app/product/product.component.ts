@@ -5,4 +5,5 @@ export { ProductLastComponent } from './list/product-last.component';
 export { ProductDetailComponent } from './detail/product-detail.component';
 export { ProductFormComponent } from './form/product.form.component';
 export { ProductFormModel } from './form/product.form';
-export { ProductFormCommonComponent} from './common/product-form-common.component';
+export { ProductFormCommonComponent } from './common/product-form-common.component';
+export { ProductNullCommonComponent } from './common/product-null-common.component';

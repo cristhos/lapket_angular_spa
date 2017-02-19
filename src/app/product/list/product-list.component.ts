@@ -13,17 +13,17 @@ import * as moment from 'moment';
 })
 
 export class ProductListComponent implements OnInit{
-  products = [];
+  products : any = [];
   pages: number;
   page : number;
-  load : boolean;
+  product_loading : boolean;
   constructor(private productService : ProductService) {}
 
   ngOnInit() {
     moment.locale('fr-fr');
     this.page = 1;
     this.pages = 2;
-    this.load = true;
+    this.product_loading = true;
     this.getFilProducts();
   }
 
@@ -39,9 +39,16 @@ export class ProductListComponent implements OnInit{
                   this.page = data.page + 1;
                 }
               }
+              this.product_loading = false;
             },
-            error => console.log(error),
-            () => console.log("finish")
+            error =>{
+              this.product_loading = false;
+              console.log(error);
+            },
+            () =>{
+              this.product_loading = false;
+              console.log("finish");
+            } 
         );
       }
     }else{
