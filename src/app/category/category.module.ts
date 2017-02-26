@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { RouterModule } from '@angular/router';
+
+import { CATEGORY_ROUTING } from './category.routing'
 
 import {
   CategoryService,
@@ -13,7 +16,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(CATEGORY_ROUTING)
   ],
   declarations: [
     CategoryDetailComponent,          

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { RouterModule} from '@angular/router';
+
+import { SEARCH_ROUTING } from './search.routing'
 
 import {
   SearchListComponent,
@@ -14,7 +17,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(SEARCH_ROUTING)
   ],
   declarations: [ 
     SearchListComponent,

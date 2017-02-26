@@ -16,7 +16,7 @@
               <li *ngIf="product.is_notify == false"><a  (click)="activeNotification(product.id)" class="waves-effect waves-light" >Etre notifier</a></li>
            </span>
            <span *ngIf="product.is_author == true">
-              <li ><a [routerLink]="['/edit/product',product.id]" >Modifier</a></li>
+              <li ><a [routerLink]="['/product/edit',product.id]" >Modifier</a></li>
               <li *ngIf="product.is_expired == false"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Epuiser</a></li>
               <li *ngIf="product.is_expired == true"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Renouveller</a></li>
               <li ><a  (click)="deleteProduct(product.id)" class="waves-effect waves-light" >Supprimer</a></li>

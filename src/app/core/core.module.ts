@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { RouterModule} from '@angular/router';
 
+import { CORE_ROUTING } from './core.routing'
 import {
   AboutComponent,
   ConditionComponent,
   PageNotFoundComponent,
-  CoreDetailComponent,
-  NavbarComponent,
-  FooterComponent,
 } from './core.component';
 
 import {
@@ -17,23 +16,19 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(CORE_ROUTING)
   ],
   declarations: [ 
     AboutComponent,
     ConditionComponent,
-    PageNotFoundComponent,
-    CoreDetailComponent,
-    NavbarComponent,
-    FooterComponent,
   ],
   exports: [ 
     AboutComponent,
     ConditionComponent,
-    PageNotFoundComponent,
-    CoreDetailComponent,
-    NavbarComponent,
-    FooterComponent,
+  ],
+    providers : [
+
   ],
 })
 export class CoreModule {}

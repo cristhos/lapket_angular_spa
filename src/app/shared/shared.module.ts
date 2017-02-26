@@ -5,17 +5,27 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import {
+  CoreDetailComponent,
+  NavbarComponent,
+  FooterComponent,
   LoadingComponent,
+  PageNotFoundComponent,
 } from '../core/core.component';
 
 import {
+  UserService,
+  LoginFormComponent,
+  RegisterFormComponent,
+  RegisterSocialComponent,
   UserSuggestionComponent,
   UserSuggestionCommonComponent,
   UserMiniSuggestionComponent,
   RegisterFinalFormComponent,
+  CanActivateViaAuthGuard,
 } from '../user/user.component';
 
 import {
+  CategoryService,
   CategoryListComponent,
   CategoryDescoveryComponent,
   CategorySuggestionComponent,
@@ -26,6 +36,7 @@ import {
 } from '../category/category.component';
 
 import {
+  ProductService,
   ProductCommonComponent,
   ProductListComponent,
   ProductLastComponent,
@@ -43,6 +54,10 @@ import {
 import {
   CityService
 } from '../city/city.component';
+
+import {
+  DealService
+} from '../deal/deal.component';
 
 import { ApiUrlService } from '../utils/api-url.service';
 import { ImageResizerService } from '../utils/image-resizer.service';
@@ -64,7 +79,14 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       RouterModule,
       ],
   declarations: [ 
+    CoreDetailComponent,
+    NavbarComponent,
+    FooterComponent,
+    PageNotFoundComponent,
     LoadingComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    RegisterSocialComponent,
     UserSuggestionComponent,
     UserSuggestionCommonComponent,
     UserMiniSuggestionComponent,
@@ -86,7 +108,14 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     FileSelectDirective
   ],
   exports:      [ 
+    CoreDetailComponent,
+    NavbarComponent,
+    FooterComponent,
+    PageNotFoundComponent,
     LoadingComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    RegisterSocialComponent,
     UserSuggestionComponent,
     UserSuggestionCommonComponent,
     UserMiniSuggestionComponent,
@@ -119,6 +148,11 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     CountryService,
     ApiUrlService,
     ImageResizerService,
+    CategoryService,
+    DealService,
+    UserService,
+    ProductService,
+    CanActivateViaAuthGuard,
     requestOptionsProvider,
   ],
 })

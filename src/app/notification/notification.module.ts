@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { RouterModule} from '@angular/router';
 
+import { NOTIFICATION_ROUTING } from './notification.routing'
 import {
   NotificationListComponent,
   NotificationService,
@@ -14,7 +16,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(NOTIFICATION_ROUTING)
   ],
   declarations: [ 
     NotificationListComponent,

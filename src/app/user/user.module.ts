@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { RouterModule} from '@angular/router';
 
+import { USER_ROUTING } from './user.routing'
 import {
-  UserService,
   UserBandComponent,
   UserProductComponent,
   UserProductVoteComponent,
   UserFollowerComponent,
   UserFollowingComponent,
-  LoginFormComponent,
-  RegisterFormComponent,
-  RegisterSocialComponent,
   RessetingPasswordFormComponent,
   ChangePasswordFormComponent,
   ProfileFormComponent,
@@ -24,7 +22,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(USER_ROUTING)
   ],
   declarations: [
     UserBandComponent,
@@ -32,9 +31,6 @@ import {
   UserProductVoteComponent,
   UserFollowerComponent,
   UserFollowingComponent,
-  LoginFormComponent,
-  RegisterFormComponent,
-  RegisterSocialComponent,
   RessetingPasswordFormComponent,
   ChangePasswordFormComponent,
   ProfileFormComponent,        
@@ -45,16 +41,12 @@ import {
     UserProductVoteComponent,
     UserFollowerComponent,
     UserFollowingComponent,
-    LoginFormComponent,
-    RegisterFormComponent,
-    RegisterSocialComponent,
     RessetingPasswordFormComponent,
     ChangePasswordFormComponent,
     ProfileFormComponent,
     ],
   providers : [
-    UserService,
-    CanActivateViaAuthGuard,
+    
   ],
 })
 export class UserModule {}
