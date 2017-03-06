@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {  UserService } from '../service/user.service';
 
 declare let gapi: any;
@@ -9,7 +9,7 @@ declare let FB: any;
   template:require('./register-social.component.html')
 })
 
-export class RegisterSocialComponent {
+export class RegisterSocialComponent implements OnInit {
   user : any;
   gauth:any;
   infos = {
@@ -23,12 +23,14 @@ export class RegisterSocialComponent {
   };
 
   constructor(private userService : UserService){}
-
+  
+  ngOnInit(){
+    this.initFacebookConnect(this.infos['facebook']);
+    this.initGoogleConnect(this.infos['google']);
+  }
   //recuperer les informations fourni par notre apps facebook
   //enregistrer si ce la premiere fois, connecter site ce la Neme fois
   facebookConnect(){
-    this.initFacebookConnect(this.infos['facebook']);
-
     FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     // connected
@@ -53,9 +55,6 @@ export class RegisterSocialComponent {
   //recuperer les informations fourni par notre app google
   //enregistrer si ce la premiere fois, connecter site ce la Neme fois
   googleConnect(){
-
-    this.initGoogleConnect(this.infos['google']);
-
     if (typeof(this.gauth) == "undefined"){
         this.gauth = gapi.auth2.getAuthInstance();
     }

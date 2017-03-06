@@ -19,8 +19,8 @@ export const USER_ROUTING = [
       {path: 'followers/:username', component: UserFollowerComponent},
       {path: 'products/:username', component: UserProductComponent},
       {path: 'products/vote/:username', component: UserProductVoteComponent},
-      {path: 'pass-resseting', component: RessetingPasswordFormComponent},
-      {path: 'change-password', component: ChangePasswordFormComponent},
-      {path: 'setting', component: ProfileFormComponent,canActivate: [CanActivateViaAuthGuard]},
-      {path: 'suggestion', component: UserSuggestionComponent, canActivate: [CanActivateViaAuthGuard]},
+      {path: 'p/pass-resseting', component: RessetingPasswordFormComponent},
+      {path: 'c/change-password', component: ChangePasswordFormComponent},
+      {path: 's/setting', component: ProfileFormComponent,canActivate: [CanActivateViaAuthGuard]},
+      {path: 's/suggestion', component: UserSuggestionComponent, canActivate: [CanActivateViaAuthGuard]},
 ];

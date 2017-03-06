@@ -11,10 +11,10 @@
                   <product-common [product]="product"></product-common>
                 </div>
            </div>
-           <div *ngIf="product_loading == false">
+           <div *ngIf="products_loading == false">
              <product-null-common *ngIf="products.length < 1"></product-null-common>
            </div>
-           <div *ngIf="product_loading == true">
+           <div *ngIf="products_loading == true">
               <loading></loading>
            </div>     
         </div>

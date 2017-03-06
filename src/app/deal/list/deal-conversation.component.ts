@@ -15,6 +15,8 @@ export class DealConversationComponent implements OnInit{
   total ;
   dealConversation;
   dealConversations = [];
+  conversations_loading : boolean;
+
   constructor(private dealService : DealService,private route: ActivatedRoute){}
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class DealConversationComponent implements OnInit{
   }
 
   getDealMyConversations(){
+     this.conversations_loading = true;
      if(this.page <= this.pages ){
         this.dealService.getMyDealConversations(this.page).subscribe(
           data => {
@@ -36,9 +39,16 @@ export class DealConversationComponent implements OnInit{
                   this.page = data.page + 1;
                 }
               }
+              this.conversations_loading = false;
           },
-          error => console.log(error),
-          () => console.log("finish")
+          error =>{
+            console.log(error)
+            this.conversations_loading = false;
+          } ,
+          () =>{
+            console.log("finish")
+            this.conversations_loading = false;
+          } 
         );
      }
   }

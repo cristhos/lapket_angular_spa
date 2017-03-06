@@ -11,3 +11,6 @@
         <button (click)="refreshPage()" class="btn right">Terminer</button>
       </p>
 </div>
+<div *ngIf="categories_loading == true">
+    <loading></loading>
+</div>

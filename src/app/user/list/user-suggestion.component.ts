@@ -9,16 +9,28 @@ import { UserService } from '../service/user.service';
 export class UserSuggestionComponent implements OnInit{
   suggestions: any = [];
   page : number;
+  suggestions_loading : boolean;
+
   constructor(private userService : UserService){}
   ngOnInit(): void {
     this.page = 1;
     this.nextSuggestions();
   }
   getUserSuggestion(page : number): void{
+    this.suggestions_loading = true;
     this.userService.getUserSugestion(page).subscribe(
-        data => this.suggestions = data._embedded.items,
-        error => console.log(error),
-        () => this.nextPage()
+        data =>{
+           this.suggestions = data._embedded.items;
+           this.suggestions_loading = false;
+        },
+        error =>{
+           console.log(error)
+           this.suggestions_loading = false;
+        },
+        () =>{
+           this.nextPage();
+           this.suggestions_loading = false;
+        } 
     );
   }
   nextSuggestions(): void{

@@ -10,16 +10,27 @@ import { CategoryService } from '../service/category.service';
 
 export class CategorySuggestionComponent {
   categories : Object;
+  categories_loading:boolean;
   constructor(private categoryService : CategoryService) {
     this.getCategories();
   }
 
   getCategories(): void {
+    this.categories_loading = true;
     let limit = 21;
     this.categoryService.getCategory(limit).subscribe(
-        data => this.categories = data,
-        error => console.log(error),
-        () => console.log("finish")
+        data =>{
+          this.categories = data;
+          this.categories_loading = false; 
+        },
+        error =>{
+         console.log(error);
+         this.categories_loading = false; 
+        },
+        () =>{
+          console.log("finish");
+          this.categories_loading = false;
+        } 
     );
   }
   refreshPage(){

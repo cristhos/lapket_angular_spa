@@ -35,7 +35,7 @@
                 <!-- Dropdown Structure -->
                 <ul id='userdrop' class='dropdown-content'>
                   <li  ><a [routerLink]="['/user', user.username]"><i class="fa fa-user "></i> {{user.username}}</a></li>
-                  <li  ><a [routerLink]="['/setting']"><i class="fa fa-cog "></i> Parametres</a></li>
+                  <li  ><a [routerLink]="['user/s/setting']"><i class="fa fa-cog "></i> Parametres</a></li>
                   <li class="divider"></li>
                   <li ><a (click)="logout()"><i class="fa fa-power-off "></i> Déconnexion</a></li>
                 </ul>

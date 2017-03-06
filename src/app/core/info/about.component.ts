@@ -3,6 +3,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'site-about',
   template:require('./about.component.html'),
+  styles : [
+    `
+      .desc-pict{
+        width: 48px;
+        height: 68px;
+        border-radius: 5px;
+      }
+    `
+  ]
 })
 
 export class AboutComponent {

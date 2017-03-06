@@ -1,7 +1,7 @@
 <div class="container row">
   <user-mini-sugestion class="col s12 m3 right"></user-mini-sugestion>
-  <div class="col s12 m9" *ngIf="dealConversations != null">
-    <ul class="collection with-header" 
+  <div class="col s12 m9" >
+    <ul *ngIf="dealConversations != null" class="collection with-header" 
         infinite-scroll [infiniteScrollDistance]="2"
         [infiniteScrollUpDistance]="1.5"
         [infiniteScrollThrottle]="3000"
@@ -13,6 +13,9 @@
             <deal-conversation-common [dc]="dc"></deal-conversation-common>
       </a> 
     </ul>
+    <div *ngIf="conversations_loading == true">
+        <loading></loading>
+    </div> 
   </div>
 
 </div>

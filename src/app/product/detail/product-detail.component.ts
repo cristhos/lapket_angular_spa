@@ -11,6 +11,7 @@ import { ProductService } from '../../product/service/product.service';
 export class ProductDetailComponent implements OnInit, OnDestroy{
   product : Object;
   sub: any;
+  product_loading : boolean;
   constructor(
     private productService : ProductService,
     private route: ActivatedRoute
@@ -26,12 +27,22 @@ export class ProductDetailComponent implements OnInit, OnDestroy{
 
   getProductDetail()
   {
+    this.product_loading = true;
     this.sub = this.route.params.subscribe(params => {
       let id = +params['id'];
       this.productService.getProductDetail(id).subscribe(
-          data => this.product = data,
-          error => console.log(error),
-          () => console.log("finish")
+          data =>{
+            this.product_loading = false;
+            this.product = data;
+          },
+          error => {
+           this.product_loading = false;
+           console.log(error) 
+          },
+          () =>{
+            this.product_loading = false;
+            console.log("finish")
+          } 
       );
     });
   }

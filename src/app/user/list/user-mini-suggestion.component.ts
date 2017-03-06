@@ -13,15 +13,27 @@ export class UserMiniSuggestionComponent {
   suggestions : Object;
   page: number;
   pages : number;
+  suggestions_loading:boolean;
+
   constructor(private userService : UserService) {
     this.page = 1;
     this.nextSuggestions();
   }
   getUserSuggestion(page: number){
+    this.suggestions_loading = true;
     this.userService.getUserMiniSugestion(page).subscribe(
-        data => this.refreshData(data),
-        error => console.log(error),
-        () => this.nextPage()
+        data =>{
+          this.refreshData(data);
+          this.suggestions_loading = false;
+        }, 
+        error =>{
+          console.log(error);
+          this.suggestions_loading = false;
+        },
+        () =>{
+          this.nextPage();
+          this.suggestions_loading = false;
+        } 
     );
   }
   nextSuggestions(){

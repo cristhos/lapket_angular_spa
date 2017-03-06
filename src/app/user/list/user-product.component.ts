@@ -19,6 +19,7 @@ export class UserProductComponent implements OnInit, OnDestroy{
   pages: number;
   page : number;
   load : boolean;
+  products_loading : boolean;
   constructor(
     private userService : UserService,
     private productService: ProductService,
@@ -53,6 +54,7 @@ export class UserProductComponent implements OnInit, OnDestroy{
   }
   getProductAuthor(username: any)
   {
+    this.products_loading = true;
     if(this.page <= this.pages){
       this.productService.getProductAuthor(username,this.page).subscribe(
           data => {
@@ -63,9 +65,16 @@ export class UserProductComponent implements OnInit, OnDestroy{
                 this.page = this.page + 1;
               }
             }
+            this.products_loading = false;
           },
-          error => console.log(error),
-          () => console.log("finish")
+          error =>{
+            console.log(error)
+            this.products_loading = false;
+          },
+          () =>{
+            console.log("finish");
+            this.products_loading = false;
+          } 
       );
     }
   }

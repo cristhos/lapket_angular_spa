@@ -1,7 +1,7 @@
 <div class="container row">
   <menu-category class="col s12 m3 hide-on-med-and-down"></menu-category>
-  <div *ngIf="suggestions != null" class="col s12 m4 ">
-    <ul class="collection with-header">
+  <div class="col s12 m4 ">
+    <ul *ngIf="suggestions != null" class="collection with-header">
         <li class="collection-header">
             SUGGESTIONS 
         </li>
@@ -14,5 +14,8 @@
           </p>
         </li>
     </ul>
+    <div *ngIf="suggestions_loading == true">
+        <loading></loading>
+    </div>
   </div>
 </div>

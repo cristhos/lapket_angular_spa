@@ -16,6 +16,8 @@ export class NotificationListComponent implements OnInit {
   notification ;
   page :number;
   pages :number;
+  notifications_loading : boolean;
+
   constructor(private notificationService : NotificationService) {}
 
   ngOnInit(){
@@ -25,6 +27,7 @@ export class NotificationListComponent implements OnInit {
   }
 
   getMyNotifications(){
+    this.notifications_loading = true;
     if(this.page <= this.pages ){
       this.notificationService.getMyNotification(this.page).subscribe(
           data => {
@@ -35,9 +38,16 @@ export class NotificationListComponent implements OnInit {
                 this.page = data.page + 1;
               }
             }
+            this.notifications_loading = false;
           },
-          error => console.log(error),
-          () => console.log("finish")
+          error =>{
+            console.log(error);
+            this.notifications_loading = false;
+          } ,
+          () =>{
+            console.log("finish");
+            this.notifications_loading = false;
+          } 
       );
     }
 

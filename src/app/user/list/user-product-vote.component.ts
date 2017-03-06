@@ -14,6 +14,7 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
   products = [];
   sub: any;
   page ;
+  products_loading : boolean;
   constructor(
     private userService : UserService,
     private productService: ProductService,
@@ -40,6 +41,7 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
 
   getProductVoteAuteur(username: any)
   {
+    this.products_loading = true;
     this.productService.getProductVoteBy(username).subscribe(
         data => {
           for(let i=0; i<=data.limit; i++) {
@@ -48,9 +50,16 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
               this.page = this.page + 1;
             }
           }
+          this.products_loading = false;
         },
-        error => console.log(error),
-        () => console.log("finish")
+        error =>{
+          console.log(error);
+          this.products_loading = false;
+        } ,
+        () =>{
+          console.log("finish");
+          this.products_loading = false;
+        } 
     );
 
   }
