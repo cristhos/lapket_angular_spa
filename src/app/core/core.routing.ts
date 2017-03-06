@@ -16,5 +16,4 @@ export const CORE_ROUTING = [
   {path: 'condition', component: ConditionComponent},
   {path: 'login', component: LoginFormComponent},
   {path: 'register', component: RegisterFormComponent},
-  
 ];

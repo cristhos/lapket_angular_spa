@@ -1,6 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { List, Map } from 'immutable';
-
 import { NotificationService } from '../service/notification.service';
 
 @Component({
