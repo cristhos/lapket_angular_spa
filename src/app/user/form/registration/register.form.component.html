@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="input-field col s12 m12">
-                <a routerLink="/login">Connexion</a>
+                <a [routerLink]="['/login']">Connexion</a>
                 <span class="right">
                   <button class="btn waves-effect waves-light center" type="submit" name="action">S'inscrire
                     <i *ngIf="loading == false" class="fa fa-sign-in right"></i>
