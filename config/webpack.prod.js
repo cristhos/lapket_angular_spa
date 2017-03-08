@@ -3,7 +3,7 @@ var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
-
+//const ngToolsWebpack = require('@ngtools/webpack');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
@@ -17,6 +17,9 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
+    /*new ngToolsWebpack.AotPlugin({
+      tsConfigPath: './tsconfig-aot.json'
+    }),*/
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
       mangle: {
@@ -34,5 +37,8 @@ module.exports = webpackMerge(commonConfig, {
         minimize: false // workaround for ng2
       }
     })
-  ]
+  ]/*,
+  rules.push(
+    { test: /\.ts$/, loader: '@ngtools/webpack' }
+  )*/
 });
