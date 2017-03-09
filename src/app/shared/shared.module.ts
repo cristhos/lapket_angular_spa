@@ -65,8 +65,8 @@ import { requestOptionsProvider } from '../utils/default-request-options.service
 
 import { MomentModule } from 'angular2-moment';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import { MaterializeDirective } from "angular2-materialize";
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { MaterializeModule } from "angular2-materialize";
+import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 
 @NgModule({
@@ -77,6 +77,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       InfiniteScrollModule,
       LazyLoadImageModule,
       RouterModule,
+      MaterializeModule,
+      FileUploadModule
       ],
   declarations: [ 
     CoreDetailComponent,
@@ -104,8 +106,6 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductNullCommonComponent,
     SearchFormComponent,
     RegisterFinalFormComponent,
-    MaterializeDirective,
-    FileSelectDirective
   ],
   exports:      [ 
     CoreDetailComponent,
@@ -140,8 +140,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     RouterModule,
     LazyLoadImageModule,
     InfiniteScrollModule,
-    MaterializeDirective,
-    FileSelectDirective
+    MaterializeModule,
+    FileUploadModule
   ],
   providers : [
     CityService,
