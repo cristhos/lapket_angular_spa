@@ -46,10 +46,10 @@
          <button materialize="dropdown" routerLinkActive="active" class="btn-flat dropdown-button" attr.data-activates="product-share-{{product.id}}"><i class="fa fa-share"></i></button>
           <!-- Dropdown Structure -->
          <ul id="product-share-{{product.id}}" class='dropdown-share dropdown-content'>
-              <li><a> <i class="fa fa-facebook"></i></a></li>
-              <li><a> <i class="fa fa-twitter"></i></a></li>
-              <li><a> <i class="fa fa-google-plus"></i></a></li>
-              <li><a> <i class="fa fa-whatsapp"></i></a></li>
+              <li><a [shareButton]="'facebook'" > <i class="fa fa-facebook"></i></a></li>
+              <li><a [shareButton]="'twitter'" > <i class="fa fa-twitter"></i></a></li>
+              <li><a [shareButton]="'googleplus'" > <i class="fa fa-google-plus"></i></a></li>
+              <li><a [shareButton]="'whatsapp'" > <i class="fa fa-whatsapp"></i></a></li>
          </ul>
          <button class="btn-flat right">
                  <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">

@@ -3,6 +3,7 @@ import { CommonModule }        from '@angular/common';
 import { FormsModule }         from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {ShareButtonsModule} from 'ng2-sharebuttons';
 
 import {
   CoreDetailComponent,
@@ -81,6 +82,7 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       RouterModule,
       MaterializeModule,
       FileUploadModule,
+      ShareButtonsModule.forRoot()
       ],
   declarations: [ 
     CoreDetailComponent,
