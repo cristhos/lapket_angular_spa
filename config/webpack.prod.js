@@ -7,6 +7,9 @@ var helpers = require('./helpers');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
+  entry: {
+    'app': './src/main.jit.ts'
+  },
   devtool: 'source-map',
 
   output: {
@@ -18,7 +21,7 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
     /*new ngToolsWebpack.AotPlugin({
-      tsConfigPath: './tsconfig-aot.json'
+      tsConfigPath: './tsconfig.aot.json'
     }),*/
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
@@ -37,8 +40,8 @@ module.exports = webpackMerge(commonConfig, {
         minimize: false // workaround for ng2
       }
     })
-  ]/*,
-  rules.push(
-    { test: /\.ts$/, loader: '@ngtools/webpack' }
-  )*/
+  ],
+  /*rules: [
+      { test: /\.ts$/, loader: '@ngtools/webpack' }
+  ]*/
 });

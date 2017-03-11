@@ -32,7 +32,7 @@
           <figcaption class="hoverable "> 
               <span class="" >{{ product.description }}</span>
           </figcaption> 
-          <img  [src]="defaultImage" [lazyLoad]="product.picture.web_path" [offset]="offset">
+          <img [lazyLoad]="product.picture.web_path" [offset]="offset">
           <figcaption class="card-title hoverable">
               {{ product.price}} $
           </figcaption>

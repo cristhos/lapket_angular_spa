@@ -32,7 +32,7 @@ export class ProductCommonComponent implements OnInit{
   product : any;
 
   //lazy-image
-  defaultImage = 'http://192.168.43.59:8080/src/assets/images/ajax-loader.gif';
+  defaultImage = '/src/assets/images/ajax-loader.gif';
   offset = 100;
 
   dealform = false;
