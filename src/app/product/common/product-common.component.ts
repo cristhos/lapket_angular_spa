@@ -19,9 +19,12 @@ declare var $: any
       margin-left: 10%;
       margin-right: 10%;
     }
-    .dropdown-content {
+    .dropdown-conf {
       min-width: 180px;
-      z-index: unset;
+    }
+    .dropdown-share{
+       min-width: 50px;
+       max-width:50px;
     }
   `]
 

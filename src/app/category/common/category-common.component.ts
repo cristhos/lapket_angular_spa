@@ -6,7 +6,7 @@ import { CategoryService } from '../service/category.service';
   template: require('./category-common.component.html'),
   styles: [`
     .fa{
-      color:#4db6ac;
+      color:#2C90BA;
     }
     .btn i{
       color:white;

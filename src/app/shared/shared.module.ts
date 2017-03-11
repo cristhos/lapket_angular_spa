@@ -10,6 +10,8 @@ import {
   FooterComponent,
   LoadingComponent,
   PageNotFoundComponent,
+  BlockLeftComponent,
+  BlockRightComponent
 } from '../core/core.component';
 
 import {
@@ -78,7 +80,7 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       LazyLoadImageModule,
       RouterModule,
       MaterializeModule,
-      FileUploadModule
+      FileUploadModule,
       ],
   declarations: [ 
     CoreDetailComponent,
@@ -106,6 +108,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductNullCommonComponent,
     SearchFormComponent,
     RegisterFinalFormComponent,
+    BlockLeftComponent,
+    BlockRightComponent
   ],
   exports:      [ 
     CoreDetailComponent,
@@ -133,6 +137,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductNullCommonComponent,
     RegisterFinalFormComponent,
     SearchFormComponent,
+    BlockLeftComponent,
+    BlockRightComponent,
     FormsModule,
     HttpModule,
     JsonpModule,

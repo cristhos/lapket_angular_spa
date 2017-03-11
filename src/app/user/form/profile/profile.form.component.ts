@@ -126,7 +126,7 @@ export class ProfileFormComponent implements OnInit{
         let img = document.createElement("img");
         img.src = result;
 
-        this.imageResizerService.resize(img, 300, 500, (resized_img)=>{ 
+        this.imageResizerService.resize(img, 100, 100, (resized_img)=>{ 
           this.file_src = resized_img;
         });
       });

@@ -20,10 +20,12 @@ import {
   SharedModule
 } from '../shared/shared.module';
 
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    
     RouterModule.forChild(PRODUCT_ROUTING)
   ],
   declarations: [
