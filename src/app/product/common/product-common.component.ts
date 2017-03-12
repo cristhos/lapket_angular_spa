@@ -23,8 +23,8 @@ declare var $: any
       min-width: 180px;
     }
     .dropdown-share{
-       min-width: 50px;
-       max-width:50px;
+       min-width: 80px;
+       max-width:80px;
     }
     
   `]
@@ -38,6 +38,7 @@ export class ProductCommonComponent implements OnInit{
   //lazy-image
   defaultImage = '/src/assets/images/ajax-loader.gif';
   offset = 100;
+  product_share_link;
 
   dealform = false;
   modalActions = new EventEmitter<string>();
@@ -50,6 +51,7 @@ export class ProductCommonComponent implements OnInit{
 
   ngOnInit(){
     //$('.materialboxed').materialbox();
+    this.product_share_link = window.location.origin + this.router.createUrlTree(['/product',this.product.id]);
   }
 
   postProductVote(product_id: number)
