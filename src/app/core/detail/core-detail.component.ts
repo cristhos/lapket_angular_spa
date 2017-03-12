@@ -5,8 +5,8 @@ import	{Observable}	from	'rxjs/Observable';
 
 @Component({
   selector: 'core',
-  template:require('./core-detail.component.html'),
-  styles: [require('./core-detail.component.css')],
+  templateUrl: './core-detail.component.html',
+  styleUrls: ['./core-detail.component.css'],
 })
 
 export class CoreDetailComponent implements OnInit{

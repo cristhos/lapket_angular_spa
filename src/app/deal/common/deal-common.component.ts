@@ -3,7 +3,7 @@ import { DealService } from '../service/deal.service';
 
 @Component({
   selector: 'deal-common',
-  template: require('./deal-common.component.html'),
+  templateUrl: './deal-common.component.html',
   styles: [`
       .message-text-right{
         background : #80cbc4;

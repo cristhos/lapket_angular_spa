@@ -7,7 +7,7 @@ import {  ChangePasswordFormModel } from './change-password.form';
 
 @Component({
   selector: 'change-form',
-  template: require('./change-password.form.component.html'),
+  templateUrl: './change-password.form.component.html',
 })
 
 export class ChangePasswordFormComponent implements OnInit{

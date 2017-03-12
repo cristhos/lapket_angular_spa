@@ -55,7 +55,9 @@ import {
   CountryService
 } from '../country/country.component';
 import {
-  CityService
+  CityService,
+  CityHomeComponent,
+  CityCommonComponent
 } from '../city/city.component';
 
 import {
@@ -111,7 +113,9 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     SearchFormComponent,
     RegisterFinalFormComponent,
     BlockLeftComponent,
-    BlockRightComponent
+    BlockRightComponent,
+    CityHomeComponent,
+    CityCommonComponent
   ],
   exports:      [ 
     CoreDetailComponent,
@@ -141,6 +145,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     SearchFormComponent,
     BlockLeftComponent,
     BlockRightComponent,
+    CityHomeComponent,
+    CityCommonComponent,
     FormsModule,
     HttpModule,
     JsonpModule,

@@ -6,7 +6,7 @@ import {  LoginFormModel } from './login.form';
 
 @Component({
   selector: 'login-form',
-  template: require('./login.form.component.html'),
+  templateUrl: './login.form.component.html',
 })
 
 export class LoginFormComponent {

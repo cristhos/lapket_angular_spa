@@ -8,7 +8,7 @@ declare var $: any
 
 @Component({
   selector: 'product-common',
-  template:require('./product-common.component.html'),
+  templateUrl: './product-common.component.html',
   styles : [`
     figure img {
       border-radius: 10px;
@@ -26,6 +26,7 @@ declare var $: any
        min-width: 50px;
        max-width:50px;
     }
+    
   `]
 
 })

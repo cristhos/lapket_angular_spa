@@ -3,7 +3,7 @@ import { ProductService } from '../../product/service/product.service';
 
 @Component({
   selector: 'list-search',
-  template: require('./search-list.component.html'),
+  templateUrl: './search-list.component.html',
   styles: [`
   `],
 })

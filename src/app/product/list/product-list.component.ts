@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 @Component({
   selector: 'all-product',
-  template: require('./product-list.component.html'),
+  templateUrl: './product-list.component.html',
   styles : [`
     
 `]

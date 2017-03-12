@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 
 @Component({
   selector: 'product-null-common',
-  template:require('./product-null-common.component.html'),
+  templateUrl: './product-null-common.component.html',
   styles : [`
 
   `]

@@ -3,7 +3,7 @@ import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'user-suggestion-common',
-  template: require('./user-suggestion-common.component.html'),
+  templateUrl: './user-suggestion-common.component.html',
   styles : [`
     .collection-item{
       position: relative;

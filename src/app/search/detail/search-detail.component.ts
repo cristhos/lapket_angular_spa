@@ -5,7 +5,7 @@ import { ProductService } from '../../product/product.component';
 
 @Component({
   selector: 'search-detail',
-  template: require('./search-detail.component.html'),
+  templateUrl: './search-detail.component.html',
   styles: [`
     
   `],

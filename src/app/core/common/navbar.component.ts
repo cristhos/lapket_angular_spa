@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
-  template: require('./navbar.component.html'),
+  templateUrl: './navbar.component.html',
   styles: [`
 
   .header-search-wrapper {

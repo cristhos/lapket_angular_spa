@@ -177,6 +177,14 @@ textarea.materialize-textarea {
 :-ms-input-placeholder { /* Internet Explorer 10+ */
       color: black;
 }
-.dropdown-content{
-  z-index: 9999;
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #2C90BA;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+.collection .collection-item.active {
+    background-color: #e0e0e0;
 }

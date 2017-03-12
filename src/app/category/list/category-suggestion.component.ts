@@ -3,7 +3,7 @@ import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'category-suggestion',
-  template: require('./category-suggestion.component.html'),
+  templateUrl: './category-suggestion.component.html',
   styles: [`
   `],
 })

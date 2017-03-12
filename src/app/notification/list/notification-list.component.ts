@@ -3,7 +3,7 @@ import { NotificationService } from '../service/notification.service';
 
 @Component({
   selector: 'notification-list',
-  template: require('./notification-list.component.html'),
+  templateUrl: './notification-list.component.html',
   styles: [`
 
   `]

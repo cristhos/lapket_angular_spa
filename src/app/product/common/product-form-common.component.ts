@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-form-common',
-  template:require('./product-form-common.component.html'),
+  templateUrl: './product-form-common.component.html',
   styles : [``]
 
 })

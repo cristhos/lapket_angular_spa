@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'core-footer',
-  template: require('./footer.component.html'),
+  templateUrl: './footer.component.html',
   styles: [`
       footer a {
           color:#073648;

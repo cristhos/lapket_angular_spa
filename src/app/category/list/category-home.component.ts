@@ -3,7 +3,7 @@ import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'home-category',
-  template: require('./category-home.component.html'),
+  templateUrl: './category-home.component.html',
   styles: [`
   `],
 })

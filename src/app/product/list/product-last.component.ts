@@ -5,9 +5,11 @@ import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'last-product',
-  template: require('./product-last.component.html'),
+  templateUrl: './product-last.component.html',
   styles : [`
-    
+    :host/deep/ .card .card-image{
+      height:300px;
+    }
 `]
 })
 

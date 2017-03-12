@@ -7,7 +7,7 @@ import { DealService } from '../../deal/service/deal.service';
 
 @Component({
   selector: 'deal-form',
-  template: require('./deal.form.component.html'),
+  templateUrl: './deal.form.component.html',
   styles: [`
 
   `]

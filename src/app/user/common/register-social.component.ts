@@ -6,7 +6,7 @@ declare let FB: any;
 
 @Component({
   selector: 'register-social',
-  template:require('./register-social.component.html')
+  templateUrl: './register-social.component.html'
 })
 
 export class RegisterSocialComponent implements OnInit {

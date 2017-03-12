@@ -4,7 +4,7 @@ import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'user-sugestion',
-  template: require('./user-suggestion.component.html'),
+  templateUrl: './user-suggestion.component.html',
 })
 export class UserSuggestionComponent implements OnInit{
   suggestions: any = [];

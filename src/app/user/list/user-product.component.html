@@ -6,24 +6,23 @@
       </div>
       <follow-category  *ngIf=" user_detail.is_author == true"class="col s12 m3 hide-on-med-and-down"></follow-category>
       <menu-category  *ngIf=" user_detail.is_author != true"class="col s12 m3 hide-on-med-and-down"></menu-category>
-      <div *ngIf="products != null" class="col s12 m6"
-        infinite-scroll [infiniteScrollDistance]="2"
-        [infiniteScrollUpDistance]="1.5"
-        [infiniteScrollThrottle]="3000"
-        (scrolled)="onScrollDown()">
-        
-        <product-form *ngIf="user_detail.is_author == true" ></product-form> 
-        
-        <div *ngFor="let product of products" >
-          <product-common [product]="product"></product-common>
+      <div class="col s12 m6">
+        <div *ngIf="products != null" 
+          infinite-scroll [infiniteScrollDistance]="2"
+          [infiniteScrollUpDistance]="1.5"
+          [infiniteScrollThrottle]="3000"
+          (scrolled)="onScrollDown()">
+          
+          <product-form *ngIf="user_detail.is_author == true" ></product-form> 
+          
+          <div *ngFor="let product of products" >
+            <product-common [product]="product"></product-common>
+          </div>
+          <div *ngIf="products_loading == false">
+              <product-null-common *ngIf="products.length < 1"></product-null-common>
+          </div>
+          <loading *ngIf="products_loading == true"></loading>
         </div>
-        <div *ngIf="products_loading == false">
-             <product-null-common *ngIf="products.length < 1"></product-null-common>
-        </div>
-      </div>
-
-      <div *ngIf="products_loading == true" class="col s12 m6">
-        <loading></loading>
       </div>
     </div>
 </div>

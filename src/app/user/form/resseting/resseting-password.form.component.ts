@@ -7,7 +7,7 @@ import {  RessetingPasswordFormModel } from './resseting-password.form';
 
 @Component({
   selector: 'resseting-form',
-  template: require('./resseting-password.form.component.html'),
+  templateUrl: './resseting-password.form.component.html',
 })
 
 export class RessetingPasswordFormComponent {

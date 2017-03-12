@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'site-conditions',
-  template:require('./condition.component.html'),
+  templateUrl: './condition.component.html',
 })
 
 export class ConditionComponent {
