@@ -5,7 +5,7 @@ import { DealService } from '../../deal/service/deal.service';
 
 @Component({
   selector: 'deal-conversation',
-  template: require('./deal-conversation.component.html'),
+  templateUrl: './deal-conversation.component.html',
 })
 
 export class DealConversationComponent implements OnInit{

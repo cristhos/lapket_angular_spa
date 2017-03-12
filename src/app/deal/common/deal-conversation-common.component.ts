@@ -2,7 +2,7 @@ import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'deal-conversation-common',
-  template: require('./deal-conversation-common.component.html'),
+  template: './deal-conversation-common.component.html',
   styles : [`
 
   `]

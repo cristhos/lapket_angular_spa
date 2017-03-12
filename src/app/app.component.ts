@@ -8,15 +8,8 @@ import	{Observable}	from	'rxjs/Observable';
 
 @Component({
   selector: 'my-app',
-  template: `
-             <nav-bar [user]="user"></nav-bar>
-             <main>
-                <router-outlet >
-                </router-outlet>
-             </main>
-             <core-footer  [user]="user" ></core-footer>
-  `,
-  styles : [require('./app.component.css')],
+  templateUrl:'./app.component.html',
+  styleUrls : ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit{

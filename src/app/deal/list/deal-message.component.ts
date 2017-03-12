@@ -6,7 +6,7 @@ import { DealService } from '../../deal/service/deal.service';
 
 @Component({
   selector: 'deal-message',
-  template: require('./deal-message.component.html'),
+  templateUrl: './deal-message.component.html',
   styles: [`
       .message-list-auto{
         height: 15rem;

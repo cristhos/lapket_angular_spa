@@ -5,7 +5,7 @@ import { ProductService } from '../../product/service/product.service';
 
 @Component({
   selector: 'product-detail',
-  template: require('./product-detail.component.html'),
+  templateUrl: './product-detail.component.html',
 })
 
 export class ProductDetailComponent implements OnInit, OnDestroy{

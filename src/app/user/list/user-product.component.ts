@@ -6,7 +6,7 @@ import { ProductService } from '../../product/service/product.service';
 
 @Component({
   selector: 'user-product',
-  template: require('./user-product.component.html'),
+  templateUrl: './user-product.component.html',
   styles : [`
 
   `]
@@ -54,8 +54,8 @@ export class UserProductComponent implements OnInit, OnDestroy{
   }
   getProductAuthor(username: any)
   {
-    this.products_loading = true;
     if(this.page <= this.pages){
+      this.products_loading = true;
       this.productService.getProductAuthor(username,this.page).subscribe(
           data => {
             this.pages = data.pages;

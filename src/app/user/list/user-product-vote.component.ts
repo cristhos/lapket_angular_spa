@@ -6,7 +6,7 @@ import { ProductService } from '../../product/service/product.service';
 
 @Component({
   selector: 'user-product-vote',
-  template: require('./user-product.component.html'),
+  templateUrl: './user-product.component.html',
 })
 
 export class UserProductVoteComponent implements OnInit, OnDestroy{
@@ -14,18 +14,25 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
   products = [];
   sub: any;
   page ;
+  pages;
   products_loading : boolean;
+  
   constructor(
     private userService : UserService,
     private productService: ProductService,
     private route: ActivatedRoute
   ){}
+
   ngOnInit() {
+    this.page = 1;
+    this.pages = 2;
     this.getUserDetail();
   }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
+  
   getUserDetail()
   {
     this.sub = this.route.params.subscribe(params => {
@@ -41,6 +48,7 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
 
   getProductVoteAuteur(username: any)
   {
+    if(this.page <= this.pages){
     this.products_loading = true;
     this.productService.getProductVoteBy(username).subscribe(
         data => {
@@ -61,6 +69,7 @@ export class UserProductVoteComponent implements OnInit, OnDestroy{
           this.products_loading = false;
         } 
     );
+  }
 
   }
 

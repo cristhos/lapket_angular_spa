@@ -8,7 +8,7 @@ declare var $: any
 
 @Component({
   selector: 'product-common',
-  template:require('./product-common.component.html'),
+  templateUrl: './product-common.component.html',
   styles : [`
     figure img {
       border-radius: 10px;
@@ -19,10 +19,14 @@ declare var $: any
       margin-left: 10%;
       margin-right: 10%;
     }
-    .dropdown-content {
+    .dropdown-conf {
       min-width: 180px;
-      z-index: unset;
     }
+    .dropdown-share{
+       min-width: 80px;
+       max-width:80px;
+    }
+    
   `]
 
 })
@@ -34,6 +38,7 @@ export class ProductCommonComponent implements OnInit{
   //lazy-image
   defaultImage = '/src/assets/images/ajax-loader.gif';
   offset = 100;
+  product_share_link;
 
   dealform = false;
   modalActions = new EventEmitter<string>();
@@ -46,6 +51,7 @@ export class ProductCommonComponent implements OnInit{
 
   ngOnInit(){
     //$('.materialboxed').materialbox();
+    this.product_share_link = window.location.origin + this.router.createUrlTree(['/product',this.product.id]);
   }
 
   postProductVote(product_id: number)

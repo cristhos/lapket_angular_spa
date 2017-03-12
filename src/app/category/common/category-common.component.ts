@@ -3,10 +3,10 @@ import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'category-common',
-  template: require('./category-common.component.html'),
+  templateUrl: './category-common.component.html',
   styles: [`
     .fa{
-      color:#4db6ac;
+      color:#2C90BA;
     }
     .btn i{
       color:white;

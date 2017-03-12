@@ -15,8 +15,8 @@ export class CityService {
     this.baseUrl = this.baseUrl + '/api/user';
   }
 
-  getCities(){
-    this.url = this.baseUrl + '/cities.json';
+  getCities(limit){
+    this.url = this.baseUrl + '/cities.json?limit='+limit;
     return this.http
                .get(this.url)
                .map(res => res.json())

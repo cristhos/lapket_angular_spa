@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'notification-common',
-  template: require('./notification-common.component.html'),
+  templateUrl: './notification-common.component.html',
   styles: [`
 
   `],

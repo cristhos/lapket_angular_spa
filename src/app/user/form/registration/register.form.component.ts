@@ -8,7 +8,7 @@ import {  RegisterFormModel } from './register.form';
 
 @Component({
   selector: 'register-form',
-  template: require('./register.form.component.html'),
+  templateUrl: './register.form.component.html',
 })
 
 export class RegisterFormComponent {

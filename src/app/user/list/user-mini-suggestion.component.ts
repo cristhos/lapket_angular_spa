@@ -3,7 +3,7 @@ import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'user-mini-sugestion',
-  template: require('./user-mini-suggestion.component.html'),
+  templateUrl: './user-mini-suggestion.component.html',
   styles: [`
   `],
 

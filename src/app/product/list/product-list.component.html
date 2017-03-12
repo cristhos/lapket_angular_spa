@@ -1,7 +1,5 @@
 <div *ngIf="products != null"  class="row">
-  <div class="col s12 m3 right">
-      <user-mini-sugestion ></user-mini-sugestion>
-  </div>
+  <core-block-right class="col s12 m3 right"></core-block-right>
   <follow-category class="col s12 m3 hide-on-med-and-down"></follow-category>
   <div class="col s12 m6"
         infinite-scroll [infiniteScrollDistance]="2"

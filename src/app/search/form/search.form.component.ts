@@ -8,7 +8,7 @@ import { ProductService } from '../../product/service/product.service';
 
 @Component({
   selector: 'search-form',
-  template: require('./search.form.component.html'),
+  templateUrl: './search.form.component.html',
   styles: [`
 
     #search_text{

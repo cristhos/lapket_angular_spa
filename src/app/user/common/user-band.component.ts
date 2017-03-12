@@ -4,7 +4,7 @@ import { UserService } from '../service/user.service';
 @Component({
   selector: 'user-band',
   providers: [UserService],
-  template:require('./user-band.component.html'),
+  templateUrl: './user-band.component.html',
   styles : [`
     .card-action, card-content{
        padding: 0px;

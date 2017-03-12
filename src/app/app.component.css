@@ -2,7 +2,7 @@
   width: 80%;
 }
 .btn, .btn-large {
-    background-color:#4db6ac;
+    background-color:#2C90BA;
     padding: 0 1rem;
 }
 
@@ -10,8 +10,11 @@
   padding: 0 1rem;
 }
 
-.btn-flat:focus, .btn-flat:hover {
-    color: #4db6ac
+.btn-flat:focus, .btn-flat:hover{
+    color: #2C90BA;
+}
+.btn:hover,.btn:focus,.btn-large:hover,.btn-large:focus{
+    background: #2C90BA;
 }
 
 body{
@@ -23,7 +26,7 @@ nav {
   background-color: #fff ;
 }
 nav .brand-logo {
-  color: #4db6ac;
+  color: #2C90BA;;
 }
 nav a {
   position: relative;
@@ -53,20 +56,20 @@ nav a {
   border-radius: 5px;
   float:left;
   margin-right: 10px;
-  color:#4db6ac;
+  color:#2C90BA;;
 }
 .avatar-nav{
    border-radius: 19px;
    width: 30px;
    height: 30px;
-   color: #4db6ac;
+   color: #2C90BA;
    overflow: hidden;
 }
 
 .profile-pict{
   width: 160px;
   height: 160px;
-  color: #4db6ac;
+  color: #2C90BA;
   
 }
 .mini-profile-pict{
@@ -104,7 +107,7 @@ nav a {
 }
 
 a {
-  color: #4db6ac;
+  color: #2C90BA;
 }
 strong{
   color: black;
@@ -173,4 +176,15 @@ textarea.materialize-textarea {
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
       color: black;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #2C90BA;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+.collection .collection-item.active {
+    background-color: #e0e0e0;
 }

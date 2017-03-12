@@ -3,7 +3,7 @@ import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'user-mini-detail',
-  template: require('./user-mini-detail.component.html'),
+  templateUrl: './user-mini-detail.component.html',
 })
 
 export class UserMiniDetailComponent implements OnInit{

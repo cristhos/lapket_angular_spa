@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'site-about',
-  template:require('./about.component.html'),
+  templateUrl:'./about.component.html',
   styles : [
     `
       .desc-pict{

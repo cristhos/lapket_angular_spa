@@ -9,7 +9,7 @@ import {  CityService } from '../../../city/service/city.service';
 
 @Component({
   selector: 'register-final-form',
-  template: require('./register-final.form.component.html'),
+  templateUrl: './register-final.form.component.html',
 })
 
 export class RegisterFinalFormComponent implements OnInit{

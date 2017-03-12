@@ -12,7 +12,7 @@ import {  CityService } from '../../../city/service/city.service';
 
 @Component({
   selector: 'profile-form',
-  template: require('./profile.form.component.html'),
+  templateUrl: './profile.form.component.html',
 })
 
 export class ProfileFormComponent implements OnInit{
@@ -82,7 +82,7 @@ export class ProfileFormComponent implements OnInit{
   onSubmit() {
     let is_upload = false;
     this.uploader.uploadAll();
-      this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             let data = JSON.parse(response);
             this.model.picture = data.id;
 
@@ -126,7 +126,7 @@ export class ProfileFormComponent implements OnInit{
         let img = document.createElement("img");
         img.src = result;
 
-        this.imageResizerService.resize(img, 300, 500, (resized_img)=>{ 
+        this.imageResizerService.resize(img, 96, 96, (resized_img)=>{ 
           this.file_src = resized_img;
         });
       });

@@ -3,6 +3,7 @@ import { CommonModule }        from '@angular/common';
 import { FormsModule }         from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {ShareButtonsModule} from 'ng2-sharebuttons';
 
 import {
   CoreDetailComponent,
@@ -10,6 +11,8 @@ import {
   FooterComponent,
   LoadingComponent,
   PageNotFoundComponent,
+  BlockLeftComponent,
+  BlockRightComponent
 } from '../core/core.component';
 
 import {
@@ -52,7 +55,9 @@ import {
   CountryService
 } from '../country/country.component';
 import {
-  CityService
+  CityService,
+  CityHomeComponent,
+  CityCommonComponent
 } from '../city/city.component';
 
 import {
@@ -78,7 +83,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       LazyLoadImageModule,
       RouterModule,
       MaterializeModule,
-      FileUploadModule
+      FileUploadModule,
+      ShareButtonsModule.forRoot()
       ],
   declarations: [ 
     CoreDetailComponent,
@@ -106,6 +112,10 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductNullCommonComponent,
     SearchFormComponent,
     RegisterFinalFormComponent,
+    BlockLeftComponent,
+    BlockRightComponent,
+    CityHomeComponent,
+    CityCommonComponent
   ],
   exports:      [ 
     CoreDetailComponent,
@@ -133,6 +143,10 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     ProductNullCommonComponent,
     RegisterFinalFormComponent,
     SearchFormComponent,
+    BlockLeftComponent,
+    BlockRightComponent,
+    CityHomeComponent,
+    CityCommonComponent,
     FormsModule,
     HttpModule,
     JsonpModule,

@@ -5,7 +5,7 @@ import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'user-following',
-  template: require('./user-following.component.html'),
+  templateUrl: './user-following.component.html',
 })
 
 export class UserFollowingComponent implements OnInit, OnDestroy {

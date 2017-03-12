@@ -12,7 +12,7 @@ import { ImageResizerService } from '../../utils/image-resizer.service';
 
 @Component({
   selector: 'product-form',
-  template: require('./product.form.component.html'),
+  templateUrl: './product.form.component.html',
   styles: [`
     .list-auto{
       height: 300px;

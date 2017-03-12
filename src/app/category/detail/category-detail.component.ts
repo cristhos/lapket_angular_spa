@@ -14,7 +14,7 @@ import { slideInDownAnimation } from '../../animate';
 
 @Component({
   selector: 'category-detail',
-  template: require('./category-detail.component.html'),
+  templateUrl: './category-detail.component.html',
   styles: [`
       .card{
         height: 200px;
