@@ -14,6 +14,7 @@
          <ul  *ngIf="user == null" class="right ">
              <li><a [routerLink]="['/login']"  class="btn-flat">Connexion</a></li>
          </ul> 
+        
         <ul *ngIf="user != null" class="right">
              <li> 
               <a class="btn-flat "[routerLink]="['/deal/conversation']" title="Messages" routerLinkActive="active" >
@@ -27,6 +28,7 @@
                         <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
               </a>
              </li>
+          
              <li>
               <a materialize="dropdown" href='#' title="{{user.username}}"class="btn-floating" routerLinkActive="active"  data-activates='userdrop'>
                 <i *ngIf="user.profile_picture == null" class="fa fa-user fa-4x circle"></i>

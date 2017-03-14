@@ -25,7 +25,7 @@ body{
 nav {
   background-color: #fff ;
 }
-nav .brand-logo {
+nav .brand-logo, .logo {
   color: #2C90BA;;
 }
 nav a {
@@ -187,4 +187,7 @@ textarea.materialize-textarea {
 }
 .collection .collection-item.active {
     background-color: #e0e0e0;
+}
+.progress .determinate {
+    background-color: #2C90BA;
 }

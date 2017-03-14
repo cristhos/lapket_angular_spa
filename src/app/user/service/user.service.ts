@@ -42,8 +42,7 @@ export class UserService {
     return this.client_secret;
   }
 
-  login( user : any){
-
+  login(user : any){
       this.tokenUrl = this.tokenUrl 
                       +"?client_id="+this.getClientId()
                       +"&client_secret="+this.getClientSecret()

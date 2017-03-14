@@ -32,8 +32,7 @@
           <register-final-form ></register-final-form>
         </div>
         <div *ngIf="user.compte_state == true">
-            <category-suggestion *ngIf="user.nb_category_follows < 3"></category-suggestion>
-            <all-product *ngIf="user.nb_category_follows >= 3"></all-product>
+            <all-product></all-product>
         </div>
       </div>
   </div>

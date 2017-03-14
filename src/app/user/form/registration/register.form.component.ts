@@ -16,13 +16,14 @@ export class RegisterFormComponent {
   loading = false;
   constructor(private userService : UserService, public router: Router) {}
 
-  model = new RegisterFormModel(null,null,null);
+  model = new RegisterFormModel(null,null);
   submitted = false;
   onSubmit() {
     this.loading = true;
     this.userService.register(this.model).subscribe(
         data => {
-          this.userService.login(this.model).subscribe(
+          
+          this.userService.login(data).subscribe(
               data => {
                 localStorage.clear();
                 localStorage.setItem("authent" , "O");
@@ -46,7 +47,7 @@ export class RegisterFormComponent {
         },
         error => {
           console.log(error);
-          this.model = new RegisterFormModel(this.model.username,this.model.email,"");
+          this.model = new RegisterFormModel(this.model.email,"");
           this.loading = false;
         },
         () => {

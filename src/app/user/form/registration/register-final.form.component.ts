@@ -18,6 +18,9 @@ export class RegisterFinalFormComponent implements OnInit{
   countries;
   cities;
   loading = false;
+  form_completed : boolean;
+  countries_loading : boolean;
+  cities_loading : boolean;
   genders = [
             {
               'type':'m',
@@ -37,10 +40,11 @@ export class RegisterFinalFormComponent implements OnInit{
 
   ngOnInit()
   {
+    this.checkForm();
     this.getCountries();
   }
 
-  model = new RegisterFinalFormModel(null,null,null,null,null);
+  model = new RegisterFinalFormModel(null,null,null,null);
   submitted = false;
   onSubmit() {
     this.loading = true;
@@ -51,7 +55,7 @@ export class RegisterFinalFormComponent implements OnInit{
         },
         error => {
           console.log(error);
-          this.model = new RegisterFinalFormModel(this.model.fullName,this.model.country,this.model.city,this.model.gender,this.model.categories);
+          this.model = new RegisterFinalFormModel(this.model.fullName,this.model.country,this.model.city,this.model.gender);
         },
         () =>{
           console.log("finish");
@@ -63,37 +67,61 @@ export class RegisterFinalFormComponent implements OnInit{
   get diagnostic() { return JSON.stringify(this.model); }
 
   getCountries (){
+    this.countries_loading = true;
     this.countryService.getCountries().subscribe(
         data => {
           this.countries = data._embedded.items;
+          this.countries_loading = false;
         },
         error => {
           console.log(error);
+          this.countries_loading = false;
         },
         () =>{
           console.log("finish");
+          this.countries_loading = false;
         }
     );
+    this.checkForm();
   }
 
   getCitiesCountry(country_id)
   {
+    this.cities_loading = true;
       this.cityService.getCitiesCountry(country_id).subscribe(
         data => {
           this.cities = data._embedded.items;
+          this.cities_loading = false;
         },
         error => {
           console.log(error);
+          this.cities_loading = false;
         },
         () =>{
           console.log("finish");
+          this.cities_loading = false;
         }
     );
+    this.checkForm();
   }
 
   onSelect($event)
   {
     this.getCitiesCountry($event.target.value);
+    this.checkForm();
+  }
+
+  onSelectCity($event)
+  {
+    this.checkForm();
+  }
+
+  checkForm(){
+    if(this.model.fullName != null && this.model.gender != null && this.model.country != null && this.model.city != null ){
+      this.form_completed = true;
+    }else{
+      this.form_completed = false;
+    }
   }
 
 }
