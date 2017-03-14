@@ -2,9 +2,8 @@
       <a [routerLink]="['/user',suggestion.username ]" [title]="suggestion.full_name">
         <i *ngIf="suggestion.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
         <img class="avatar-profile-pict  avatar" *ngIf="suggestion.profile_picture != null" src="{{suggestion.profile_picture.web_path}}" alt="{{suggestion.profile_picture.alt}}"/>
-        <strong class="title">{{ suggestion.full_name}}</strong><em> @{{ suggestion.username }}</em>
+        <span class="truncate"><strong class="title">{{ suggestion.full_name}}</strong><em> @{{ suggestion.username }}</em></span>
       </a>
-      <br >
       <button *ngIf="suggestion.is_follow_it == false" (click)="postFollow(suggestion.id)" class="btn ">
         <i *ngIf="loading == false" class="fa fa-user-plus"></i>
         Suivre

@@ -27,8 +27,8 @@ export class DealConversationComponent implements OnInit{
   }
 
   getDealMyConversations(){
-     this.conversations_loading = true;
      if(this.page <= this.pages ){
+       this.conversations_loading = true;
         this.dealService.getMyDealConversations(this.page).subscribe(
           data => {
              this.total = data.total;

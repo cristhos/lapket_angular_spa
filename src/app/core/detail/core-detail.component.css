@@ -2,3 +2,9 @@
 {
  width :100%;
 }
+.parallax-container {
+    height: 300px;
+}
+.border{
+    box-shadow: 2px white
+}
