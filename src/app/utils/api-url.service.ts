@@ -7,7 +7,8 @@ export class ApiUrlService {
   
   getBaseUrl(){
     if (environment.production) {
-      this.baseUrl = "https://apis.lapket.com";
+      //this.baseUrl = "https://apis.lapket.com";
+      this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
     } else {
       
       this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
