@@ -35,7 +35,11 @@ export class LoginFormComponent {
              let redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/';
              this.router.navigate([redirect]);
            }
-          window.location.reload();
+           let win = (window as any);
+           if(win.location.search !== '?loaded' ) {
+              win.location.search = '?loaded';
+               win.location.reload();
+           }
         },
         error => {
           this.loading = false;
