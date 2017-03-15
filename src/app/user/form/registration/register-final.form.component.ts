@@ -92,6 +92,7 @@ export class RegisterFinalFormComponent implements OnInit{
         data => {
           this.cities = data._embedded.items;
           this.cities_loading = false;
+          this.resolveCountry();
         },
         error => {
           console.log(error);
@@ -121,6 +122,13 @@ export class RegisterFinalFormComponent implements OnInit{
       this.form_completed = true;
     }else{
       this.form_completed = false;
+    }
+  }
+
+  resolveCountry(){
+    //resolve mobile loading 
+    if(this.model.country != null){
+      this.getCitiesCountry(this.model.country);
     }
   }
 

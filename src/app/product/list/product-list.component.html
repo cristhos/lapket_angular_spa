@@ -9,10 +9,11 @@
     <div *ngFor="let product of products " >
       <product-common [product]="product"></product-common>
     </div>
+    <div *ngIf="product_loading == false">
+        <product-null-common *ngIf="products.length < 1" ></product-null-common>
+    </div>
   </div>
-  <div *ngIf="product_loading == false">
-    <product-null-common *ngIf="products.length < 1" class="col s12 m6"></product-null-common>
-  </div>
+
 </div>
 <div *ngIf="product_loading == true">
     <loading></loading>

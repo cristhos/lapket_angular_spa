@@ -69,7 +69,7 @@ export class AppComponent implements AfterViewInit{
   private subscribeToData(): void {
       if(localStorage.getItem("authent") == "O")
       {
-          this.timerSub = Observable.timer(10000).first().subscribe(
+          this.timerSub = Observable.timer(10000).subscribe(
             () => {
               this.getInitialUser();
             }

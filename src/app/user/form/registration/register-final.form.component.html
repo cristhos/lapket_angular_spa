@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col s12 m6 offset-m3">
+    <div class="col s12 m8 offset-m2">
       <div class="card-panel">
           <h1 class="center logo">lapket</h1>
       		<h5 class="center">Completer votre inscription </h5>
@@ -9,7 +9,7 @@
             </div>
           <form (ngSubmit)="onSubmit()" #albumForm="ngForm" >
              <div class="input-field col s12 m12">
-                <i class="fa fa-envelope fa-cicle prefix"></i>
+                <i class="fa fa-user fa-cicle prefix"></i>
                 <label for="fullName">Nom complet</label>
                 <input (keyup)="checkForm()" placeholder="Nom complet" id="fullName" type="text" class="form-control" required [(ngModel)]="model.fullName" name="fullName" #name="ngModel" >
             </div>
