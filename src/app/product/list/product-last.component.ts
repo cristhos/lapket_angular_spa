@@ -7,9 +7,7 @@ import { ProductService } from '../service/product.service';
   selector: 'last-product',
   templateUrl: './product-last.component.html',
   styles : [`
-    :host/deep/ .card .card-image{
-      height:300px;
-    }
+    
 `]
 })
 
