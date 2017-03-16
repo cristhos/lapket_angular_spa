@@ -11,9 +11,12 @@ import { Router } from '@angular/router';
     display: inline-block;
   }
 
-#userdrop {
+  #userdrop {
     min-width: 160px;
-}
+  }
+  .btn-floating i {
+      color: #2C90BA;
+    }
   `],
   changeDetection:	ChangeDetectionStrategy.OnPush
 })

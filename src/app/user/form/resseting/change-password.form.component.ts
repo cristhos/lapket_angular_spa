@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { NgForm }    from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import {  UserService } from '../../service/user.service';
 import {  ChangePasswordFormModel } from './change-password.form';
@@ -10,20 +10,29 @@ import {  ChangePasswordFormModel } from './change-password.form';
   templateUrl: './change-password.form.component.html',
 })
 
-export class ChangePasswordFormComponent implements OnInit{
+export class ChangePasswordFormComponent implements OnInit , OnDestroy{
   loading = false;
   authent = false;
   change : boolean;
+  sub;
+  tokenConfirmation;
   constructor(
         private userService : UserService,
-        public router: Router
+        public router: Router,
+        private route : ActivatedRoute
   ){}
 
   ngOnInit(){
     if(localStorage.getItem('access_token')) this.authent = true;
+    this.sub = this.route.params.subscribe(params => {
+       this.model.tokenConfirmation = params['tokenConfirmation'];
+    });
+  }
+  ngOnDestroy(){
+    if(this.sub != null) this.sub.unsubscribe();
   }
 
-  model = new ChangePasswordFormModel(null,null);
+  model = new ChangePasswordFormModel(null,null,null);
 
   onSubmit() {
     this.loading = true;
@@ -34,7 +43,7 @@ export class ChangePasswordFormComponent implements OnInit{
             this.router.navigate(['/']);
             window.location.reload();
           }else{
-            this.model = new ChangePasswordFormModel(this.model.password,null);
+            this.model = new ChangePasswordFormModel(this.model.password,null,this.model.tokenConfirmation);
           }
         },
         error => {

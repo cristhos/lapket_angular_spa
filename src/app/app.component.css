@@ -26,7 +26,10 @@ nav {
   background-color: #fff ;
 }
 nav .brand-logo, .logo {
-  color: #2C90BA;;
+  color: #2C90BA;
+}
+.site-color{
+   color:#2C90BA;
 }
 nav a {
   position: relative;
@@ -157,7 +160,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 }
 
 .input-field input, .input-field textarea, .input-field select{
-  border-radius : 3px;
+  border-radius : 2px;
   background-color: #eeeeee;
   border:none;
 }
@@ -165,6 +168,26 @@ textarea.materialize-textarea {
     min-height: 2rem;
     padding: 0.2rem 0 0.2rem 0;
 }
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #2C90BA;
+}
+
+.input-field .prefix.active {
+  color: #2C90BA;
+}
+
 ::-webkit-input-placeholder { /* WebKit browsers */
       color: black;
 }
@@ -190,4 +213,10 @@ textarea.materialize-textarea {
 }
 .progress .determinate {
     background-color: #2C90BA;
+}
+.ng-valid[required], .ng-valid.required { 
+  border-right: 5px solid #42A948; /* green */ 
+} 
+.ng-invalid:not(form) { 
+  border-right: 5px solid #a94442; /* red */ 
 }
