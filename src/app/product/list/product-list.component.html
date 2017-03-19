@@ -6,8 +6,10 @@
         [infiniteScrollThrottle]="1000"
         (scrolled)="onScrollDown()">
      <product-form></product-form>    
-    <div *ngFor="let product of products " >
+    <div *ngFor="let product of products, let i = index" >
       <product-common [product]="product"></product-common>
+      <user-mini-sugestion *ngIf="i == 1" class="hide-on-large-only"></user-mini-sugestion>
+      <menu-category  *ngIf="i == 3" class="hide-on-large-only"></menu-category>
     </div>
     <div *ngIf="product_loading == false">
         <product-null-common *ngIf="products.length < 1" ></product-null-common>

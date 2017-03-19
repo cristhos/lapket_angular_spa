@@ -15,10 +15,10 @@ declare var $: any
       width : 100%;
       background-size: cover;
     }
-    .card .card-image .card-title {
-      text-shadow : 4px 2px 4px black;
-      margin-left: 10%;
-      margin-right: 10%;
+    .price {
+      text-shadow : 1px 1px 1px red;
+      color:red;
+      font-size:20px;
     }
     .dropdown-conf {
       min-width: 180px;

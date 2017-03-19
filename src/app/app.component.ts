@@ -111,6 +111,7 @@ export class AppComponent implements OnInit{
           
         },
         error =>{
+          window.location.reload();
           console.log(error)
         },
         () => console.log("finish")

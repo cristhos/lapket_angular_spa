@@ -3,23 +3,20 @@
       <div id="index-banner" class="parallax-container">
           <div class="section no-pad-bot">
             <div class="container">
-               <h3 class="border header center site-color">Boostez votre business</h3>
-               <h4 class="bprder header center site-color">Une experience formidable</h4>
+               <br>
+               <h3 class="border header center site-color">Automatisez le business local</h3>
+               <h4 class="bprder header center site-color">Visitez le produit proche</h4>
+               <br>
               <div class="center">
+                <a [routerLink]="['/category']" class="btn">EXPLORER</a>
                 <a [routerLink]="['/register']" class="btn">CREER UN COMPTE</a>
               </div>
             </div>
              <div><img class="home-pict parallax" src="../../../assets/images/font-ground.png"></div>
           </div>
       </div>
-      
-      <div >
-        <br>
-        <home-category></home-category>
-        <br>
+      <div class="container">
         <last-product></last-product>
-        <br>
-        <home-city></home-city>
       </div>
   </div>
   <div *ngIf="authent == true" class="container row">

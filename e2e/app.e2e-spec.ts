@@ -1,6 +1,6 @@
 import { AnclitestPage } from './app.po';
 
-describe('anclitest App', () => {
+describe('angular2spa App', () => {
   let page: AnclitestPage;
 
   beforeEach(() => {

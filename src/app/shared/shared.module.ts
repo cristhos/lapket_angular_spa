@@ -33,7 +33,6 @@ import {
   CategoryDescoveryComponent,
   CategorySuggestionComponent,
   CategoryMenuComponent,
-  CategoryHomeComponent,
   CategoryFollowComponent,
   CategoryCommonComponent,
 } from '../category/category.component';
@@ -56,7 +55,6 @@ import {
 } from '../country/country.component';
 import {
   CityService,
-  CityHomeComponent,
   CityCommonComponent
 } from '../city/city.component';
 
@@ -107,7 +105,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     CategoryDescoveryComponent,
     CategorySuggestionComponent,
     CategoryMenuComponent,
-    CategoryHomeComponent,
     CategoryFollowComponent,
     CategoryCommonComponent,
     ProductCommonComponent,
@@ -119,7 +116,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     RegisterFinalFormComponent,
     BlockLeftComponent,
     BlockRightComponent,
-    CityHomeComponent,
     CityCommonComponent
   ],
   exports:      [ 
@@ -138,7 +134,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     CategoryDescoveryComponent,
     CategorySuggestionComponent,
     CategoryMenuComponent,
-    CategoryHomeComponent,
     CategoryFollowComponent,
     CategoryCommonComponent,
     ProductCommonComponent,
@@ -150,7 +145,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     SearchFormComponent,
     BlockLeftComponent,
     BlockRightComponent,
-    CityHomeComponent,
     CityCommonComponent,
     FormsModule,
     HttpModule,

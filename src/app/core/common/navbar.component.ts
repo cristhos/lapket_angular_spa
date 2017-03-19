@@ -17,7 +17,7 @@ declare var $: any
     min-width: 160px;
   }
   .btn-floating i {
-      color: #2C90BA;
+      color: #0069ff;
     }
   `],
   changeDetection:	ChangeDetectionStrategy.OnPush

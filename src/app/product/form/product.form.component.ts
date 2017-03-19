@@ -23,7 +23,7 @@ import { ImageResizerService } from '../../utils/image-resizer.service';
       padding:0px;
     }
     .fa{
-      color:#4db6ac;
+      color:#0069ff;
     }
     .btn i{
       color:white;
