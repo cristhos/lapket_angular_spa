@@ -1,6 +1,6 @@
 {
-  "name": "anclitest",
-  "version": "0.0.0",
+  "name": "angular2spa",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -20,9 +20,16 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
+    "@types/google-maps": "^3.2.0",
+    "angular2-google-map": "^0.1.8",
     "angular2-materialize": "^6.7.2",
     "core-js": "^2.4.1",
     "materialize-css": "^0.98.0",
+    "ng2-charts": "^1.5.0",
+    "ng2-map": "^0.16.3",
+    "ng2-meta": "^2.0.3",
+    "ng2-metadata": "^1.4.2-final",
+    "ng2-password-strength-bar": "^1.1.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6"
   },

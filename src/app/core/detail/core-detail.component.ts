@@ -1,7 +1,8 @@
-//interne
 import { Component , OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../../user/service/user.service';
 import	{Observable}	from	'rxjs/Observable';
+
+declare var $: any
 
 @Component({
   selector: 'core',
@@ -14,7 +15,8 @@ export class CoreDetailComponent implements OnInit{
   authent : boolean;
   constructor(private userService : UserService) {}
   ngOnInit(){
-    this.getInitialUser();
+     $('.parallax').parallax();
+     this.getInitialUser();
   }
 
   public getInitialUser(){

@@ -2,7 +2,7 @@
   width: 80%;
 }
 .btn, .btn-large {
-    background-color:#2C90BA;
+    background-color:#0069ff;
     padding: 0 1rem;
 }
 
@@ -11,10 +11,10 @@
 }
 
 .btn-flat:focus, .btn-flat:hover{
-    color: #2C90BA;
+    color: #0069ff;
 }
 .btn:hover,.btn:focus,.btn-large:hover,.btn-large:focus{
-    background: #2C90BA;
+    background: #0069ff;
 }
 
 body{
@@ -26,10 +26,10 @@ nav {
   background-color: #fff ;
 }
 nav .brand-logo, .logo {
-  color: #2C90BA;
+  color: #0069ff;
 }
 .site-color{
-   color:#2C90BA;
+   color:#0069ff;
 }
 nav a {
   position: relative;
@@ -59,20 +59,20 @@ nav a {
   border-radius: 5px;
   float:left;
   margin-right: 10px;
-  color:#2C90BA;;
+  color:#0069ff;;
 }
 .avatar-nav{
    border-radius: 19px;
    width: 30px;
    height: 30px;
-   color: #2C90BA;
+   color: #0069ff;
    overflow: hidden;
 }
 
 .profile-pict{
   width: 160px;
   height: 160px;
-  color: #2C90BA;
+  color: #0069ff;
   
 }
 .mini-profile-pict{
@@ -110,7 +110,7 @@ nav a {
 }
 
 a {
-  color: #2C90BA;
+  color: #0069ff;
 }
 strong{
   color: black;
@@ -181,11 +181,11 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #2C90BA;
+  color: #0069ff;
 }
 
 .input-field .prefix.active {
-  color: #2C90BA;
+  color: #0069ff;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -203,7 +203,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 16px;
-    color: #2C90BA;
+    color: #0069ff;
     display: block;
     line-height: 22px;
     padding: 14px 16px;
@@ -212,7 +212,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     background-color: #e0e0e0;
 }
 .progress .determinate {
-    background-color: #2C90BA;
+    background-color: #0069ff;
 }
 .ng-valid[required], .ng-valid.required { 
   border-right: 5px solid #42A948; /* green */ 
@@ -220,3 +220,13 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .ng-invalid:not(form) { 
   border-right: 5px solid #a94442; /* red */ 
 }
+
+#materialbox-overlay {
+  background-color:rgba(0,0,0,0.6)
+}
+
+.progress .indeterminate {
+  background-color: #0069ff;
+}
+
+

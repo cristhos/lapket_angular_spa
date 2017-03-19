@@ -73,6 +73,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { MaterializeModule } from "angular2-materialize";
 import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
+import { PasswordStrengthBarModule } from 'ng2-password-strength-bar';
+import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
 
 @NgModule({
   imports:[ 
@@ -84,7 +86,10 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
       RouterModule,
       MaterializeModule,
       FileUploadModule,
-      ShareButtonsModule.forRoot()
+      MetadataModule,
+      PasswordStrengthBarModule,
+      ShareButtonsModule.forRoot(),
+      MetadataModule.forRoot()
       ],
   declarations: [ 
     CoreDetailComponent,
@@ -155,7 +160,8 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     LazyLoadImageModule,
     InfiniteScrollModule,
     MaterializeModule,
-    FileUploadModule
+    FileUploadModule,
+    PasswordStrengthBarModule
   ],
   providers : [
     CityService,
@@ -166,8 +172,9 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
     DealService,
     UserService,
     ProductService,
+    MetadataService,
     CanActivateViaAuthGuard,
-    requestOptionsProvider,
+    requestOptionsProvider
   ],
 })
 export class SharedModule { }

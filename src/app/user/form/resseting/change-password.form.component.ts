@@ -16,6 +16,9 @@ export class ChangePasswordFormComponent implements OnInit , OnDestroy{
   change : boolean;
   sub;
   tokenConfirmation;
+  form_completed:boolean;
+  public barLabel: string = "Sécurité du mot de passe:";
+  
   constructor(
         private userService : UserService,
         public router: Router,
@@ -27,6 +30,7 @@ export class ChangePasswordFormComponent implements OnInit , OnDestroy{
     this.sub = this.route.params.subscribe(params => {
        this.model.tokenConfirmation = params['tokenConfirmation'];
     });
+    this.checkForm();
   }
   ngOnDestroy(){
     if(this.sub != null) this.sub.unsubscribe();
@@ -54,6 +58,18 @@ export class ChangePasswordFormComponent implements OnInit , OnDestroy{
         }
     );
     this.loading = false;
+  }
+
+  checkForm(){
+    if(this.model.password != null && this.model.confirmePassword != null){
+       if(this.model.confirmePassword == this.model.password){
+          this.form_completed = true;
+       }else{
+          this.form_completed = false;
+       } 
+    }else{
+      this.form_completed = false
+    }
   }
 
   get diagnostic() { return JSON.stringify(this.model); }

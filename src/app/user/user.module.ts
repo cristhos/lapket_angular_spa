@@ -3,6 +3,9 @@ import { CommonModule } from "@angular/common";
 import { RouterModule} from '@angular/router';
 
 import { USER_ROUTING } from './user.routing'
+
+
+
 import {
   UserBandComponent,
   UserProductComponent,

@@ -6,7 +6,7 @@ import { CategoryService } from '../service/category.service';
   templateUrl: './category-common.component.html',
   styles: [`
     .fa{
-      color:#2C90BA;
+      color:#0069ff;
     }
     .btn i{
       color:white;

@@ -122,8 +122,8 @@ export class UserService {
   }
 
   getPasswordRequestReset(email){
-
-    this.url = this.baseUrl + '/passwords/requests/reset.json?slug='+email;
+    let host = window.location.origin + '/user/c/change-password';
+    this.url = this.baseUrl + '/passwords/requests/reset.json?slug='+email+'&host='+host;
     return this.http
                .get(this.url)
                .map(res => res.json())

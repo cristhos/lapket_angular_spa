@@ -1,4 +1,4 @@
-import { Component,ViewEncapsulation, OnInit, AfterViewInit  } from '@angular/core';
+import { Component,ViewEncapsulation, OnInit  } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AppModule } from './app.module';
@@ -6,21 +6,25 @@ import { UserService } from './user/service/user.service';
 import './rxjs-operators';
 import	{Observable}	from	'rxjs/Observable';
 
+
+
 @Component({
   selector: 'my-app',
   templateUrl:'./app.component.html',
   styleUrls : ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements OnInit{
    user ;
    timerSub ;
-    public constructor(private titleService: Title, private userService : UserService, public router: Router ) {}
+   request : boolean;
+   public constructor(private titleService: Title, private userService : UserService, public router: Router ) {}
 
-    ngAfterViewInit(){
-      this.setTitle("lapket");
+  ngOnInit(){
+      this.request = false;
+      this.setTitle("Lapket");
       this.getInitialUser();
-    }
+  }
 
     public setTitle( newTitle: string) {
       this.titleService.setTitle( newTitle );
@@ -34,11 +38,12 @@ export class AppComponent implements AfterViewInit{
           this.userService.getUserSession().subscribe(
             data =>{
               this.user = data;
+              this.request = true;
               localStorage.setItem('user_id',this.user.id);
               this.subscribeToData();
-              this.setTitle("lapket");
             },
             error => {
+                  this.request = true;
                    switch (error.status) {
                      case 401:
                            console.log('token expired')
@@ -57,8 +62,12 @@ export class AppComponent implements AfterViewInit{
                         localStorage.setItem("authent" , "N");
                        break;
                    }
+                   
             },
-            () => console.log("finish")
+            () =>{
+              this.request = true;
+              console.log("finish");
+            } 
         );
 
         }
@@ -81,10 +90,11 @@ export class AppComponent implements AfterViewInit{
   //refreshToken and reaload page
   public refreshToken()
   {
+    this.request = true;
     localStorage.setItem('new_token','true');
     this.userService.getRefreshToken().subscribe(
         data => {
-    
+          
           localStorage.setItem("authent" , "O");
           localStorage.setItem("access_token" , data.access_token);
           localStorage.setItem("expires_in" , data.expires_in);
@@ -101,11 +111,8 @@ export class AppComponent implements AfterViewInit{
           
         },
         error =>{
-          
           console.log(error)
-         
-        } 
-        ,
+        },
         () => console.log("finish")
     );
   }

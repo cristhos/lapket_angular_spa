@@ -14,6 +14,8 @@ import {  RegisterFormModel } from './register.form';
 export class RegisterFormComponent {
   user : Object;
   loading = false;
+  public barLabel: string = "Sécurité du mot de passe:";
+
   constructor(private userService : UserService, public router: Router) {}
 
   model = new RegisterFormModel(null,null);

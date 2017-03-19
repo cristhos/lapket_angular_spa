@@ -30,7 +30,7 @@
              </li>
           
              <li>
-              <a materialize="dropdown" href='#' title="{{user.username}}"class="btn-floating" routerLinkActive="active"  data-activates='userdrop'>
+              <a materialize="dropdown" href='#' title="{{user.username}}" class="dropdown-button btn-floating" routerLinkActive="active"  data-alignment="right" data-beloworigin="true" data-activates='userdrop'>
                 <i *ngIf="user.profile_picture == null" class="fa fa-user fa-4x circle"></i>
                 <img class="avatar-nav circle" *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
               </a>

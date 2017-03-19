@@ -3,5 +3,31 @@
     margin-top:20%;
 }
 .circle-clipper{
-    border-color: #2C90BA; 
+    border-color: #0069ff; 
+}
+
+/*Test Loading*/
+.loading {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #0069ff;
+    z-index: -1;
+}
+
+.loading img {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    height: auto;
+    width: 10%;
+}
+
+my-app:empty + .loading {
+    opacity: 1;
+    z-index: 100;
 }

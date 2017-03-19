@@ -13,6 +13,7 @@ declare var $: any
     figure img {
       border-radius: 10px;
       width : 100%;
+      background-size: cover;
     }
     .card .card-image .card-title {
       text-shadow : 4px 2px 4px black;
@@ -50,7 +51,7 @@ export class ProductCommonComponent implements OnInit{
              ){}
 
   ngOnInit(){
-    //$('.materialboxed').materialbox();
+    $('.materialboxed').materialbox();
     this.product_share_link = window.location.origin + this.router.createUrlTree(['/product',this.product.id]);
   }
 
