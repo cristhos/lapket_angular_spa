@@ -23,7 +23,6 @@ import {
   UserSuggestionComponent,
   UserSuggestionCommonComponent,
   UserMiniSuggestionComponent,
-  RegisterFinalFormComponent,
   CanActivateViaAuthGuard,
 } from '../user/user.component';
 
@@ -55,7 +54,8 @@ import {
 } from '../country/country.component';
 import {
   CityService,
-  CityCommonComponent
+  CityCommonComponent,
+  CityHomeComponent
 } from '../city/city.component';
 
 import {
@@ -71,8 +71,8 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { MaterializeModule } from "angular2-materialize";
 import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
-import { PasswordStrengthBarModule } from 'ng2-password-strength-bar';
 import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
+import { Ng2MapModule} from 'ng2-map';
 
 @NgModule({
   imports:[ 
@@ -85,7 +85,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
       MaterializeModule,
       FileUploadModule,
       MetadataModule,
-      PasswordStrengthBarModule,
       ShareButtonsModule.forRoot(),
       MetadataModule.forRoot()
       ],
@@ -113,10 +112,10 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     ProductFormComponent,
     ProductNullCommonComponent,
     SearchFormComponent,
-    RegisterFinalFormComponent,
     BlockLeftComponent,
     BlockRightComponent,
-    CityCommonComponent
+    CityCommonComponent,
+    CityHomeComponent,
   ],
   exports:      [ 
     CoreDetailComponent,
@@ -141,11 +140,11 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     ProductLastComponent,
     ProductFormComponent,
     ProductNullCommonComponent,
-    RegisterFinalFormComponent,
     SearchFormComponent,
     BlockLeftComponent,
     BlockRightComponent,
     CityCommonComponent,
+    CityHomeComponent,
     FormsModule,
     HttpModule,
     JsonpModule,
@@ -155,7 +154,6 @@ import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
     InfiniteScrollModule,
     MaterializeModule,
     FileUploadModule,
-    PasswordStrengthBarModule
   ],
   providers : [
     CityService,

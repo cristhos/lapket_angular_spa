@@ -13,6 +13,7 @@ export class LoginFormComponent {
   user : any;
   loading = false;
   authent = false;
+  response ;
 
   constructor(private userService : UserService, public router: Router) {}
 
@@ -23,6 +24,7 @@ export class LoginFormComponent {
     this.loading = true;
     this.userService.login(this.model).subscribe(
         data => {
+          this.response = 200;
           localStorage.clear();
           localStorage.setItem("authent" , "O");
           localStorage.setItem("access_token" , data.access_token);
@@ -35,13 +37,12 @@ export class LoginFormComponent {
              let redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/';
              this.router.navigate([redirect]);
            }
-           let win = (window as any);
-           if(win.location.search !== '?loaded' ) {
-              win.location.search = '?loaded';
-               win.location.reload();
-           }
+          
+          window.location.reload();
+          
         },
         error => {
+          this.response = error.status;
           this.loading = false;
           console.log(error);
           this.model = new LoginFormModel(this.model.username,"");

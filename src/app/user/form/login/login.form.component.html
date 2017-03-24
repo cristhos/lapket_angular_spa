@@ -4,7 +4,15 @@
       <div class="card-panel">
           <h4 class="center site-color">Connexion</h4>
 
-          
+          <div [ngSwitch]="response" >
+            <div *ngSwitchCase="200" class="col s12 green-text">
+                Connexion reussi
+            </div>
+            <div *ngSwitchCase="400" class="col s12 red-text">
+                Verifiez vos informations  
+            </div>
+          </div>
+
           <form (ngSubmit)="onSubmit()" #signupForm="ngForm" >
             <div class="input-field col s12 m12">
               <i class="fa fa-user prefix"></i>

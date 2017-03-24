@@ -1,7 +1,8 @@
 import {
   CanActivate, Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  Route
 }from '@angular/router';
 import	{	Injectable	}	from	'@angular/core';
 import	{	UserService	}	from	'./user.service';
@@ -22,6 +23,15 @@ export	class	CanActivateViaAuthGuard	implements	CanActivate{
 			this.userService.redirectUrl = url;
 			this.router.navigate(['/login']);
 			return false;
-	}
+	    }
+		checkAuthRequest(): boolean{
+			if(localStorage.getItem("request")) return true;
+			return false;
+		}
+		 canLoad(route: Route): boolean {
+  			let url = `/${route.path}`;
+  			return this.checkAuthRequest();
+		}
+
 
 }

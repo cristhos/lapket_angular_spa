@@ -1,13 +1,13 @@
-<div class="container" *ngIf="categories != null">
+<div class="container" >
       <h5 class="center site-color">Découvrez les produits vendus</h5>
       <div class="row">
+            <span *ngIf="categories != null">
             <div class="col s12 m3 " *ngFor="let category of categories">
                   <div class="card-panel hoverable ">
                         <category-common [category] = "category"></category-common>
                   </div>
             </div>
+            </span>
+            <loading *ngIf="categories_loading == true"></loading>
       </div>
-</div>
-<div *ngIf="categories_loading == true">
-    <loading></loading>
 </div>

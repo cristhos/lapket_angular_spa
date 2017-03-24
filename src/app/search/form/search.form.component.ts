@@ -15,7 +15,7 @@ import { ProductService } from '../../product/service/product.service';
         width: 200px;
         font-size: 16px;
         border: 0;
-        height: 36px;
+        height: 30px;
         color: black;
         background-color: #eeeeee;
         border-radius: 3px 0px 0px 3px;

@@ -1,11 +1,11 @@
-<div class="card" *ngIf="categories != null">
+<div class="card" >
       <ul class="collection with-header">
           <li class="collection-header">CATEGORIES <a [routerLink]="['/category']" class="right"><small>Plus</small></a></li>
-          <a  *ngFor="let category of categories" [routerLink]="['/category',category.id ]" routerLinkActive="active"   title="{{category.name}}" class="collection-item" >
-            <category-common [category] = "category"></category-common>
-          </a> 
+          <span *ngIf="categories != null">
+            <a  *ngFor="let category of categories" [routerLink]="['/category',category.id ]" routerLinkActive="active"   title="{{category.name}}" class="collection-item" >
+                <category-common [category] = "category"></category-common>
+            </a> 
+          </span>
+          <loading *ngIf="categories_loading == true"></loading>
       </ul>
-</div>
-<div *ngIf="categories_loading == true">
-    <loading></loading>
 </div>

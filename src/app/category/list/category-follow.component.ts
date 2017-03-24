@@ -5,6 +5,9 @@ import { CategoryService } from '../service/category.service';
   selector: 'follow-category',
   templateUrl: './category-follow.component.html',
   styles: [`
+  .card-panel {
+      padding: 5px;
+}
   `],
 })
 

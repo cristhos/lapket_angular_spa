@@ -1,8 +1,5 @@
-import { Component , OnInit, OnDestroy } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { UserService } from '../../user/service/user.service';
-import	{Observable}	from	'rxjs/Observable';
-
-declare var $: any
 
 @Component({
   selector: 'core',
@@ -11,27 +8,24 @@ declare var $: any
 })
 
 export class CoreDetailComponent implements OnInit{
-  user :  Object;
   authent : boolean;
+  request : boolean;
   constructor(private userService : UserService) {}
   ngOnInit(){
-     $('.parallax').parallax();
-     this.getInitialUser();
+     this.checkLogin(); 
   }
-
-  public getInitialUser(){
+  checkLogin(){
+			if (localStorage.getItem("access_token")) {
         this.authent = true;
-        this.userService.getUserSession().subscribe(
-            data =>{
-              this.user = data;
-            },
-            error => {
-                console.log(error);
-                this.authent = false;
-                //localStorage.clear();
-                //localStorage.setItem("authent" , "N");
-            },
-            () => console.log("finish")
-        );
+      }else {
+        this.authent = false;
+      }
+	}
+  checkRequest(){
+    if (localStorage.getItem("request")) {
+        this.request = true;
+      }else{
+        this.request = false;
+      }
   }
 }

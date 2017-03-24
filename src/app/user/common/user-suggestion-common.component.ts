@@ -41,7 +41,7 @@ export class UserSuggestionCommonComponent {
         data =>{
           this.suggestion = data;
           this.suggestion.is_follow_it = false;
-        } ,
+        },
         error => console.log(error),
         () =>{
           this.loading = false;

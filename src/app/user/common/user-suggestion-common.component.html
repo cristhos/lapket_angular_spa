@@ -5,7 +5,7 @@
         <span class="truncate">{{suggestion.full_name}} @{{suggestion.username}}</span>
      </a>
       <button *ngIf="suggestion.is_follow_it == false" (click)="postFollow(suggestion.id)" class="btn ">
-        <i *ngIf="loading == false" class="fa fa-user-plus "></i>
+        <i *ngIf="loading == false" class="hide-on-med-and-down fa fa-user-plus "></i>
         S'abonner
         <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse right"></i>
       </button>

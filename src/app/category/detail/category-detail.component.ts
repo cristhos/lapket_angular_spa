@@ -16,9 +16,9 @@ import { slideInDownAnimation } from '../../animate';
   selector: 'category-detail',
   templateUrl: './category-detail.component.html',
   styles: [`
-      .card{
-        height: 200px;
-      }
+      .card-panel {
+      padding: 5px;
+     }
   `],
   animations: [ slideInDownAnimation ]
 })

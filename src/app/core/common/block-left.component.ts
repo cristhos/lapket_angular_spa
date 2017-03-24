@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'core-block-left',
@@ -8,5 +8,19 @@ import { Component } from '@angular/core';
   `],
 })
 
-export class BlockLeftComponent {
+export class BlockLeftComponent implements OnInit {
+ 
+ authent : boolean;
+
+ ngOnInit(){
+   this.checkAuthent();
+ }
+
+ checkAuthent(){
+   if(localStorage.getItem("access_token")){
+     this.authent = true;
+   }else{
+     this.authent = false;
+   }
+ }
 }

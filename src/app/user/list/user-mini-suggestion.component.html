@@ -1,11 +1,11 @@
-<ul *ngIf="suggestions != null" class="collection with-header">
+<ul  class="collection with-header">
     <li class="collection-header">
        SUGGESTIONS <span class="right"><a [routerLink]="['/user/s/suggestion']" ><small>Plus</small></a></span>
     </li>
-    <li  class="collection-item" *ngFor ="let suggestion of suggestions">
-      <user-suggestion-common  [suggestion]="suggestion" ></user-suggestion-common>
-    </li>
+    <span *ngIf="suggestions != null">
+        <li  class="collection-item" *ngFor ="let suggestion of suggestions">
+        <user-suggestion-common  [suggestion]="suggestion" ></user-suggestion-common>
+        </li>
+    </span>
+    <loading *ngIf="suggestions_loading == true"></loading>
 </ul>
-<div *ngIf="suggestions_loading == true">
-    <loading></loading>
-</div>

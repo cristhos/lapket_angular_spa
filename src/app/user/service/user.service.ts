@@ -16,6 +16,7 @@ export class UserService {
   redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
   client_id :string;
   client_secret: string;
+  request : boolean = false; // avons nous verififier si l'utilisateur et connecté
 
   constructor(private http: Http, private apiUrlService : ApiUrlService){
     this.baseUrl = this.apiUrlService.getBaseUrl();

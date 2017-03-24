@@ -1,12 +1,11 @@
 <!-- card Structure -->
 <section>
-<div class="card materialboxed" *ngIf="product != null">
+<div class="card " *ngIf="product != null">
    <div class="card-action"> 
      <a class="center" [routerLink]="['/user', product.author.username]" routerLinkActive="active" >
        <i *ngIf="product.author.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
        <img class="avatar-profile-pict  avatar" *ngIf="product.author.profile_picture != null" src="{{product.author.profile_picture.web_path}}" alt="{{product.author.profile_picture.alt}}" />
-        {{product.author.full_name}}<br>
-        @{{product.author.username}}
+        {{product.author.username}}
      </a>
      <span  *ngIf="product.is_voted == true || product.is_author" class="right">
        <a materialize="dropdown" routerLinkActive="active" class="dropdown-button" attr.data-alignment="right" attr.data-beloworigin="true" attr.data-activates="product-{{product.id}}"><i class="fa fa-caret-down"></i></a>
@@ -25,20 +24,20 @@
          </ul>
      </span>
      <br>
-     
+     <small><i class="fa fa-clock-o"></i> {{product.published_at | amTimeAgo}}</small>
    </div>
    <div *ngIf="product.picture != null" class="card-image">
-        <figure> 
+        <figure > 
           <a title="{{ product.description }} " [routerLink]="['/product',product.id]">
           <figcaption class="hoverable "> 
               <span class="" >{{ product.description }}</span>
               <span class="price right">#{{ product.price}} $</span>
           </figcaption> 
-          <img [lazyLoad]="product.picture.web_path" [offset]="offset">
-           </a>  
+          </a> 
+          <img class="materialboxed" [lazyLoad]="product.picture.web_path" [offset]="offset">
+           
            <figcaption class="truncate hoverable">
-            <small><i class="fa fa-clock-o"></i> {{product.published_at | amTimeAgo}}</small>
-            <small class="right">
+            <small class="truncate right">
               <i class="fa fa-send"></i> 
               <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">{{product.category.name}}</a>
             </small>

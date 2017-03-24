@@ -15,6 +15,7 @@ import {
   RessetingPasswordFormComponent,
   ChangePasswordFormComponent,
   ProfileFormComponent,
+  RegisterFinalFormComponent,
   CanActivateViaAuthGuard,
 } from './user.component';
 
@@ -36,7 +37,8 @@ import {
   UserFollowingComponent,
   RessetingPasswordFormComponent,
   ChangePasswordFormComponent,
-  ProfileFormComponent,        
+  ProfileFormComponent,    
+  RegisterFinalFormComponent    
   ],
   exports: [ 
     UserBandComponent,
@@ -47,6 +49,7 @@ import {
     RessetingPasswordFormComponent,
     ChangePasswordFormComponent,
     ProfileFormComponent,
+    RegisterFinalFormComponent,
     ],
   providers : [
     

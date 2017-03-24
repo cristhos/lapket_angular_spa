@@ -5,8 +5,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './loading.component.html',
   styles: [`
       #loader{
-       left:45%;
+       margin-top:10%;
+       left:48%;
+       
      }
+
   `],
 })
 

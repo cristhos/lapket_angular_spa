@@ -10,6 +10,7 @@ import { UserSuggestionComponent,
          RessetingPasswordFormComponent,
          ChangePasswordFormComponent,
          ProfileFormComponent,
+         RegisterFinalFormComponent,
          CanActivateViaAuthGuard
         } from './user.component';
 
@@ -22,6 +23,7 @@ export const USER_ROUTING = [
       {path: 'p/pass-resseting', component: RessetingPasswordFormComponent},
       {path: 'c/change-password', component: ChangePasswordFormComponent},
       {path: 'c/change-password/:tokenConfirmation', component: ChangePasswordFormComponent},
+      {path: 'r/step2', component: RegisterFinalFormComponent,canActivate: [CanActivateViaAuthGuard]},
       {path: 's/setting', component: ProfileFormComponent,canActivate: [CanActivateViaAuthGuard]},
       {path: 's/suggestion', component: UserSuggestionComponent, canActivate: [CanActivateViaAuthGuard]},
 ];

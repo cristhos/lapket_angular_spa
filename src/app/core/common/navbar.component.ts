@@ -1,8 +1,6 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import { UserService } from '../../user/service/user.service';
 import { Router } from '@angular/router';
-
-declare var $: any
 
 @Component({
   selector: 'nav-bar',
@@ -23,12 +21,9 @@ declare var $: any
   changeDetection:	ChangeDetectionStrategy.OnPush
 })
 
-export class NavbarComponent implements OnInit{
+export class NavbarComponent{
   @Input() user : Object ;
   constructor(public router: Router, private userService : UserService) {}
-  ngOnInit(){
-  
-  }
   logout(){
     this.userService.logout();
     this.router.navigateByUrl('/');

@@ -1,28 +1,33 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import	{Observable}	from	'rxjs/Observable';
 
 import { DealService } from '../../deal/service/deal.service';
 
+declare var $: any
+
+
 @Component({
   selector: 'deal-message',
   templateUrl: './deal-message.component.html',
   styles: [`
-      .message-list-auto{
-        height: 15rem;
+      #message-list-auto{
+        height: 20rem;
         overflow-y: scroll;
       }
       .conversation-list-auto{
-        height: 30rem;
+        height: 35rem;
         overflow-y: scroll;
       }
   `],
 })
 
 export class DealMessageComponent implements OnInit, OnDestroy{
-  dealMessages = [];
+  dealMessages : any = [];
+  DealMessagesLoading : boolean;
   dealConversation;
-  dealConversations = [];
+  dealConversations : any = [];
+  dealConversationsLoading:boolean;
   pages: number;
   page : number;
   conversationPages:number;
@@ -38,12 +43,25 @@ export class DealMessageComponent implements OnInit, OnDestroy{
     this.conversationPage = 1;
     this.conversationPages = 2;
     this.getDealMyConversations();
-    this.getDealMessages();
+    this.getInitMessages();
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
     this.timerSub.unsubscribe();
   }
+
+  getInitMessages(){
+    this.scrollMessageDown();
+    this.sub = this.route.params.subscribe(params => {
+      let conversation_id = +params['conversation_id'];
+      this.getLastDealMessages(conversation_id);
+    });
+      
+  }
+ 
+
+  
+  //get PaginateMessage
   getDealMessages(){
     this.sub = this.route.params.subscribe(params => {
       let conversation_id = +params['conversation_id'];
@@ -53,15 +71,8 @@ export class DealMessageComponent implements OnInit, OnDestroy{
        if(this.page <= this.pages ){
           this.dealService.getDealMessages(conversation_id, this.page).subscribe(
             data =>{
-                this.pages = data.pages;
-                this.dealMessages = data._embedded.items;
-                /*for(let i=0; i<=data.limit; i++) {
-                  if(data._embedded.items[i]){
-                    this.dealMessages.push(data._embedded.items[i]);
-                    this.page = data.page + 1;
-                  }
-                }*/
-                this.subscribeToData();
+                this.scrollMessageUp();
+                this.checkMessages(data,'old');
             },
             error =>{
               console.log(error)
@@ -73,7 +84,67 @@ export class DealMessageComponent implements OnInit, OnDestroy{
        }
 
     });
+  }
+  
+  //get last message in my api page=1 order by desc
+  getLastDealMessages(conversation_id){
 
+      if(this.timerSubLoad) this.timerSub.unsubscribe();
+
+      this.getDealConversation(conversation_id);
+
+      this.dealService.getDealMessages(conversation_id, 1).subscribe(
+            data =>{
+                this.checkMessages(data,"last");
+                this.subscribeToData(conversation_id);
+            },
+            error =>{
+              console.log(error)
+            },
+            () =>{
+              console.log("finish")
+            }
+          );
+  }
+  
+  //add message if not exist in array() call realtime subscribe
+  checkMessages(data,checkType){
+    this.pages = data.pages;
+    
+    for(let i=0;i<data.limit;i++){
+      if(data._embedded.items[i]){
+        let pass = true;
+        if(this.dealMessages.length >0){
+            for(let j=0;j<this.dealMessages.length;j++){
+              if(data._embedded.items[i].id == this.dealMessages[j].id){
+                pass = false;
+                break;
+              } 
+           }
+        }
+        
+        if(pass ==true){
+          if(checkType=="last"){
+            this.dealMessages.push(data._embedded.items[i]);
+          }else{
+            this.dealMessages.unshift(data._embedded.items[i]);
+          }
+        }
+        this.page = data.page + 1;       
+      }
+    }
+
+  }
+
+  scrollMessageDown(){
+      let d = document,mla;
+      mla = d.getElementById('message-list-auto');
+      mla.scrollTop = mla.scrollHeight;
+  }
+  scrollMessageUp(){
+      let d = document,mla;
+      mla = d.getElementById('message-list-auto');     
+      mla.scrollTop = 0;
   }
 
   getDealConversation(conversation_id){
@@ -108,18 +179,19 @@ export class DealMessageComponent implements OnInit, OnDestroy{
       }
   }
 
-  private subscribeToData(): void {
+  private subscribeToData(conversation_id): void {
     this.timerSub = Observable.timer(5000).subscribe(
       () => {
             this.timerSubLoad = true;
             this.page = 1;
             this.pages = 2;
-            this.getDealMessages();
+            this.getLastDealMessages(conversation_id);
       }
     );
   }
-
-  onScrollDownMessages(){
+  
+  //get last deal message
+  onScrollUpMessages(){
     this.getDealMessages();
   }
   onScrollDownConversations(){

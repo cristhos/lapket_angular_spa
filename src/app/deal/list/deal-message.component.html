@@ -1,8 +1,8 @@
-<div *ngIf="dealConversation != null" class="container">
+<div  class="container">
   <div class="row">
     <div class="card-panel">
       <div class="row">
-          <div class="col s12 m5" *ngIf="dealConversations != null">
+          <div class="col s12 m5 hide-on-med-and-down" *ngIf="dealConversations != null">
               <ul class="collection with-header" >
                 <li class="collection-header ">
                   CONVERSATIONS
@@ -13,6 +13,8 @@
                         [infiniteScrollThrottle]="1000"
                         (scrolled)="onScrollDownConversations()"
                         [scrollWindow]="false">
+                  
+                  
                   <a  *ngFor="let dc of dealConversations" [routerLink]="['/deal/message',dc.id]"  routerLinkActive="active" class="collection-item" >
                         <deal-conversation-common [dc]="dc"></deal-conversation-common>
                   </a> 
@@ -24,18 +26,22 @@
               <li class="collection-item">
                 <deal-conversation-common [dc]="dealConversation"></deal-conversation-common>
               </li>
-              <li class="message-list-auto collection-item"
+              <section id="message-list-auto" class="collection-item"
                    infinite-scroll 
                   [infiniteScrollDistance]="2"
                   [infiniteScrollThrottle]="1000"
-                  (scrolled)="onScrollDownMessages()"
+                  (scrolledUp)="false"
                   [scrollWindow]="false">
+                
                     <span *ngIf="dealMessages != null">
-                      <span *ngFor="let dM of dealMessages">
+                      <p class="center">
+                        <a class="link"  (click)="onScrollUpMessages()" >Plus ancien</a>
+                      </p>
+                      <span *ngFor="let dM of dealMessages;let i = index">
                         <deal-common [deal]="dM"></deal-common>
                       </span>
                     </span>
-             </li>
+             </section>
              <li class="collection-item">
                   <deal-form [dealConversation]="dealConversation"></deal-form>
               </li>

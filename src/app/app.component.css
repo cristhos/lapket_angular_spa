@@ -35,6 +35,7 @@ nav .brand-logo, .logo {
 }
 .site-color{
    color:#0069ff;
+   text-shadow : 1px 1px 1px white;
 }
 nav a {
   position: relative;
@@ -42,7 +43,7 @@ nav a {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
    text-transform: none;
-   color: #333;
+   color :black;
 }
 
 .card.small {
@@ -130,6 +131,7 @@ strong{
 }
 
 
+
 .red-badge{
     background-color: #fa3e3e;
     border-radius: 2px;
@@ -214,7 +216,13 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     padding: 14px 16px;
 }
 .collection .collection-item.active {
-    background-color: #e0e0e0;
+    background-color: #0069ff;
+}
+.collection .collection-item.active a{
+    color: black;
+}
+.collection .collection-item.active .fa{
+    color:white;
 }
 .progress .determinate {
     background-color: #0069ff;

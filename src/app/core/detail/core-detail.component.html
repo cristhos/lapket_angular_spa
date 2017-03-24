@@ -4,15 +4,13 @@
           <div class="section no-pad-bot">
             <div class="container">
                <br>
-               <h3 class="border header center site-color">Automatisez le business local</h3>
-               <h4 class="bprder header center site-color">Visitez le produit proche</h4>
-               <br>
+               <h3 class="border header center text-white">Au centre business éléctronique</h3>
+               <h4 class="bprder header center text-white">Achetez et vendez localement</h4>
               <div class="center">
-                <a [routerLink]="['/category']" class="btn">EXPLORER</a>
                 <a [routerLink]="['/register']" class="btn">CREER UN COMPTE</a>
               </div>
             </div>
-             <div><img class="home-pict parallax" src="../../../assets/images/font-ground.png"></div>
+             <!--<div><img class="home-pict parallax" src="../../../assets/images/font-ground.png"></div> !-->
           </div>
       </div>
       <div class="container">
@@ -20,13 +18,6 @@
       </div>
   </div>
   <div *ngIf="authent == true" class="container row">
-      <div *ngIf="user != null">
-        <div *ngIf="user.compte_state == false" class="col s12 m12">
-          <register-final-form ></register-final-form>
-        </div>
-        <div *ngIf="user.compte_state == true">
-            <all-product></all-product>
-        </div>
-      </div>
+      <all-product></all-product>
   </div>
 </div>

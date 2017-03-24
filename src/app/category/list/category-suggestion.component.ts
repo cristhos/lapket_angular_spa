@@ -5,6 +5,9 @@ import { CategoryService } from '../service/category.service';
   selector: 'category-suggestion',
   templateUrl: './category-suggestion.component.html',
   styles: [`
+  .card-panel {
+      padding: 5px;
+}
   `],
 })
 

@@ -20,11 +20,13 @@ export class RegisterFormComponent {
 
   model = new RegisterFormModel(null,null);
   submitted = false;
+  response ;
+
   onSubmit() {
     this.loading = true;
     this.userService.register(this.model).subscribe(
         data => {
-          
+          this.response = 200;
           this.userService.login(data).subscribe(
               data => {
                 localStorage.clear();
@@ -48,6 +50,7 @@ export class RegisterFormComponent {
           );
         },
         error => {
+          this.response = error.status;
           console.log(error);
           this.model = new RegisterFormModel(this.model.email,"");
           this.loading = false;

@@ -12,11 +12,12 @@ import {  ChangePasswordFormModel } from './change-password.form';
 
 export class ChangePasswordFormComponent implements OnInit , OnDestroy{
   loading = false;
-  authent = false;
+  authent :boolean;
   change : boolean;
   sub;
   tokenConfirmation;
   form_completed:boolean;
+
   public barLabel: string = "Sécurité du mot de passe:";
   
   constructor(
@@ -26,7 +27,11 @@ export class ChangePasswordFormComponent implements OnInit , OnDestroy{
   ){}
 
   ngOnInit(){
-    if(localStorage.getItem('access_token')) this.authent = true;
+    if(localStorage.getItem('access_token')){
+      this.authent = true;
+    }else{
+      this.authent = false;
+    }
     this.sub = this.route.params.subscribe(params => {
        this.model.tokenConfirmation = params['tokenConfirmation'];
     });
