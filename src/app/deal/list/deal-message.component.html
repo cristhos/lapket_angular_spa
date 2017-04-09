@@ -35,7 +35,7 @@
                 
                     <span *ngIf="dealMessages != null">
                       <p class="center">
-                        <a class="link"  (click)="onScrollUpMessages()" >Plus ancien</a>
+                        <a class="btn-flat" (click)="onScrollUpMessages()" >Ancien messages</a>
                       </p>
                       <span *ngFor="let dM of dealMessages;let i = index">
                         <deal-common [deal]="dM"></deal-common>

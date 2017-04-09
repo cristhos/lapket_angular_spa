@@ -88,7 +88,7 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   
   //get last message in my api page=1 order by desc
   getLastDealMessages(conversation_id){
-
+     this.dealMessages = [];
       if(this.timerSubLoad) this.timerSub.unsubscribe();
 
       this.getDealConversation(conversation_id);

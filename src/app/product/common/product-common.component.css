@@ -1,0 +1,17 @@
+figure img {
+      border-radius: 10px;
+      width : 100%;
+      background-size: cover;
+}
+.price {
+      text-shadow : 1px 1px 1px red;
+      color:red;
+      font-size:20px;
+}
+.dropdown-conf {
+      min-width: 180px;
+}
+.dropdown-share{
+       min-width: 80px;
+       max-width:80px;
+}

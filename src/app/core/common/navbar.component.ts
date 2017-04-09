@@ -5,19 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'nav-bar',
   templateUrl: './navbar.component.html',
-  styles: [`
-
-  .header-search-wrapper {
-    display: inline-block;
-  }
-
-  #userdrop {
-    min-width: 160px;
-  }
-  .btn-floating i {
-      color: #0069ff;
-    }
-  `],
+  styleUrls: ['./navbar.component.css'],
   changeDetection:	ChangeDetectionStrategy.OnPush
 })
 

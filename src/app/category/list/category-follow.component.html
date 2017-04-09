@@ -1,6 +1,6 @@
 <div class="card" >
       <ul class="collection with-header">
-          <li class="collection-header">MES PREFERENCES <a [routerLink]="['/category']" class="right"><small>Plus</small></a></li>
+          <li class="collection-header">PREFERENCES <a [routerLink]="['/category']" class="right"><small>Plus</small></a></li>
          <span *ngIf="categories != null">
           <a  *ngFor="let category of categories" [routerLink]="['/category',category.id ]" routerLinkActive="active"   title="{{category.name}}" class="collection-item" >
             <category-common [category] = "category"></category-common>

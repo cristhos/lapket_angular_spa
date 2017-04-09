@@ -1,0 +1,14 @@
+nav {
+  background-color: rgb(1,164,239) ;
+}
+nav .brand-logo, .logo {
+  color: white;
+}
+
+nav img{
+  margin-bottom: -10px;  
+}
+
+.dropdown-content {
+    color: red;
+}

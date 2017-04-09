@@ -8,9 +8,11 @@
         {{product.author.username}}
      </a>
      <span  *ngIf="product.is_voted == true || product.is_author" class="right">
-       <a materialize="dropdown" routerLinkActive="active" class="dropdown-button" attr.data-alignment="right" attr.data-beloworigin="true" attr.data-activates="product-{{product.id}}"><i class="fa fa-caret-down"></i></a>
-         <!-- Dropdown Structure -->
-         <ul id="product-{{product.id}}" class='dropdown-conf dropdown-content'>
+
+       <a materialize="dropdown"  class="dropdown-button" attr.data-activates="dropdown-p-{{product.id}}" href="javascript:void(0)">
+         <i class="fa fa-caret-down"></i>
+       </a>
+      <ul id="dropdown-p-{{product.id}}" class='dropdown-content'>
            <span *ngIf="product.is_voted == true">
               <li *ngIf="product.is_notify == true"><a  (click)="desactiveNotification(product.id)" class="waves-effect waves-light" >Ne plus etre notifier</a></li>
               <li *ngIf="product.is_notify == false"><a  (click)="activeNotification(product.id)" class="waves-effect waves-light" >Etre notifier</a></li>
@@ -20,8 +22,8 @@
               <li *ngIf="product.is_expired == false"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Epuiser</a></li>
               <li *ngIf="product.is_expired == true"><a   (click)="expiredProduct(product.id)" class="waves-effect waves-light" >Renouveller</a></li>
               <li ><a  (click)="deleteProduct(product.id)" class="waves-effect waves-light" >Supprimer</a></li>
-           </span>
-         </ul>
+           </span>   
+      </ul>
      </span>
      <br>
      <small><i class="fa fa-clock-o"></i> {{product.published_at | amTimeAgo}}</small>
@@ -34,15 +36,7 @@
               <span class="price right">#{{ product.price}} $</span>
           </figcaption> 
           </a> 
-          <img class="materialboxed" [lazyLoad]="product.picture.web_path" [offset]="offset">
-           
-           <figcaption class="truncate hoverable">
-            <small class="truncate right">
-              <i class="fa fa-send"></i> 
-              <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">{{product.category.name}}</a>
-            </small>
-            
-           </figcaption>
+          <img class="materialboxed" [src]="defaultImage" [lazyLoad]="product.picture.web_path" [offset]="offset">
         </figure>          
   </div>
    <div class="card-action">
@@ -64,6 +58,9 @@
          </ul>
          <button class="btn-flat right" *ngIf="product.is_author == false"  (click)="beginConversation(product.id)" ><i class="fa fa-envelope"></i></button>
 
+   </div>
+   <div class="card-action truncate center">
+     <a [routerLink]="['/category',product.category.id]" routerLinkActive="active" [title]="product.category.name">{{product.category.name}}</a>
    </div>
 </div>
 </section>

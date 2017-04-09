@@ -4,17 +4,7 @@ import { CategoryService } from '../service/category.service';
 @Component({
   selector: 'category-common',
   templateUrl: './category-common.component.html',
-  styles: [`
-    .fa{
-      color:#0069ff;
-    }
-    .btn i{
-      color:white;
-    }
-    a{
-      color:black;
-    }
-  `],
+  styleUrls : ['./category-common.component.css']
 })
 
 export class CategoryCommonComponent {
@@ -24,24 +14,29 @@ export class CategoryCommonComponent {
   constructor(private categoryService : CategoryService) {}
 
   postCategoryFollow(category_id: any){
-  this.categoryService.postCategoryFollow(category_id).subscribe(
-      data => {
-        this.category = data;
-        //resoud le problème de mise en cache http
-        this.category.is_follow = true;
-      },
-      error => console.log(error),
-      () => console.log("finish")
-  );
-  }
-  removeCategoryFollow(category_id: any){
-    this.categoryService.deleteCategoryFollow(category_id).subscribe(
+    this.category.is_follow = true;
+    this.categoryService.postCategoryFollow(category_id).subscribe(
         data => {
-          this.category = data;
-            //resoud le problème de mise en cache http
+          //illusion optiques
+        },
+        error =>{
+          console.log(error);
           this.category.is_follow = false;
         },
-        error => console.log(error),
+        () => console.log("finish")
+    );
+  }
+  
+  removeCategoryFollow(category_id: any){
+    this.category.is_follow = false;
+    this.categoryService.deleteCategoryFollow(category_id).subscribe(
+        data => {
+          //illusion optique
+        },
+        error =>{
+           console.log(error)
+          this.category.is_follow = true;
+        },
         () => console.log("finish")
     );
   }

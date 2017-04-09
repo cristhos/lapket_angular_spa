@@ -9,36 +9,7 @@ import { ProductService } from '../../product/service/product.service';
 @Component({
   selector: 'search-form',
   templateUrl: './search.form.component.html',
-  styles: [`
-
-    #search_text{
-        width: 200px;
-        font-size: 16px;
-        border: 0;
-        height: 30px;
-        color: black;
-        background-color: #eeeeee;
-        border-radius: 3px 0px 0px 3px;
-        margin-right:-4px;
-    }
-    .input-field{
-        display:inline-block;
-    }
-
-  #search_text:focus {
-      background-color: #eeeeee;;
-  }
-  .btn-flat{
-        border: 0 none;
-        width: 2.5rem;
-        padding: 0;
-        text-align: center;
-        color:black
-        cursor: pointer;
-        border-radius: 0px 3px 3px 0px;
-        background:  #eeeeee;
-    }
-  `]
+  styleUrls: ['./search.form.component.css']
 })
 
 export class SearchFormComponent {

@@ -31,7 +31,7 @@
                       <input placeholder="A que prix ?" id="price" type="number"  placeholder="prix($)" class="form-control" required [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}">
                    </div>
                    <div class="input-field  col s9 m9">
-                      <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.category_id" [ngModelOptions]="{standalone: true}">
+                      <select materialize="material_select" [materializeSelectOptions]="selectOptions"  required [(ngModel)]="model.category_id" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled="" selected="">Choisir une categorie</option>
                         <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
                       </select>

@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProductService } from '../../product/service/product.service';
@@ -9,35 +9,15 @@ declare var $: any
 @Component({
   selector: 'product-common',
   templateUrl: './product-common.component.html',
-  styles : [`
-    figure img {
-      border-radius: 10px;
-      width : 100%;
-      background-size: cover;
-    }
-    .price {
-      text-shadow : 1px 1px 1px red;
-      color:red;
-      font-size:20px;
-    }
-    .dropdown-conf {
-      min-width: 180px;
-    }
-    .dropdown-share{
-       min-width: 80px;
-       max-width:80px;
-    }
-    
-  `]
-
+  styleUrls : ['./product-common.component.css']
 })
 
-export class ProductCommonComponent implements OnInit{
+export class ProductCommonComponent implements OnInit,AfterViewInit{
   @Input()
   product : any;
 
   //lazy-image
-  defaultImage = '/src/assets/images/ajax-loader.gif';
+  defaultImage = '../../../assets/images/loader.gif';
   offset = 100;
   product_share_link;
 
@@ -51,45 +31,48 @@ export class ProductCommonComponent implements OnInit{
              ){}
 
   ngOnInit(){
-    $('.materialboxed').materialbox();
     this.product_share_link = window.location.origin + this.router.createUrlTree(['/product',this.product.id]);
   }
 
-  postProductVote(product_id: number)
-  {
-     if(localStorage.getItem('access_token')){
+  ngAfterViewInit(){
+    $('.materialboxed').materialbox();
+  }
+
+  postProductVote(product_id: number){
+
+       this.product.is_voted = true;
+       const nb_vote_transit = this.product.nb_votes;
+       this.product.nb_votes = nb_vote_transit + 1;
+       
        this.productService.postProductVote(product_id).subscribe(
         data =>{
-          //this.product = data;
-          this.product.is_voted = true;
-          this.product.nb_votes = this.product.nb_votes + 1;
+          //illusion optique
         },
-        error => console.log(error),
+        error =>{
+          console.log(error)
+          this.product.is_voted = true;
+          this.product.nb_votes = nb_vote_transit;
+        },
         () => console.log('finish')
      );
-     }else{
-        
-     }
   }
   removeProductVote(product_id: number)
   {
-    if(localStorage.getItem('access_token')){
+      this.product.is_voted = false;
+      const nb_votes_transit = this.product.nb_votes;
+      this.product.nb_votes = nb_votes_transit - 1;
+      
       this.productService.deleteProductVote(product_id).subscribe(
         data => {
-          //this.product = data;
-          this.product.is_voted = false;
-          this.product.nb_votes = this.product.nb_votes - 1;
+          //illusion optique
         },
-        error => console.log(error),
+        error =>{
+          console.log(error);
+          this.product.is_voted = true;
+          this.product.nb_votes = nb_votes_transit;
+        },
         () => console.log("finish")
      );
-    }
-  }
-
-  
-
-  closeModal() {
-    this.modalActions.emit("closeModal");
   }
 
   deleteProduct(product_id){
@@ -120,8 +103,6 @@ export class ProductCommonComponent implements OnInit{
   }
 
   beginConversation(product_id){
-
-     if(localStorage.getItem('access_token')){
         if(window.confirm('Etes vous sur de vouloir demarer une conversation'))
         {
           this.dealService.postConversation(product_id).subscribe(
@@ -132,7 +113,6 @@ export class ProductCommonComponent implements OnInit{
             () => console.log("finish")
           );
       }
-     }
   }
 
   desactiveNotification(product_id : number){

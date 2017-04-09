@@ -3,7 +3,7 @@ import { CommonModule }        from '@angular/common';
 import { FormsModule }         from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {ShareButtonsModule} from 'ng2-sharebuttons';
+import { ShareButtonsModule} from 'ng2-sharebuttons';
 
 import {
   CoreDetailComponent,
@@ -82,9 +82,9 @@ import { Ng2MapModule} from 'ng2-map';
       InfiniteScrollModule,
       LazyLoadImageModule,
       RouterModule,
-      MaterializeModule,
       FileUploadModule,
       MetadataModule,
+      MaterializeModule,
       ShareButtonsModule.forRoot(),
       MetadataModule.forRoot()
       ],
@@ -152,8 +152,8 @@ import { Ng2MapModule} from 'ng2-map';
     RouterModule,
     LazyLoadImageModule,
     InfiniteScrollModule,
-    MaterializeModule,
     FileUploadModule,
+    MaterializeModule
   ],
   providers : [
     CityService,

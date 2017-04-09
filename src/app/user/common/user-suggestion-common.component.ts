@@ -4,12 +4,7 @@ import { UserService } from '../service/user.service';
 @Component({
   selector: 'user-suggestion-common',
   templateUrl: './user-suggestion-common.component.html',
-  styles : [`
-    .collection-item{
-      position: relative;
-    }
-
-  `]
+  styleUrls : ['./user-suggestion-common.component.css']
 })
 
 export class UserSuggestionCommonComponent {
@@ -22,29 +17,31 @@ export class UserSuggestionCommonComponent {
   }
 
   postFollow(user_id: any){
-    this.loading = true;
+    this.suggestion.is_follow_it = true;
     this.userService.postFollow(user_id).subscribe(
         data =>{
-          this.suggestion = data;
-          this.suggestion.is_follow_it = true;
+          //illusion optique
         },
-        error => console.log(error),
+        error =>{
+          console.log(error);
+          this.suggestion.is_follow_it = false;
+        } ,
         () =>{
-          this.loading = false;
            console.log("finish");
         }
     );
   }
   removeFollow(user_id : any){
-    this.loading = true;
+    this.suggestion.is_follow_it = false;
     this.userService.removeFollow(user_id).subscribe(
         data =>{
-          this.suggestion = data;
-          this.suggestion.is_follow_it = false;
+          //illusion optique
         },
-        error => console.log(error),
+        error =>{
+          console.log(error);
+          this.suggestion.is_follow_it = true;
+        },
         () =>{
-          this.loading = false;
           console.log("finish");
         }
     );
