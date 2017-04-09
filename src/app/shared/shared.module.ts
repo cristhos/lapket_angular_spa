@@ -73,6 +73,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
 import { Ng2MapModule} from 'ng2-map';
+import {ImageCropperModule} from 'ng2-img-cropper';
 
 @NgModule({
   imports:[ 
@@ -85,6 +86,7 @@ import { Ng2MapModule} from 'ng2-map';
       FileUploadModule,
       MetadataModule,
       MaterializeModule,
+      ImageCropperModule,
       ShareButtonsModule.forRoot(),
       MetadataModule.forRoot()
       ],
@@ -153,7 +155,8 @@ import { Ng2MapModule} from 'ng2-map';
     LazyLoadImageModule,
     InfiniteScrollModule,
     FileUploadModule,
-    MaterializeModule
+    MaterializeModule,
+    ImageCropperModule
   ],
   providers : [
     CityService,

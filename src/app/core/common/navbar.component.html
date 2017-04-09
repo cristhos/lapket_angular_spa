@@ -21,14 +21,14 @@
              <li> 
               <a [routerLink]="['/deal/conversation']" title="Messages" routerLinkActive="active" >
                         <i class="fa fa-envelope"></i>
-                        <span class="hide-on-med-and-down">Messages</span>
+                        <span class="hide-on-med-and-down">Message</span>
                         <small *ngIf="user.nb_received_messages > 0" class="red-badge">{{user.nb_received_messages}}</small>
               </a>
              </li>
              <li>
               <a [routerLink]="['/notification']" title="Notifications" routerLinkActive="active" >
                         <i class="fa fa-bell"></i>
-                        <span class="hide-on-med-and-down">Messages</span>
+                        <span class="hide-on-med-and-down">Notification</span>
                         <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
               </a>
              </li>

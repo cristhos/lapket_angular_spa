@@ -36,10 +36,11 @@ export class UserProductComponent implements OnInit, OnDestroy{
   }
   getUserDetail()
   {
-    this.products = [];
+    
     this.sub = this.route.params.subscribe(params => {
       let username = params['username'];
       this.load = true;
+      
       this.userService.getUser(username).subscribe(
           data =>{
             this.user_detail = data;

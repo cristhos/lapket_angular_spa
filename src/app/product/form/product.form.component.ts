@@ -8,6 +8,9 @@ import { CategoryService } from '../../category/service/category.service';
 import { ProductService } from '../service/product.service';
 import { ApiUrlService } from '../../utils/api-url.service';
 import { ImageResizerService } from '../../utils/image-resizer.service';
+import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
+
+
 
 
 @Component({
@@ -32,8 +35,6 @@ import { ImageResizerService } from '../../utils/image-resizer.service';
   
 })
 
-
-
 export class ProductFormComponent implements OnInit{
  
   categories:Object;
@@ -45,14 +46,26 @@ export class ProductFormComponent implements OnInit{
   file_src;
   request : boolean;
   formElement = false;
+  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
+  data: any;
+  cropperSettings;
+  @ViewChild('cropper', undefined) 
+  cropper:ImageCropperComponent;
+
   constructor(
     private categoryService : CategoryService,
     private productService: ProductService,
     public router: Router,
     private route: ActivatedRoute,
     private apiUrlService : ApiUrlService,
-    private imageResizerService : ImageResizerService
-  ) {}
+    private imageResizerService : ImageResizerService,
+  ) {
+        this.cropperSettings = new CropperSettings();
+        this.cropperSettings.noFileInput = true;
+        this.cropperSettings.width = 400;
+        this.cropperSettings.height = 500;
+        this.data = {};
+  }
 
    ngOnInit(){
      //$('.materialboxed').materialbox();
@@ -72,8 +85,11 @@ export class ProductFormComponent implements OnInit{
 
    onSubmit(): void {
       this.loading = true;
-
-      this.uploader.uploadAll();
+    
+      
+      var file:File = this.cropper.image;
+      
+      console.log(file);
       this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
            let data = JSON.parse(response);
            this.model.picture = data.id;
@@ -156,30 +172,20 @@ export class ProductFormComponent implements OnInit{
    closeElement(){
       if(this.formElement==true) this.formElement = false;
    }
+   fileChangeListener($event) {
+    this.showElement();
+    var image:any = new Image();
+    var file:File = $event.target.files[0];
+    var myReader:FileReader = new FileReader();
+    var that = this;
+    myReader.onloadend = function (loadEvent:any) {
+        image.src = loadEvent.target.result;
+        that.cropper.setImage(image);
+
+    };
+    myReader.readAsDataURL(file);
+
+    console.log($event.target.files[0]);
+   }
   
-
-  // file upluad
-  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
-  
-  fileChange($event){
-     this.formElement = true;
-     this.readFiles($event.target.files);
-  }
-
-  readFiles(files, index=0){
-    let reader = new FileReader();
-
-    if (index in files){  
-        this.imageResizerService.readFile(files[index], reader, (result) =>{
-
-        let img = document.createElement("img");
-        img.src = result;
-
-        this.imageResizerService.resize(img, 300, 500, (resized_img)=>{ 
-          this.file_src = resized_img;
-        });
-      });
-    }
-  }
-
 }

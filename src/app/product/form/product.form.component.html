@@ -9,14 +9,18 @@
                   
                      <button class="file-field  btn-flat">
                         <span><i class="green-text text-ligthen-2 fa fa-picture-o"></i></span>
-                        <input type="file" ng2FileSelect [uploader]="uploader" (change)="fileChange($event)"/>
+                        <input id="custom-input" type="file" (change)="fileChangeListener($event)">
                     </button>
                     <button *ngIf="formElement" class="right btn-flat " (click)="closeElement()"><i class="red-text text-darken-2 fa fa-close "></i></button>
                   </div>
                  
                 </div>
-                <div *ngIf="file_src != null" class="col s12">
-                    <img class="responsive-img" [src]="file_src"/> 
+                <div  *ngIf="formElement" class="col s12 center">
+                    <span>Ajuster l'image</span>
+                    <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+                    <br>
+                    <span>Résultat final</span><br>
+                    <img [src]="data.image" [width]="cropperSettings.croppedWidth"  [height]="cropperSettings.croppedHeight">
                     <li class="divider"></li>
                 </div>
 
