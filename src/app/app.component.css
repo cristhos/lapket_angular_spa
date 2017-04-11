@@ -217,11 +217,11 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .progress .determinate {
     background-color: rgb(1,164,239);
 }
-.ng-valid[required], .ng-valid.required { 
-  border-right: 5px solid #42A948; /* green */ 
+.ng-valid[required], .ng-valid .required{ 
+  border-right: 2px solid #42A948; /* green */ 
 } 
 .ng-invalid:not(form) { 
-  border-right: 5px solid #a94442; /* red */ 
+  border-right: 2px solid #a94442; /* red */ 
 }
 
 #materialbox-overlay {
@@ -234,7 +234,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 
 a{
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 p{
   font-family: 'Times New Roman', Times, serif;

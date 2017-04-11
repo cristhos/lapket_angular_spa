@@ -46,8 +46,12 @@ export class ProductFormComponent implements OnInit{
   ) {
         this.cropperSettings = new CropperSettings();
         this.cropperSettings.noFileInput = true;
-        this.cropperSettings.width = 400;
-        this.cropperSettings.height = 500;
+        this.cropperSettings.width = 500;
+        this.cropperSettings.height = 350;
+        this.cropperSettings.croppedWidth =500;
+        this.cropperSettings.croppedHeight =350; 
+        this.cropperSettings.width = 500;
+        this.cropperSettings.height = 350;
         this.data = {};
   }
 
@@ -69,11 +73,13 @@ export class ProductFormComponent implements OnInit{
 
    onSubmit(): void {
       this.loading = true;
-    
-      
-      var file:File = this.cropper.image;
-      
-      console.log(file);
+
+      let filecropper = [] ;
+      filecropper.push(this.dataURLtoFile(this.cropper.image.image, 'p_product.png'));
+      console.log(filecropper);
+      this.uploader.addToQueue(filecropper);
+      //this.uploader.uploadItem(filecropper);
+      this.uploader.uploadAll();
       this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
            let data = JSON.parse(response);
            this.model.picture = data.id;
@@ -160,16 +166,26 @@ export class ProductFormComponent implements OnInit{
     this.showElement();
     var image:any = new Image();
     var file:File = $event.target.files[0];
+
+    
     var myReader:FileReader = new FileReader();
     var that = this;
     myReader.onloadend = function (loadEvent:any) {
         image.src = loadEvent.target.result;
         that.cropper.setImage(image);
-
     };
     myReader.readAsDataURL(file);
 
     console.log($event.target.files[0]);
    }
+  
+  dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, {type:mime});
+  }
   
 }

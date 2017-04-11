@@ -11,6 +11,7 @@
     </span>
     <span *ngIf="notification.destinator.is_author == true">
         <span *ngIf="notification.type == 'ProductVote'"> <span class="text"> aime votre publication </span></span>
+        <span *ngIf="notification.type == 'Follower'"> <span class="text">a commencé à vous suivre</span></span>
         <br><br><small> {{notification.published_at | amTimeAgo}}</small>
     </span>
     

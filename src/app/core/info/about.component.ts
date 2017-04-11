@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styles : [
     `
       .desc-pict{
-        width: 48px;
-        height: 68px;
+        width: 58px;
+        height: 48px;
         border-radius: 5px;
       }
     `

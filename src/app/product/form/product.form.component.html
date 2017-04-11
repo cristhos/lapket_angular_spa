@@ -37,7 +37,7 @@
                    <div class="input-field  col s9 m9">
                       <select materialize="material_select" [materializeSelectOptions]="selectOptions"  required [(ngModel)]="model.category_id" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled="" selected="">Choisir une categorie</option>
-                        <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                        <option class="ng-valid"*ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
                       </select>
                   </div>
                 <div class="col s12 m12">

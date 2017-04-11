@@ -23,12 +23,12 @@
                         <a *ngIf="user_detail.is_follow_it == false" (click)="postFollow(user_detail.id)" class="btn ">
                           <i  class="fa fa-user-plus"></i>
                           Suivre
-                          <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse right"></i>
+                          
                         </a>
                         <a *ngIf="user_detail.is_follow_it == true" (click)="removeFollow(user_detail.id)" class="btn ">
                           <i  class="fa fa-check"></i>
                           Abonné
-                          <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse "></i>
+                          
                         </a>
                       </li>
                    </span>
