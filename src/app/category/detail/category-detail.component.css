@@ -1,0 +1,12 @@
+.card-panel {
+      padding: 5px;
+}
+
+.fixed-center{
+    position:fixed;
+    width: 80%;
+    z-index: 80;
+}
+.content-f{
+    padding-top:50px;
+}

@@ -1,26 +1,14 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { CategoryService } from '../service/category.service';
 import { ProductService } from '../../product/product.component';
 
-import { slideInDownAnimation } from '../../animate';
-
-//@HostBinding('@routeAnimation') routeAnimation = true;
-//@HostBinding('style.display')   display = 'block';
-//@HostBinding('style.position')  position = 'absolute';
-
-
 @Component({
   selector: 'category-detail',
   templateUrl: './category-detail.component.html',
-  styles: [`
-      .card-panel {
-      padding: 5px;
-     }
-  `],
-  animations: [ slideInDownAnimation ]
+  styleUrls:['./category-detail.component.css'],
 })
 
 export class CategoryDetailComponent implements OnInit, OnDestroy {

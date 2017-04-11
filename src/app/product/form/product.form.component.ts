@@ -16,23 +16,7 @@ import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 @Component({
   selector: 'product-form',
   templateUrl: './product.form.component.html',
-  styles: [`
-    .list-auto{
-      height: 300px;
-      overflow:auto;
-    }
-    .file-over { border: dotted 3px red; }
-    .card, .card-content{
-      padding:0px;
-    }
-    .fa{
-      color:#0069ff;
-    }
-    .btn i{
-      color:white;
-    }
-  `]
-  
+  styleUrls:['./product.form.component.css'] 
 })
 
 export class ProductFormComponent implements OnInit{

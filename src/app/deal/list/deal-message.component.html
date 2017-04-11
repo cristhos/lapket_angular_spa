@@ -1,5 +1,4 @@
-<div  class="container">
-  <div class="row">
+<div>
     <div class="card-panel">
       <div class="row">
           <div class="col s12 m5 hide-on-med-and-down" *ngIf="dealConversations != null">
@@ -22,8 +21,8 @@
               </ul>
           </div>
           <div class="col s12 m7 " >
-            <ul class="collection " >
-              <li class="collection-item">
+            <ul class="collection with-header" >
+              <li class="collection-header">
                 <deal-conversation-common [dc]="dealConversation"></deal-conversation-common>
               </li>
               <section id="message-list-auto" class="collection-item"
@@ -50,5 +49,4 @@
       </div>
 
     </div>
-  </div>
 </div>

@@ -4,17 +4,7 @@ import { DealService } from '../service/deal.service';
 @Component({
   selector: 'deal-common',
   templateUrl: './deal-common.component.html',
-  styles: [`
-      .message-text-right{
-        background : #80cbc4;
-        border-radius: 15px 15px 0px 15px;
-      }
-
-      .message-text-left{
-        background: #e0f2f1;
-        border-radius: 0px 15px 15px 15px;
-      }
-  `],
+  styleUrls:['./deal-common.component.css']
 })
 
 export class DealCommonComponent {

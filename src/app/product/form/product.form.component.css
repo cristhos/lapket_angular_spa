@@ -1,0 +1,14 @@
+.list-auto{
+      height: 300px;
+      overflow:auto;
+    }
+    .file-over { border: dotted 3px red; }
+    .card, .card-content{
+      padding:0px;
+    }
+    .fa{
+      color:#0069ff;
+    }
+    .btn i{
+      color:white;
+    }

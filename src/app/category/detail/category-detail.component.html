@@ -1,8 +1,8 @@
-<div class="container" *ngIf="category != null">
-  <div  class="card-panel" >
+<div *ngIf="category != null">
+  <div  class="card-panel fixed-center" >
       <category-common [category] = "category"></category-common>
   </div>
-  <div class="row">
+  <div class="row content-f">
        <core-block-right class="col s12 m3 right"></core-block-right>
        <menu-category class="col s12 m3 hide-on-med-and-down"></menu-category>
        <div class="col s12 m6">
