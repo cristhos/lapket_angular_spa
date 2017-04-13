@@ -10,9 +10,6 @@ import { ApiUrlService } from '../../utils/api-url.service';
 import { ImageResizerService } from '../../utils/image-resizer.service';
 import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
-
-
-
 @Component({
   selector: 'product-form',
   templateUrl: './product.form.component.html',
@@ -75,10 +72,8 @@ export class ProductFormComponent implements OnInit{
       this.loading = true;
 
       let filecropper = [] ;
-      filecropper.push(this.dataURLtoFile(this.cropper.image.image, 'p_product.png'));
-      console.log(filecropper);
+      filecropper.push(this.imageResizerService.dataURLtoFile(this.cropper.image.image, 'p_product.png'));
       this.uploader.addToQueue(filecropper);
-      //this.uploader.uploadItem(filecropper);
       this.uploader.uploadAll();
       this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
            let data = JSON.parse(response);
@@ -175,17 +170,6 @@ export class ProductFormComponent implements OnInit{
         that.cropper.setImage(image);
     };
     myReader.readAsDataURL(file);
-
-    console.log($event.target.files[0]);
    }
-  
-  dataURLtoFile(dataurl, filename) {
-    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-    while(n--){
-        u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new File([u8arr], filename, {type:mime});
-  }
   
 }

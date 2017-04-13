@@ -16,7 +16,6 @@
                  
                 </div>
                 <div  *ngIf="formElement" class="col s12 center">
-                    <span>Ajuster l'image</span>
                     <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
                     <br>
                     <span>Résultat final</span><br>

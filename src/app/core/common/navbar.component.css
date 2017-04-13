@@ -9,6 +9,22 @@ nav img{
   margin-bottom: -10px;  
 }
 
+nav ul li{
+  margin: 2px;
+}
+
 .dropdown-content {
     color: red;
+}
+
+nav ul a {
+    padding: 0 5px;
+}
+
+.avatar-nav{
+   border-radius: 19px;
+   width: 30px;
+   height: 30px;
+   color: rgb(1,164,239);
+   overflow: hidden;
 }

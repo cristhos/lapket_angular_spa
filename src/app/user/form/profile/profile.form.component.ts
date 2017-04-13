@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { NgForm }    from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
@@ -9,6 +9,7 @@ import { ApiUrlService } from '../../../utils/api-url.service';
 import { ImageResizerService } from '../../../utils/image-resizer.service';
 import {  CountryService } from '../../../country/service/country.service';
 import {  CityService } from '../../../city/service/city.service';
+import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
 @Component({
   selector: 'profile-form',
@@ -23,6 +24,12 @@ export class ProfileFormComponent implements OnInit{
   categories;
   countries;
   cities;
+   // file upluad
+  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
+  data: any;
+  cropperSettings;
+  @ViewChild('cropper', undefined) 
+  cropper:ImageCropperComponent;
   genders = [
             {
               'type':'m',
@@ -39,7 +46,18 @@ export class ProfileFormComponent implements OnInit{
               private apiUrlService : ApiUrlService,
               private countryService : CountryService,
               private cityService : CityService,
-              ) {}
+              ) {
+
+        this.cropperSettings = new CropperSettings();
+        this.cropperSettings.noFileInput = true;
+        this.cropperSettings.width = 160;
+        this.cropperSettings.height = 160;
+        this.cropperSettings.croppedWidth =160;
+        this.cropperSettings.croppedHeight =160; 
+        this.cropperSettings.width = 160;
+        this.cropperSettings.height = 160;
+        this.data = {};
+  }
 
   ngOnInit(){
     this.getInitialUser();
@@ -81,7 +99,12 @@ export class ProfileFormComponent implements OnInit{
 
   onSubmit() {
     let is_upload = false;
+
+    let filecropper = [] ;
+    filecropper.push(this.imageResizerService.dataURLtoFile(this.cropper.image.image, 'p_profile.png'));
+    this.uploader.addToQueue(filecropper);
     this.uploader.uploadAll();
+
     this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             let data = JSON.parse(response);
             this.model.picture = data.id;
@@ -109,9 +132,6 @@ export class ProfileFormComponent implements OnInit{
   }
   get diagnostic() { return JSON.stringify(this.model); }
 
-
-  // file upluad
-  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
   
   fileChange($event){
      this.readFiles($event.target.files);
@@ -166,4 +186,18 @@ export class ProfileFormComponent implements OnInit{
   {
     this.getCitiesCountry($event.target.value);
   }
+
+  fileChangeListener($event) {
+    var image:any = new Image();
+    var file:File = $event.target.files[0];
+
+    
+    var myReader:FileReader = new FileReader();
+    var that = this;
+    myReader.onloadend = function (loadEvent:any) {
+        image.src = loadEvent.target.result;
+        that.cropper.setImage(image);
+    };
+    myReader.readAsDataURL(file);
+   }
 }

@@ -40,15 +40,6 @@ body{
     height: 150px;
 }
 
-/*flex design*/
-.flex-design{
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-}
-.flex-design .col{
-  float : left;
-}
 
 /*Avatar design*/
 .avatar{
@@ -57,13 +48,7 @@ body{
   margin-right: 10px;
   color:rgb(1,164,239);;
 }
-.avatar-nav{
-   border-radius: 19px;
-   width: 30px;
-   height: 30px;
-   color: rgb(1,164,239);
-   overflow: hidden;
-}
+
 
 .profile-pict{
   width: 160px;
