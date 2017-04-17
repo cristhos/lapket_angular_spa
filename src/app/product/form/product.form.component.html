@@ -19,7 +19,7 @@
                     <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
                     <br>
                     <span>Résultat final</span><br>
-                    <img [src]="data.image" [width]="cropperSettings.croppedWidth"  [height]="cropperSettings.croppedHeight">
+                    <img class="responsive-img" [src]="data.image" [width]="cropperSettings.croppedWidth"  [height]="cropperSettings.croppedHeight">
                     <li class="divider"></li>
                 </div>
 

@@ -35,8 +35,8 @@
           
              <li>
               <a materialize="dropdown"  class="dropdown-button" data-activates="nav-dropdown" title="{{user.username}}" >
-                <i *ngIf="user.profile_picture == null" class="fa fa-user fa-4x circle"></i>
-                <img class="avatar-nav circle" *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
+                <i *ngIf="user.profile_picture == null" class="fa fa-user fa-2x"></i>
+                <img class="avatar-nav"  *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
               </a>
               <ul id="nav-dropdown" class='dropdown-content' >
                 <li><a [routerLink]="['/user', user.username]"><i class="fa fa-user "></i> {{user.username}}</a></li>

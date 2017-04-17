@@ -1,5 +1,5 @@
 nav {
-  background-color: rgb(1,164,239) ;
+  background-color: rgb(0,171,107) ;
 }
 nav .brand-logo, .logo {
   color: white;
@@ -13,9 +13,6 @@ nav ul li{
   margin: 2px;
 }
 
-.dropdown-content {
-    color: red;
-}
 
 nav ul a {
     padding: 0 5px;
@@ -25,6 +22,6 @@ nav ul a {
    border-radius: 19px;
    width: 30px;
    height: 30px;
-   color: rgb(1,164,239);
+   color: white;
    overflow: hidden;
 }

@@ -14,4 +14,9 @@
      
      <span *ngIf="dc.author.is_author == true "><small *ngIf="dc.nb_receiver_messages > 0" class="right red-badge">{{dc.nb_receiver_messages}}</small></span>
      <span *ngIf="dc.author.is_author == false "><small *ngIf="dc.nb_author_messages > 0" class="right red-badge">{{dc.nb_author_messages}}</small></span>
+     <br>
+     <span class="center" *ngIf="dc.is_seen == false">
+        Nouveau message non lu ...
+     </span>
 </span>
+

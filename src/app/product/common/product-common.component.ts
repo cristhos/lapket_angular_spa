@@ -40,6 +40,8 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
 
   postProductVote(product_id: number){
 
+    if(this.buttonGuard() == true){
+
        this.product.is_voted = true;
        const nb_vote_transit = this.product.nb_votes;
        this.product.nb_votes = nb_vote_transit + 1;
@@ -55,9 +57,13 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
         },
         () => console.log('finish')
      );
+    }else{
+       this.buttonGuardRedirect();
+    }
   }
   removeProductVote(product_id: number)
   {
+     if(this.buttonGuard() == true){
       this.product.is_voted = false;
       const nb_votes_transit = this.product.nb_votes;
       this.product.nb_votes = nb_votes_transit - 1;
@@ -73,6 +79,9 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
         },
         () => console.log("finish")
      );
+     }else{
+       this.buttonGuardRedirect();
+     }
   }
 
   deleteProduct(product_id){
@@ -103,6 +112,7 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
   }
 
   beginConversation(product_id){
+     if(this.buttonGuard() == true){
         if(window.confirm('Etes vous sur de vouloir demarer une conversation'))
         {
           this.dealService.postConversation(product_id).subscribe(
@@ -113,6 +123,10 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
             () => console.log("finish")
           );
       }
+     }else{
+       this.buttonGuardRedirect();
+     }
+
   }
 
   desactiveNotification(product_id : number){
@@ -139,4 +153,19 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
      );
     }
   }
+
+  buttonGuard(){
+    if(localStorage.getItem("access_token")){
+      return true;
+    }else{
+      return false;
+    }
+  }
+ 
+ buttonGuardRedirect(){
+   if(window.confirm('Voulez-vous vous connecter pour effectuer cette action ?'))
+    {
+      this.router.navigateByUrl('/login');
+    }
+ }
 }

@@ -51,12 +51,11 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   }
 
   getInitMessages(){
-    this.scrollMessageDown();
     this.sub = this.route.params.subscribe(params => {
       let conversation_id = +params['conversation_id'];
       this.getLastDealMessages(conversation_id);
     });
-      
+    this.scrollMessageDown();
   }
  
 
@@ -88,13 +87,13 @@ export class DealMessageComponent implements OnInit, OnDestroy{
   
   //get last message in my api page=1 order by desc
   getLastDealMessages(conversation_id){
-     this.dealMessages = [];
       if(this.timerSubLoad) this.timerSub.unsubscribe();
 
       this.getDealConversation(conversation_id);
 
       this.dealService.getDealMessages(conversation_id, 1).subscribe(
             data =>{
+                this.dealMessages = [];
                 this.checkMessages(data,"last");
                 this.subscribeToData(conversation_id);
             },
@@ -125,7 +124,7 @@ export class DealMessageComponent implements OnInit, OnDestroy{
         
         if(pass ==true){
           if(checkType=="last"){
-            this.dealMessages.push(data._embedded.items[i]);
+            this.dealMessages.unshift(data._embedded.items[i]);
           }else{
             this.dealMessages.unshift(data._embedded.items[i]);
           }

@@ -3,7 +3,7 @@
     margin-top:20%;
 }
 .circle-clipper{
-    border-color: #0069ff; 
+    border-color: rgb(0,171,107); 
 }
 
 /*Test Loading*/
@@ -15,7 +15,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background:rgb(1,164,239);
+    background:rgb(0,171,107);
     z-index: -1;
 }
 
