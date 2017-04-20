@@ -1,11 +1,6 @@
-.home-pict
-{
- width :100%;
+.parallax-container {
+      height:300px;
 }
 .border{
-    box-shadow: 2px white
-}
-
-.text-white{
-    color:rgb(1,164,239);
+    box-shadow: 2px red;
 }

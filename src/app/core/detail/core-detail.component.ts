@@ -1,5 +1,7 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, AfterViewInit } from '@angular/core';
 import { UserService } from '../../user/service/user.service';
+
+declare var $: any
 
 @Component({
   selector: 'core',
@@ -7,12 +9,15 @@ import { UserService } from '../../user/service/user.service';
   styleUrls: ['./core-detail.component.css'],
 })
 
-export class CoreDetailComponent implements OnInit{
+export class CoreDetailComponent implements OnInit,AfterViewInit{
   authent : boolean;
   request : boolean;
   constructor(private userService : UserService) {}
   ngOnInit(){
      this.checkLogin(); 
+  }
+  ngAfterViewInit(){
+   $('.parallax').parallax();
   }
   checkLogin(){
 			if (localStorage.getItem("access_token")) {
