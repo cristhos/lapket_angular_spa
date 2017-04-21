@@ -3,7 +3,7 @@
               <ul class="collection with-header">
                 <li class="collection-header site-color"><h4>Description</h4></li>
                 <li class="collection-item">
-                  <p class="align-justify">
+                  <p class="align-justify ">
                     Après avoir fait le tour de plusieurs magasins, boutiques, ou maisons des produits high-tech, fatigué et insatisfait
                     par le fait que le prix soit trop chèr ou le produit recherché ne s'y trouvaint pas.<br >
                     Nous étions sûr que le produit etait là ,quelque part dans la même ville à un prix abordable! <strong>Dificile de savoir où!</strong><br>
@@ -12,53 +12,17 @@
                   </p>
                 </li>
               </ul>
-              <ul class="collection with-header">
+              <ul class="collection with-header" *ngIf="teams != null">
                 <li class="collection-header site-color"><h4>Equipe</h4></li>
                 <li class="collection-item hoverable row">
-                  <div class="col s12 m3">
-                     <div class="card ">
-                      <div class="card-image waves-effect waves-block waves-light">
-                         <img class="about-img" src="../../../assets/images/lithos.jpg" alt="lithos">
-                      </div>
-                       <div class="card-content">
-                        <strong>Lithos Cristal</strong><br >
-                        <span>Co-fondateur & CEO</span>
-                      </div>
-                     </div>
-                  </div>
-                  
-                  <div class="col s12 m3">
+                  <div class="col s12 m3" *ngFor="let team of teams">
                     <div class="card ">
                       <div class="card-image waves-effect waves-block waves-light">
-                        <img class="about-img" src="../../../assets/images/arsene.jpg" alt="arsene">
+                        <img class="about-img" [src]="team.picture" [alt]="team.full_name">
                       </div>
                       <div class="card-content">
-                        <strong>Arsene Kalend</strong><br>
-                        <span>Co-fondateur & Responsable serveur</span>
-                      </div>
-                     </div>
-                  </div>
-
-                  <div class="col s12 m3">
-                     <div class="card ">
-                       <div class="card-image waves-effect waves-block waves-light">
-                         <img class="about-img" src="../../../assets/images/jo.jpg" alt="johnatan">
-                       </div>
-                       <div class="card-content">
-                          <strong>Jonathan Kadiayi</strong><br>
-                          <span>Résponsable design</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col s12 m3">
-                    <div class="card ">
-                      <div class="card-image waves-effect waves-block waves-light">
-                        <img class="about-img" src="../../../assets/images/jo.jpg" alt="johnatan">
-                      </div>
-                      <div class="card-content">
-                        <strong>Manne Kapinga</strong><br>
-                        <span>Responsable client</span>
+                        <strong>{{ team.full_name}}</strong><br>
+                        <span>{{ team.fonction}}</span>
                       </div>
                      </div>
                   </div>

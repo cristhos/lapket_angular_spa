@@ -7,5 +7,26 @@ import { Component } from '@angular/core';
 })
 
 export class AboutComponent {
-  //Utilisation du service pour charger la session
+  teams = [
+            {
+              full_name : "Lithos Cristal",
+              fonction : "Co-fondateur & CEO",
+              picture: "../../../assets/images/lithos.jpg"
+            },
+            {
+              full_name : "Arsene Kalend",
+              fonction : "Co-fondateur & RS",
+              picture : "./../../assets/images/arsene.jpg"
+            },
+            {
+              full_name : "Jonhatan Kadiayi",
+              fonction : "RD",
+              picture : "../../../assets/images/jo.jpg"
+            },
+            {
+              full_name : "Manne Kapinga",
+              fonction : "RC",
+              picture : "../../../assets/images/jo.jpg"
+            }
+          ];
 }
