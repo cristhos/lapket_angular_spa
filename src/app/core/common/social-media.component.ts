@@ -14,6 +14,11 @@ export class SocialMediaComponent {
               icon : "fa fa-facebook blue-text",
             },
             {
+              name : "Google plus",
+              url : "https://plus.google.com/u/0/b/112697887058690525875/112697887058690525875",
+              icon :"fa fa-google-plus red-text",
+            },
+            {
               name : "Twitter",
               url : "https://twitter.com/lapketofficial",
               icon :"fa fa-twitter blue-text",
