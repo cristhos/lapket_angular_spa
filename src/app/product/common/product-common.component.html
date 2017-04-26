@@ -12,7 +12,7 @@
        <a materialize="dropdown"  class="dropdown-button" attr.data-activates="dropdown-p-{{product.id}}" href="javascript:void(0)">
          <i class="fa fa-caret-down"></i>
        </a>
-      <ul id="dropdown-p-{{product.id}}" class='dropdown-content'>
+      <ul id="dropdown-p-{{product.id}}" class='dropdown-content dropdown-conf'>
            <span *ngIf="product.is_voted == true">
               <li *ngIf="product.is_notify == true"><a  (click)="desactiveNotification(product.id)" class="waves-effect waves-light" >Ne plus etre notifier</a></li>
               <li *ngIf="product.is_notify == false"><a  (click)="activeNotification(product.id)" class="waves-effect waves-light" >Etre notifier</a></li>

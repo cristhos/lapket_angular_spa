@@ -20,13 +20,13 @@ export class AboutComponent {
             },
             {
               full_name : "Jonhatan Kadiayi",
-              fonction : "RD",
+              fonction : "Man of Design",
               picture : "../../../assets/images/jo.jpg"
             },
             {
               full_name : "Manne Kapinga",
-              fonction : "RC",
-              picture : "../../../assets/images/jo.jpg"
+              fonction : "Man of Community",
+              picture : "../../../assets/images/logo.jpg"
             }
           ];
 }

@@ -17,7 +17,7 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
   product : any;
 
   //lazy-image
-  defaultImage = '../../../assets/images/loader.gif';
+  defaultImage = '../../../assets/images/loader1.gif';
   offset = 100;
   product_share_link;
 

@@ -4,3 +4,7 @@
 .border{
     box-shadow: 2px red;
 }
+
+.parallax img{
+  width: 100%; 
+}

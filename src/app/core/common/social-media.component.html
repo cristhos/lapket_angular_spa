@@ -1,0 +1,6 @@
+<div *ngIf="social_medias != null">
+    <h6 class="center">Rétrouvez nous sur :</h6>
+    <p class="center">
+        <a *ngFor="let sm of social_medias" class="btn-floating" [href]="sm.url"  ><i [class]="sm.icon"></i></a>
+    </p>
+</div>

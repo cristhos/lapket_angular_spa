@@ -10,23 +10,13 @@ export class PartainerComponent {
   partainers = [
             {
               name : "waza-tech",
-              url : "waza-tech.com",
-              picture: "../../../assets/images/logo.jpg"
+              url : "http://www.waza-tech.com",
+              picture: "../../../assets/images/wazatech.jpg"
             },
             {
               name : "tutorielpro",
-              url : "tutorielpro.com",
-              picture : "./../../assets/images/logo.jpg"
-            },
-            {
-              name : "tutorielpro",
-              url : "tutorielpro.com",
-              picture : "./../../assets/images/logo.jpg"
-            },
-            {
-              name : "waza-tech",
-              url : "waza-tech.com",
-              picture: "../../../assets/images/logo.jpg"
+              url : "http://www.tutorielpro.com",
+              picture : "./../../assets/images/tutorielpro.png"
             },
           ];
 }
