@@ -2,7 +2,7 @@
 <span *ngIf="user != null && request == true">
     <nav-bar *ngIf="user.compte_state == true" [user]="user"></nav-bar>
 </span>
-<main class="container">
+<main >
         <router-outlet></router-outlet>
 </main>
 <core-footer *ngIf="request == true && request == true" [user]="user" ></core-footer>

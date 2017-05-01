@@ -13,9 +13,9 @@
             <search-form></search-form>   
           </li>
         </ul>
-         <ul  *ngIf="user == null" class="right ">
-             <li><a [routerLink]="['/login']"  class="btn">Connexion</a></li>
-         </ul> 
+         <span  *ngIf="user == null" class="right ">
+             <a [routerLink]="['/login']"  class="btn">Connexion</a>
+         </span> 
         
         <ul *ngIf="user != null" class="right">
              <li> 

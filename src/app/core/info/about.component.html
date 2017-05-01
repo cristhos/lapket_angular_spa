@@ -1,33 +1,34 @@
-<div class="card ">
-          <div class="card-content">
-              <ul class="collection with-header">
-                <li class="collection-header site-color"><h4>Description</h4></li>
-                <li class="collection-item">
-                  <p class="align-justify ">
-                    Après avoir fait le tour de plusieurs magasins, boutiques, ou maisons des produits high-tech, fatigué et insatisfait
-                    par le fait que le prix soit trop chèr ou le produit recherché ne s'y trouvaint pas.<br >
-                    Nous étions sûr que le produit etait là ,quelque part dans la même ville à un prix abordable! <strong>Dificile de savoir où!</strong><br>
-                    Nous avons développé cette solution dans le but de vous permettre 
-                    d'échanger des produits avec vos ami(e)s et connaissances!
-                  </p>
-                </li>
-              </ul>
-              <ul class="collection with-header" *ngIf="teams != null">
-                <li class="collection-header site-color"><h4>Equipe</h4></li>
-                <li class="collection-item hoverable row">
-                  <div class="col s12 m3" *ngFor="let team of teams">
-                    <div class="card ">
-                      <div class="card-image waves-effect waves-block waves-light">
-                        <img class="about-img" [src]="team.picture" [alt]="team.full_name">
+<div class="container">
+  <div class="card ">
+            <div class="card-content">
+                <ul class="collection with-header">
+                  <li class="collection-header site-color"><h4>Description</h4></li>
+                  <li class="collection-item">
+                    <p class="align-justify ">
+                      Après avoir fait le tour de plusieurs magasins, boutiques, ou maisons des produits high-tech, fatigué et insatisfait
+                      par le fait que le prix soit trop chèr ou le produit recherché ne s'y trouvait pas.<br >
+                      Nous étions sûr que le produit etait là ,quelque part dans la même ville à un prix abordable! dificile de savoir où!<br>
+                      Nous avons développé cette solution dans le but de vous permettre 
+                      d'échanger des produits avec vos ami(e)s et connaissances!
+                    </p>
+                  </li>
+                </ul>
+                <ul class="collection with-header" *ngIf="teams != null">
+                  <li class="collection-header site-color"><h4>Equipe</h4></li>
+                  <li class="collection-item hoverable row">
+                    <div class="col s12 m3" *ngFor="let team of teams">
+                      <div class="card ">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="about-img" [src]="team.picture" [alt]="team.full_name">
+                        </div>
+                        <div class="card-content">
+                          <strong>{{ team.full_name}}</strong><br>
+                          <span>{{ team.fonction}}</span>
+                        </div>
                       </div>
-                      <div class="card-content">
-                        <strong>{{ team.full_name}}</strong><br>
-                        <span>{{ team.fonction}}</span>
-                      </div>
-                     </div>
-                  </div>
-                </li>
-              </ul>
-          </div>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+  </div>
 </div>
-

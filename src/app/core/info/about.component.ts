@@ -19,7 +19,7 @@ export class AboutComponent {
               picture : "./../../assets/images/arsene.jpg"
             },
             {
-              full_name : "Jonhatan Kadiayi",
+              full_name : "Jonathan Kadiayi",
               fonction : "Man of Design",
               picture : "../../../assets/images/jo.jpg"
             },

@@ -1,13 +1,15 @@
-<div *ngIf="products != null"  class="row">
-    <h5 class="center site-color">A la une</h5>
-    <div *ngFor="let product of products " class="col s12 m4">
-      <product-common [product]="product"></product-common>
+<div *ngIf="products != null" class="container">
+    <h5 class="site-color">A la une</h5>
+    <div class="row">
+        <div *ngFor="let product of products " class="col s12 m4">
+        <product-common [product]="product"></product-common>
+        </div>
     </div>
-</div>
-<div *ngIf="product_loading == true">
-    <loading></loading>
-</div>
+    <div *ngIf="product_loading == true">
+        <loading></loading>
+    </div>
 
-<p class="center">
-      <a [routerLink]="['/register']" class="btn ">COMMENCER VOS ACHATS</a>
-</p>
+    <p class="center">
+        <a [routerLink]="['/register']" class="btn ">COMMENCER VOS ACHATS</a>
+    </p>
+</div>

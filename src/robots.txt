@@ -2,3 +2,6 @@
 Allow : /
 Allow : /about
 Allow : /category
+Allow : /register
+Allow : /login
+Allow : /condition

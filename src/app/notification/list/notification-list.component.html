@@ -1,28 +1,30 @@
-<div class="row" >
-  <core-block-right class="col s12 m3 right"></core-block-right>
-  <div class="col s12 m6 offset-m3">
-    <ul *ngIf ="notifications != null" class="collection with-header"
-                infinite-scroll [infiniteScrollDistance]="2"
-                [infiniteScrollUpDistance]="1.5"
-                [infiniteScrollThrottle]="3000"
-                (scrolled)="onScrollDown()">
-                <li class="collection-header">
-                    NOTIFICATIONS 
-                </li>
-                <li  *ngFor = "let notification of notifications"  >
-                    <a class="right" (click)="removeNotification(notification)">
-                        <i class="fa fa-close"></i>
-                    </a>
-                    <a class="collection-item" [routerLink]="['/product',notification.object_id ]" >
-                        <notification-common [notification]="notification" ></notification-common>
-                    </a>
-                </li>
-            <p *ngIf="page <= pages" class="center">
-                <button (click)="onScrollDown()" class="btn-flat">Suivant</button>
-            </p>   
-    </ul>
-    <div *ngIf="notifications_loading == true">
-        <loading></loading>
+<div class="container">
+    <div class="row" >
+    <core-block-right class="col s12 m3 right"></core-block-right>
+    <div class="col s12 m6 offset-m3">
+        <ul *ngIf ="notifications != null" class="collection with-header"
+                    infinite-scroll [infiniteScrollDistance]="2"
+                    [infiniteScrollUpDistance]="1.5"
+                    [infiniteScrollThrottle]="3000"
+                    (scrolled)="onScrollDown()">
+                    <li class="collection-header">
+                        NOTIFICATIONS 
+                    </li>
+                    <li  *ngFor = "let notification of notifications"  >
+                        <a class="right" (click)="removeNotification(notification)">
+                            <i class="fa fa-close"></i>
+                        </a>
+                        <a class="collection-item" [routerLink]="['/product',notification.object_id ]" >
+                            <notification-common [notification]="notification" ></notification-common>
+                        </a>
+                    </li>
+                <p *ngIf="page <= pages" class="center">
+                    <button (click)="onScrollDown()" class="btn-flat">Suivant</button>
+                </p>   
+        </ul>
+        <div *ngIf="notifications_loading == true">
+            <loading></loading>
+        </div>
     </div>
-  </div>
+    </div>
 </div>

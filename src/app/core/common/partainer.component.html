@@ -1,12 +1,14 @@
-<div class="row" *ngIf="partainers != null">
-         <h5 class="center site-color">Nos partenairs</h5>
-         <div class="col s6 m3" *ngFor="let partainer of partainers">
-          <a [href]="partainer.url">
-            <div class="card">
-              <div class="card-image">
-                 <img class="about-img" [src]="partainer.picture" [alt]="partainer.name"> 
-              </div>   
-            </div>
-           </a>
-         </div>
+<div class="container">
+   <h5 class="site-color">Nos partenaires</h5>
+  <div class="row" *ngIf="partainers != null">
+          <div class="col s6 m3" *ngFor="let partainer of partainers">
+            <a [href]="partainer.url">
+              <div class="card">
+                <div class="card-image">
+                  <img class="about-img" [src]="partainer.picture" [alt]="partainer.name"> 
+                </div>   
+              </div>
+            </a>
+          </div>
+  </div>
 </div>
