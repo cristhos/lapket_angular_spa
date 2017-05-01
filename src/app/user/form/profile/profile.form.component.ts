@@ -99,21 +99,25 @@ export class ProfileFormComponent implements OnInit{
 
   onSubmit() {
     let is_upload = false;
+    
+    if(this.cropper.image.image != null){
+          let filecropper = [] ;
+    
+        filecropper.push(this.imageResizerService.dataURLtoFile(this.cropper.image.image, 'p_profile.png'));
+        this.uploader.addToQueue(filecropper);
+        this.uploader.uploadAll();
 
-    let filecropper = [] ;
-    filecropper.push(this.imageResizerService.dataURLtoFile(this.cropper.image.image, 'p_profile.png'));
-    this.uploader.addToQueue(filecropper);
-    this.uploader.uploadAll();
+        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+                let data = JSON.parse(response);
+                this.model.picture = data.id;
 
-    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-            let data = JSON.parse(response);
-            this.model.picture = data.id;
+              if(this.model.picture != null){
+                is_upload = true;
+                this.putUser();
+              }
+          };
+    }
 
-           if(this.model.picture != null){
-             is_upload = true;
-             this.putUser();
-           }
-      };
     if(is_upload == false) this.putUser();
   }
 
