@@ -1,16 +1,12 @@
 <div class="navbar-fixed">
   <nav role="navigation">
       <div class="nav-wrapper container">
-        <a [routerLink]="['/']" routerLinkActive="active" class="brand-logo center">l<span class="hide-on-med-and-down">apket</span></a>  
         <ul>
-          <li class="center">
-              <a [routerLink]="['/']">
-                <i class="fa fa-home "></i>
-                <span class="hide-on-med-and-down nav-menu_title">Acceuil</span>
-              </a>
+          <li>
+             <a [routerLink]="['/']" routerLinkActive="active" ><img class="logo" src="../../../assets/images/favicon.png"></a> 
           </li>
           <li class="hide-on-med-and-down">
-            <search-form></search-form>   
+                <search-form></search-form>   
           </li>
         </ul>
          <span  *ngIf="user == null" class="right ">
@@ -18,25 +14,26 @@
          </span> 
         
         <ul *ngIf="user != null" class="right">
-             <li class="center"> 
+                       <li class="center">
+              <a [routerLink]="['/']">
+                <i class="fa fa-home"></i>
+              </a>
+          </li>
+          <li class="center"> 
               <a [routerLink]="['/deal/conversation']" title="Messages" routerLinkActive="active" >
                         <i class="fa fa-envelope "></i>
                         <small *ngIf="user.nb_received_messages > 0" class="red-badge">{{user.nb_received_messages}}</small>
-                        <span class="hide-on-med-and-down nav-menu_title">Message</span>
               </a>
-             </li>
-             <li class="center">
+          </li>
+          <li class="center">
               <a [routerLink]="['/notification']" title="Notifications" routerLinkActive="active" >
                         <i class="fa fa-bell "></i>
                         <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
-                        <span class="hide-on-med-and-down nav-menu_title">Notification</span>
-          
               </a>
-             </li>
-          
+          </li>
              <li class="center">
               <a materialize="dropdown"  class="dropdown-button" data-activates="nav-dropdown" title="{{user.username}}" >
-                <i *ngIf="user.profile_picture == null" class="fa fa-user fa-2x"></i>
+                <i *ngIf="user.profile_picture == null" class="fa fa-user "></i>
                 <img class="avatar-nav"  *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
               </a>
               <ul id="nav-dropdown" class='dropdown-content' >

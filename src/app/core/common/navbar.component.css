@@ -1,8 +1,8 @@
 nav {
   background-color: white;
 }
-nav .brand-logo, .logo {
-  color:rgb(0,171,107);
+nav .logo{
+  height: 30px;
 }
 
 nav img{
@@ -17,8 +17,7 @@ nav ul li
 
 nav ul a 
 {
-    color:rgb(0,171,107);
-    padding: 0 2px;
+  color:rgb(0,171,107);  
 }
 
 nav .button-collapse {
@@ -50,10 +49,4 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
   font-size: 22px;
 }
 
-.nav-menu_title {
-    display: block;
-    font-weight: 400;
-    font-size: 13px;
-    margin-top :-50px;
-}
 
