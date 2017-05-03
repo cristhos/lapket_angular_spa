@@ -1,6 +1,4 @@
-.container {
-  width: 80%;
-}
+
 .btn, .btn-large {
     background-color:rgb(0,171,107);
     padding: 0 1rem;
@@ -79,6 +77,9 @@ body{
     border-radius:96px;
     overflow: hidden;
   }
+  .container {
+   width: 80%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -87,6 +88,9 @@ body{
     height: 96px;
     border-radius:48px;
     overflow: hidden;
+  }
+  .container {
+   width: 100%;
   }
 }
 
