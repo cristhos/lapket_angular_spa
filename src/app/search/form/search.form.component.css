@@ -1,5 +1,4 @@
 #search_text{
-        width: 200px;
         font-size: 16px;
         border: 0;
         height: 30px;
@@ -25,4 +24,16 @@
     border-radius: 0px 3px 3px 0px;
     background:  #eeeeee;
     margin-top:-2px;
+}
+
+@media only screen and (min-width: 900px) {
+  #search_text{
+        width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1030px) {
+  #search_text{
+        width: 600px;
+  }
 }
