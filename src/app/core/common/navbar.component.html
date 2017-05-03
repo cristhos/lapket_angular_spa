@@ -3,10 +3,10 @@
       <div class="nav-wrapper container">
         <a [routerLink]="['/']" routerLinkActive="active" class="brand-logo center">l<span class="hide-on-med-and-down">apket</span></a>  
         <ul>
-          <li>
+          <li class="center">
               <a [routerLink]="['/']">
-                <i class="fa fa-home"></i>
-                <span class="hide-on-med-and-down">Acceuil</span>
+                <i class="fa fa-home "></i>
+                <span class="hide-on-med-and-down nav-menu_title">Acceuil</span>
               </a>
           </li>
           <li class="hide-on-med-and-down">
@@ -18,22 +18,22 @@
          </span> 
         
         <ul *ngIf="user != null" class="right">
-             <li> 
+             <li class="center"> 
               <a [routerLink]="['/deal/conversation']" title="Messages" routerLinkActive="active" >
-                        <i class="fa fa-envelope"></i>
-                        <span class="hide-on-med-and-down">Message</span>
+                        <i class="fa fa-envelope "></i>
+                        <span class="hide-on-med-and-down nav-menu_title">Message</span>
                         <small *ngIf="user.nb_received_messages > 0" class="red-badge">{{user.nb_received_messages}}</small>
               </a>
              </li>
-             <li>
+             <li class="center">
               <a [routerLink]="['/notification']" title="Notifications" routerLinkActive="active" >
-                        <i class="fa fa-bell"></i>
-                        <span class="hide-on-med-and-down">Notification</span>
+                        <i class="fa fa-bell "></i>
+                        <span class="hide-on-med-and-down nav-menu_title">Notification</span>
                         <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
               </a>
              </li>
           
-             <li>
+             <li class="center">
               <a materialize="dropdown"  class="dropdown-button" data-activates="nav-dropdown" title="{{user.username}}" >
                 <i *ngIf="user.profile_picture == null" class="fa fa-user fa-2x"></i>
                 <img class="avatar-nav"  *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>

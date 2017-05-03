@@ -14,6 +14,7 @@ nav ul li
   margin: 2px;
 }
 
+
 nav ul a 
 {
     color:rgb(0,171,107);
@@ -32,4 +33,16 @@ nav ul a
 .nav-dropcontent
 {
   width:400px;
+}
+.fa {
+  font-size: 22px;
+}
+
+.nav-menu_title {
+    
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    margin-top :-50px;
+    margin-bottom:0px;
 }
