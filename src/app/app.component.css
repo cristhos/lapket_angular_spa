@@ -90,7 +90,7 @@ body{
     overflow: hidden;
   }
   .container {
-   width: 98%;
+   width: 90%;
   }
 }
 
@@ -129,21 +129,6 @@ strong{
   display: inline-block;
 }
 
-nav .button-collapse {
-    color: black;
-}
-
-nav .btn-floating {
-    width: 30px;
-    height: 30px;
-    background: transparent;
-}
-
-nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
-    margin-top: -2px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
 
 .input-field input, .input-field textarea, .input-field select{
   border-radius : 2px;

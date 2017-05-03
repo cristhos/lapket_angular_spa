@@ -11,14 +11,30 @@ nav img{
 
 nav ul li
 {
-  margin: 2px;
+  margin: 5px;
 }
 
 
 nav ul a 
 {
     color:rgb(0,171,107);
-    padding: 0 5px;
+    padding: 0 2px;
+}
+
+nav .button-collapse {
+    color: black;
+}
+
+nav .btn-floating {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+    margin-top: -2px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .avatar-nav
@@ -30,19 +46,14 @@ nav ul a
    overflow: hidden;
 }
 
-.nav-dropcontent
-{
-  width:400px;
-}
 .fa {
   font-size: 22px;
 }
 
 .nav-menu_title {
-    
     display: block;
     font-weight: 400;
     font-size: 13px;
     margin-top :-50px;
-    margin-bottom:0px;
 }
+
