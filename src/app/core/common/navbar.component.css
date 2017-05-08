@@ -45,8 +45,9 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
    overflow: hidden;
 }
 
-.fa {
+.fa-nav {
   font-size: 22px;
 }
-
-
+.dropdown-content{
+    min-width: 200px;
+}

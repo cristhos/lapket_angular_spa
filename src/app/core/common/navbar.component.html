@@ -16,24 +16,24 @@
         <ul *ngIf="user != null" class="right">
                        <li class="center">
               <a [routerLink]="['/']">
-                <i class="fa fa-home"></i>
+                <i class="fa fa-home fa-nav"></i>
               </a>
           </li>
           <li class="center"> 
               <a [routerLink]="['/deal/conversation']" title="Messages" routerLinkActive="active" >
-                        <i class="fa fa-envelope "></i>
+                        <i class="fa fa-envelope fa-nav"></i>
                         <small *ngIf="user.nb_received_messages > 0" class="red-badge">{{user.nb_received_messages}}</small>
               </a>
           </li>
           <li class="center">
               <a [routerLink]="['/notification']" title="Notifications" routerLinkActive="active" >
-                        <i class="fa fa-bell "></i>
+                        <i class="fa fa-bell fa-nav"></i>
                         <small *ngIf="user.nb_notifications > 0" class="red-badge">{{user.nb_notifications}}</small>
               </a>
           </li>
              <li class="center">
-              <a materialize="dropdown"  class="dropdown-button" data-activates="nav-dropdown" title="{{user.username}}" >
-                <i *ngIf="user.profile_picture == null" class="fa fa-user "></i>
+              <a materialize="dropdown"  class="dropdown-button" data-beloworigin="true" data-alignment="right" data-activates="nav-dropdown" title="{{user.username}}" >
+                <i *ngIf="user.profile_picture == null" class="fa fa-user fa-nav"></i>
                 <img class="avatar-nav"  *ngIf="user.profile_picture != null" src="{{user.profile_picture.web_path}}" alt="{{user.profile_picture.alt}}"/>
               </a>
               <ul id="nav-dropdown" class='dropdown-content' >

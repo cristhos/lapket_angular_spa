@@ -36,6 +36,13 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
 
   ngAfterViewInit(){
     $('.materialboxed').materialbox();
+
+    $('.dropdown-p-'+this.product.id).dropdown({
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'right' // Displays dropdown with edge aligned to the left of button
+     }
+   );
+        
   }
 
   postProductVote(product_id: number){

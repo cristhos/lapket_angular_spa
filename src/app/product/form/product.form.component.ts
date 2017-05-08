@@ -41,6 +41,10 @@ export class ProductFormComponent implements OnInit{
     private apiUrlService : ApiUrlService,
     private imageResizerService : ImageResizerService,
   ) {
+        
+  }
+
+  initCropper(){
         this.cropperSettings = new CropperSettings();
         this.cropperSettings.noFileInput = true;
         this.cropperSettings.width = 500;
@@ -56,6 +60,7 @@ export class ProductFormComponent implements OnInit{
      //$('.materialboxed').materialbox();
      this.getProductDetail();
      this.getCategory();
+     this.initCropper();
 
    }
 
