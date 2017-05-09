@@ -13,7 +13,8 @@ export class NavbarComponent{
   @Input() user : Object ;
   constructor(public router: Router, private userService : UserService) {}
   logout(){
-    this.userService.logout();
+    localStorage.clear();
+    localStorage.setItem("authent" , "N");
     this.router.navigateByUrl('/');
     window.location.reload();
   }

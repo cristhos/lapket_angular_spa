@@ -11,8 +11,8 @@ export class ApiUrlService {
       //this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
       //this.baseUrl = "http://192.168.43.59/masta/web/app_pre_prod.php";
     } else {
-      this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
-      //this.baseUrl = "http://192.168.43.59/masta/web/app_pre_prod.php";
+      //this.baseUrl = "http://localhost/masta/web/app_pre_prod.php";
+      this.baseUrl = "http://192.168.43.59/masta/web/app_pre_prod.php";
     }
     return this.baseUrl;
   }

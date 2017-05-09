@@ -189,10 +189,12 @@ export class UserService {
     ;
   }
 
-  logout(): void {
-    this.isLoggedIn = false;
-    localStorage.clear();
-    localStorage.setItem("authent" , "N");
+  logout(){
+        this.url = this.baseUrl + 'user/logouts.json';
+        return this.http
+               .get(this.url)
+               .map(res => res.json())
+        ;
 
   }
 }

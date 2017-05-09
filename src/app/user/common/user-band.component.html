@@ -8,6 +8,7 @@
                       {{ user_detail.full_name}}<em> @{{ user_detail.username}}</em>
                   </h4>
                   <small ><i class="fa fa-map-marker"></i>{{ user_detail.city.name}}</small>
+                  <br><small >Denière connexion : {{ user_detail.last_login | amTimeAgo}}</small>
                   <br ><span>{{ user_detail.description }}</span>
                   <ul >
                    <li *ngIf="user_detail.is_author == true">
