@@ -1,10 +1,10 @@
-import { AnclitestPage } from './app.po';
+import { TestAnCliPage } from './app.po';
 
-describe('angular2spa App', () => {
-  let page: AnclitestPage;
+describe('test-an-cli App', () => {
+  let page: TestAnCliPage;
 
   beforeEach(() => {
-    page = new AnclitestPage();
+    page = new TestAnCliPage();
   });
 
   it('should display message saying app works', () => {
