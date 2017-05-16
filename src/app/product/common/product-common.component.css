@@ -15,3 +15,14 @@ figure img {
       min-width: 80px;
        max-width:80px;
 }
+
+.btn-flat:hover,.btn-flat:focus {
+    color:rgb(0,171,107);
+}
+.fa:hover,.btn-flat:focus {
+    font-size: 35px;
+}
+
+a:hover,a:focus {
+      color:rgb(0,171,107)
+}

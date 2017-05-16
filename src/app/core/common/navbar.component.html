@@ -10,6 +10,7 @@
           </li>
         </ul>
          <span  *ngIf="user == null" class="right ">
+             <a [routerLink]="['/register']"  class="btn-flat">Inscription</a>
              <a [routerLink]="['/login']"  class="btn">Connexion</a>
          </span> 
         

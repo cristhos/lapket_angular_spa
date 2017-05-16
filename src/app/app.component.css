@@ -1,27 +1,37 @@
-
 .btn, .btn-large {
-    border: 1px solid rgb(0,171,107);
-    padding: 0 1rem;
-    background:transparent;
-    color: rgb(0,171,107);
+    background:rgb(0,171,107);
+}
+.btn:hover,.btn:focus, .btn-large:hover,.btn-large:focus  {
+    background:rgba(0,171,107,0.60);
 }
 
-.btn, .btn-large, .btn-flat {
+.btn, .btn-flat, .btn-large{
+  padding: 0 1rem;
+  text-transform: none;
+}
+
+.btn {
+    padding: 0 1rem;
+}
+
+
+.btn, .btn-flat {
     border-radius: 3px;
     height: 30px;
     line-height: 30px;
-    padding: 0 1rem;
-    text-transform: none;
 }
 
-
-.btn-flat:focus, .btn-flat:hover{
-    color: rgb(0,171,107);
+.btn-large{
+    border-radius: 3px;
+    line-height: 40px;
+    height: 40px;
 }
-.btn:hover,.btn:focus,.btn-large:hover,.btn-large:focus{
+
+.divider {
+    height: 1px;
     background: rgb(0,171,107);
-    color:white;
 }
+
 
 body{
   background-color: #eeeeee;
@@ -35,6 +45,9 @@ body{
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
    text-transform: none;
    color :black;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover, .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):focus {
+  color:rgb(0,171,107);
 }
 
 .card.small {

@@ -1,6 +1,6 @@
 {
-  "name": "test-an-cli",
-  "version": "0.0.0",
+  "name": "angularSpa",
+  "version": "2.2.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
