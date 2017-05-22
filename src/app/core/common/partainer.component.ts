@@ -18,5 +18,10 @@ export class PartainerComponent {
               url : "http://www.tutorielpro.com",
               picture : "./../../assets/images/tutorielpro.png"
             },
+            {
+              name : "asky",
+              url : "http://www.asky.com",
+              picture : "./../../assets/images/partenair/asky.jpg"
+            },
           ];
 }
