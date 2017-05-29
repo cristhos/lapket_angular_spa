@@ -74,7 +74,6 @@ import { MaterializeModule } from "angular2-materialize";
 import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
-import { Ng2MapModule} from 'ng2-map';
 import {ImageCropperModule} from 'ng2-img-cropper';
 
 @NgModule({

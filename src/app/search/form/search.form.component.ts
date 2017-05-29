@@ -24,7 +24,7 @@ export class SearchFormComponent {
      this.router.navigate(['/search/'+this.model.term]);
    }
 
-   search(){
+   search(term){
        /*
        let page=1;
        this.loading = true;

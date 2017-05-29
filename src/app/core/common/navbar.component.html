@@ -3,13 +3,14 @@
       <div class="nav-wrapper container">
         <ul>
           <li>
-             <a [routerLink]="['/']" routerLinkActive="active" ><img class="logo" src="../../../assets/images/favicon.png"></a> 
+             <a [routerLink]="['/']" routerLinkActive="active" ><img class="logo" src="../../../assets/images/lapket.png"></a> 
           </li>
           <li class="hide-on-med-and-down">
                 <search-form></search-form>   
           </li>
         </ul>
          <span  *ngIf="user == null" class="right ">
+             <a [routerLink]="['/register']"  class="btn-flat">Inscription</a>
              <a [routerLink]="['/login']"  class="btn">Connexion</a>
          </span> 
         

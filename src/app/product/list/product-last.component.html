@@ -1,6 +1,8 @@
 <div *ngIf="products != null" class="container">
     <h5 class="site-color">A la une</h5>
+   <div class="divider"></div>
     <div class="row">
+        
         <div *ngFor="let product of products " class="col s12 m4">
         <product-common [product]="product"></product-common>
         </div>
@@ -10,6 +12,6 @@
     </div>
 
     <p class="center">
-        <a [routerLink]="['/register']" class="btn ">COMMENCER VOS ACHATS</a>
+        <a [routerLink]="['/register']" class="btn-large">COMMENCER VOS ACHATS</a>
     </p>
 </div>

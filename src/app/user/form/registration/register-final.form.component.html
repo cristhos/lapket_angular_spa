@@ -13,20 +13,20 @@
                 <label for="fullName">Nom complet</label>
                 <input (keyup)="checkForm()" placeholder="Nom complet" id="fullName" type="text" class="form-control" required [(ngModel)]="model.fullName" name="fullName" #name="ngModel" >
             </div>
-            <div *ngIf="genders != NULL" class="input-field col s12 m12">
+            <div *ngIf="genders != null" class="input-field col s12 m12">
              <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.gender" [ngModelOptions]="{standalone: true}" >
                <option value="" disabled="" selected="">Je suis un(e)</option>
                <option *ngFor="let g of genders" [value]="g.type" >{{g.name}}</option>
               </select>
             </div>
-            <div *ngIf="countries != NULL" class="input-field col s12 m12">
+            <div *ngIf="countries != null" class="input-field col s12 m12">
              <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.country" [ngModelOptions]="{standalone: true}" (change)="onSelect($event)" >
                <option value="" disabled="" selected="">Choisir un pays</option>
                <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
               </select>
             </div>
 
-            <div *ngIf="cities != NULL" class="input-field col s12 m12">
+            <div *ngIf="cities != null" class="input-field col s12 m12">
              <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.city" [ngModelOptions]="{standalone: true}" (change)="onSelectCity($event)" >
                <option value="" disabled="" selected="">Choisir une ville</option>
                <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>

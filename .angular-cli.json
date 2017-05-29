@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "angular2spa"
+    "name": "test-an-cli"
   },
   "apps": [
     {
@@ -10,7 +10,6 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "favicon.png",
         "robots.txt",
         "sitemap.xml"
       ],
