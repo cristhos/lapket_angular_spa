@@ -11,17 +11,17 @@ export class PartainerComponent {
             {
               name : "waza-tech",
               url : "http://www.waza-tech.com",
-              picture: "../../../assets/images/wazatech.jpg"
+              picture: "../../../assets/images/partenair/wazatech.jpg"
             },
             {
               name : "tutorielpro",
               url : "http://www.tutorielpro.com",
-              picture : "./../../assets/images/tutorielpro.png"
+              picture : "./../../assets/images/partenair/tutorielpro.png"
             },
             {
               name : "asky",
               url : "http://www.asky.com",
               picture : "./../../assets/images/partenair/asky.jpg"
-            },
+            }
           ];
 }
