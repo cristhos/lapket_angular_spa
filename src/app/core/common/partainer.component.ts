@@ -19,10 +19,10 @@ export class PartainerComponent {
               picture : "./../../assets/images/partenair/tutorielpro.png"
             },
             {
-              name : "asky",
+              name : "asky tech",
               url : "http://www.asky.com",
               picture : "./../../assets/images/partenair/asky.jpg"
             }
-            
+
           ];
 }
