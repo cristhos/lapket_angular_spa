@@ -23,5 +23,6 @@ export class PartainerComponent {
               url : "http://www.asky.com",
               picture : "./../../assets/images/partenair/asky.jpg"
             }
+            
           ];
 }
