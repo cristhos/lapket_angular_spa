@@ -19,14 +19,14 @@ export class CategoryService implements OnInit{
     
   }
 
-  getCategory(limit=8){
+  getCategory(limit=20){
     this.url = this.baseUrl + '/categories.json?limit='+limit;
     return this.http
                .get(this.url)
                .map(res => res.json());
   }
 
-  getCategoryFollow(limit=8){
+  getCategoryFollow(limit=20){
     this.url = this.baseUrl + '/my/follow/categories.json?limit='+limit;
     return this.http
                .get(this.url)

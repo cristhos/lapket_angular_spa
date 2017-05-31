@@ -65,7 +65,7 @@ export class ProductFormComponent implements OnInit{
    }
 
   getCategory(){
-    let limit=25;
+    let limit=32;
     this.categoryService.getCategory(limit).subscribe(
         data => this.categories = data._embedded.items,
         error => console.log(error),

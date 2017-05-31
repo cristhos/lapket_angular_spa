@@ -5,6 +5,16 @@
     background:rgba(0,171,107,0.60);
 }
 
+.btn-transparent{
+    background:transparent;
+    border: 1px solid rgb(0,171,107);
+    color: rgb(0,171,107);
+}
+.btn-transparent:hover,.btn-transparent:focus, .btn-transparent:hover,.btn-transparent:focus  {
+    background:rgb(0,171,107);
+    color:white;
+}
+
 .btn, .btn-flat, .btn-large{
   padding: 0 1rem;
   text-transform: none;
@@ -29,7 +39,7 @@
 
 .divider {
     height: 1px;
-    background: rgb(0,171,107);
+    background: rgba(0,171,107,0.2);
 }
 
 
@@ -94,7 +104,7 @@ body{
     overflow: hidden;
   }
   .container {
-   width: 80%;
+   width: 85%;
   }
 }
 
@@ -119,7 +129,10 @@ strong{
 }
 .card .card-action {
     padding: 5px;
+    border-top: 1px solid rgba(0,171,107,0.2);
 }
+
+
 
 .card ,.collection, .card-panel, .card-action, .dropdown-content{
   border-radius : 10px;

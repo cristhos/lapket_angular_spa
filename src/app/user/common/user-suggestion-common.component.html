@@ -4,7 +4,7 @@
        <img class="avatar-profile-pict  avatar" *ngIf="suggestion.profile_picture != null" src="{{suggestion.profile_picture.web_path}}" alt="{{suggestion.profile_picture.alt}}" />
         <span class="left-align truncate">{{suggestion.full_name}} @{{suggestion.username}}</span>
      </a>
-      <button *ngIf="suggestion.is_follow_it == false" (click)="postFollow(suggestion.id)" class="btn ">
+      <button *ngIf="suggestion.is_follow_it == false" (click)="postFollow(suggestion.id)" class="btn btn-transparent ">
         <i *ngIf="loading == false" class="hide-on-med-and-down fa fa-user-plus "></i>
         S'abonner
         <i *ngIf="loading == true" class="fa fa-spinner fa-spin fa-pulse right"></i>

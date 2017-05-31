@@ -28,13 +28,6 @@ export class AboutComponent {
               picture : "../../../assets/images/team/djo.jpg",
               facebook:"https://web.facebook.com/jonathan.kadiayi",
               twitter :"",
-            },
-            {
-              full_name : "Manne Kapinga",
-              fonction : "Man of Community",
-              picture : "../../../assets/images/team/manne.jpg",
-              facebook:"https://web.facebook.com/mannevic.kapinga.3",
-              twitter:"https://twitter.com/MannevicKaping1",
             }
           ];
 }
