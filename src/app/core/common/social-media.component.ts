@@ -11,17 +11,20 @@ export class SocialMediaComponent {
             {
               name : "Facebook",
               url : "https://www.facebook.com/LapketOfficial",
-              icon : "fa fa-facebook blue-text",
+              icon : "fa fa-facebook ",
+              class:"facebook-btn"
             },
             {
               name : "Google plus",
               url : "https://plus.google.com/u/0/b/112697887058690525875/112697887058690525875",
-              icon :"fa fa-google-plus red-text",
+              icon :"fa fa-google-plus ",
+              class : "googleplus-btn"
             },
             {
               name : "Twitter",
               url : "https://twitter.com/lapketofficial",
-              icon :"fa fa-twitter blue-text",
-            },
+              icon :"fa fa-twitter",
+              class :"twitter-btn"
+            }
           ];
 }

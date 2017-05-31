@@ -190,7 +190,7 @@ export class UserService {
   }
 
   logout(){
-        this.url = this.baseUrl + 'user/logouts.json';
+        this.url = this.baseUrl + '/user/logouts.json';
         return this.http
                .get(this.url)
                .map(res => res.json())

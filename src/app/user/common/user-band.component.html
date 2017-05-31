@@ -23,7 +23,7 @@
                       <li>
                         <a *ngIf="user_detail.is_follow_it == false" (click)="postFollow(user_detail.id)" class="btn ">
                           <i  class="fa fa-user-plus"></i>
-                          Suivre
+                          S'abonner
                           
                         </a>
                         <a *ngIf="user_detail.is_follow_it == true" (click)="removeFollow(user_detail.id)" class="btn ">
