@@ -20,7 +20,7 @@ export class CategoryListComponent {
 
   getCategories(): void {
     this.categories_loading = true;
-    let limit = 16;
+    let limit = 20;
     this.categoryService.getCategory(limit).subscribe(
         data =>{
           this.categories = data._embedded.items;
