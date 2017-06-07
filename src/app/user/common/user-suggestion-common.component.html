@@ -1,6 +1,6 @@
 <div *ngIf="suggestion != null" class="hoverable">
       <a class="center" [routerLink]="['/user', suggestion.username]" routerLinkActive="active" >
-       <i *ngIf="suggestion.profile_picture == null" class="fa fa-user fa-4x avatar-profile-pict avatar"></i>
+       <i *ngIf="suggestion.profile_picture == null" class="fa fa-user-circle fa-3x  avatar"></i>
        <img class="avatar-profile-pict  avatar" *ngIf="suggestion.profile_picture != null" src="{{suggestion.profile_picture.web_path}}" alt="{{suggestion.profile_picture.alt}}" />
         <span class="left-align truncate">{{suggestion.full_name}} @{{suggestion.username}}</span>
      </a>
