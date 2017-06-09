@@ -44,7 +44,7 @@ export class RegisterFinalFormComponent implements OnInit{
     this.getCountries();
   }
 
-  model = new RegisterFinalFormModel(null,null,null,null);
+  model = new RegisterFinalFormModel(null,null,null,null,null);
   submitted = false;
   onSubmit() {
     this.loading = true;
@@ -55,7 +55,7 @@ export class RegisterFinalFormComponent implements OnInit{
         },
         error => {
           console.log(error);
-          this.model = new RegisterFinalFormModel(this.model.fullName,this.model.country,this.model.city,this.model.gender);
+          this.model = new RegisterFinalFormModel(this.model.fullName,this.model.country,this.model.city,this.model.gender,this.model.phone_number);
         },
         () =>{
           console.log("finish");
@@ -118,7 +118,7 @@ export class RegisterFinalFormComponent implements OnInit{
   }
 
   checkForm(){
-    if(this.model.fullName != null && this.model.gender != null && this.model.country != null && this.model.city != null ){
+    if(this.model.fullName != null && this.model.gender != null && this.model.country != null && this.model.city != null && this.model.phone_number != null ){
       this.form_completed = true;
     }else{
       this.form_completed = false;

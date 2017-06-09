@@ -4,5 +4,6 @@ export class RegisterFinalFormModel {
     public country :  string,
     public city :  number,
     public gender : string,
+    public phone_number: string,
   ) { }
 }

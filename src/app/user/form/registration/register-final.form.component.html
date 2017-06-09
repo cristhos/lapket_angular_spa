@@ -22,7 +22,7 @@
             <div *ngIf="countries != null" class="input-field col s12 m12">
              <select materialize="material_select" [materializeSelectOptions]="selectOptions" required [(ngModel)]="model.country" [ngModelOptions]="{standalone: true}" (change)="onSelect($event)" >
                <option value="" disabled="" selected="">Choisir un pays</option>
-               <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+               <option *ngFor="let country of countries" [value]="country.id" >({{country.indicative}}) {{country.name}}</option>
               </select>
             </div>
 
@@ -31,6 +31,11 @@
                <option value="" disabled="" selected="">Choisir une ville</option>
                <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
               </select>
+            </div>
+            <div  class="input-field col s12 m12">
+                <i class="fa fa-phone prefix"></i>
+                <label for="phone_number">Télephone</label>
+                <input placeholder="telephone" id="phone_number" type="text" class="form-control"  [(ngModel)]="model.phone_number" name="telephone" #name="ngModel" >
             </div>
                        
             <div  class="row">

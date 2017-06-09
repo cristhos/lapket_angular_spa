@@ -37,6 +37,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy{
             this.product_loading = false;
             this.product = data;
             this.metadataService.setTitle(this.product.description);
+            this.metadataService.setTag('og:title', this.product.description);
             this.metadataService.setTag('og:image', this.product.picture.web_path);
           },
           error => {

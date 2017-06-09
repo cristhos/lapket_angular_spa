@@ -22,3 +22,10 @@ figure img {
 .fa:hover,.btn-flat:focus {
     font-size: 35px;
 }
+
+.flash-contac-pict{
+  width: 126px;
+  height: 126px;
+  border-radius: 63px;
+  overflow: hidden;
+}

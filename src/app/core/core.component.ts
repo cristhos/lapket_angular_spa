@@ -9,6 +9,3 @@ export { SocialMediaComponent } from './common/social-media.component';
 export { LoadingComponent } from './common/loading.component';
 export { BlockLeftComponent } from './common/block-left.component';
 export { BlockRightComponent } from './common/block-right.component';
-
-
-

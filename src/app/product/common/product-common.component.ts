@@ -24,6 +24,7 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
   dealform = false;
   modalActions = new EventEmitter<string>();
   productConversation;
+  authent : Boolean;
 
   constructor(private productService : ProductService,
               private dealService : DealService,
@@ -31,6 +32,7 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
              ){}
 
   ngOnInit(){
+    this.authent = this.buttonGuard();
     this.product_share_link = window.location.origin + this.router.createUrlTree(['/product',this.product.id]);
   }
 

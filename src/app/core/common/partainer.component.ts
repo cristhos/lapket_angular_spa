@@ -20,7 +20,7 @@ export class PartainerComponent {
             },
             {
               name : "asky tech",
-              url : "http://www.asky.com",
+              url : "http://askytech.com/",
               picture : "./../../assets/images/partenair/asky.jpg"
             }
 

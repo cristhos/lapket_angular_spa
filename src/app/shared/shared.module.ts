@@ -64,6 +64,10 @@ import {
   DealService
 } from '../deal/deal.component';
 
+import {
+  metadataFactory
+} from '../utils/metadata.factory';
+
 import { ApiUrlService } from '../utils/api-url.service';
 import { ImageResizerService } from '../utils/image-resizer.service';
 import { requestOptionsProvider } from '../utils/default-request-options.service';
@@ -89,7 +93,10 @@ import {ImageCropperModule} from 'ng2-img-cropper';
       MaterializeModule,
       ImageCropperModule,
       ShareButtonsModule.forRoot(),
-      MetadataModule.forRoot()
+      MetadataModule.forRoot({
+        provide: MetadataLoader,
+        useFactory: (metadataFactory)
+     })
       ],
   declarations: [ 
     CoreDetailComponent,
