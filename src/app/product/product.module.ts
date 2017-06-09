@@ -13,10 +13,6 @@ import {
 } from '../category/category.component';
 
 import {
-  DealService,
-} from '../deal/deal.component';
-
-import {
   SharedModule
 } from '../shared/shared.module';
 
@@ -36,8 +32,7 @@ import {
     ],
   providers : [
     ProductService,
-    CategoryService,
-    DealService
+    CategoryService
   ],
 })
 export class ProductModule {}

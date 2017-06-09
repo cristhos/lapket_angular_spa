@@ -2,7 +2,6 @@ import { Component, Input, EventEmitter, OnInit, AfterViewInit } from '@angular/
 import { Router } from '@angular/router';
 
 import { ProductService } from '../../product/service/product.service';
-import { DealService } from '../../deal/service/deal.service';
 
 declare var $: any
 
@@ -27,7 +26,6 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
   authent : Boolean;
 
   constructor(private productService : ProductService,
-              private dealService : DealService,
               private router: Router
              ){}
 
@@ -119,25 +117,6 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
       );
     }
   }
-
-  beginConversation(product_id){
-     if(this.buttonGuard() == true){
-        if(window.confirm('Etes vous sur de vouloir demarer une conversation'))
-        {
-          this.dealService.postConversation(product_id).subscribe(
-            data => {
-              this.router.navigateByUrl('deal/message/'+data.id)
-            },
-            error => console.log(error),
-            () => console.log("finish")
-          );
-      }
-     }else{
-       this.buttonGuardRedirect();
-     }
-
-  }
-
   desactiveNotification(product_id : number){
     if(window.confirm('Etes vous sur de vouloir desactiver les notifications vous pouvez ratez une nouvelle'))
     {

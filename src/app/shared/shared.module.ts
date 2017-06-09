@@ -61,10 +61,6 @@ import {
 } from '../city/city.component';
 
 import {
-  DealService
-} from '../deal/deal.component';
-
-import {
   metadataFactory
 } from '../utils/metadata.factory';
 
@@ -176,7 +172,6 @@ import {ImageCropperModule} from 'ng2-img-cropper';
     ApiUrlService,
     ImageResizerService,
     CategoryService,
-    DealService,
     UserService,
     ProductService,
     MetadataService,

@@ -1,3 +1,4 @@
+<div *ngIf="api_server_error" class="alert alert-error red-text center">Pas de connexion à l'api</div>
 <nav-bar *ngIf="user == null && request == true" ></nav-bar>
 <span *ngIf="user != null && request == true">
     <nav-bar *ngIf="user.compte_state == true" [user]="user"></nav-bar>

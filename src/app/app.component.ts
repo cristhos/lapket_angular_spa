@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
    user ;
    timerSub ;
    request : boolean;
+   api_server_error : boolean;
    public constructor(private titleService: Title, private userService : UserService, public router: Router ) {}
 
   ngOnInit(){
@@ -55,9 +56,7 @@ export class AppComponent implements OnInit{
                         console.log("Visiteur");  
                        break;
                      case 0 :
-                        if(window.confirm('Aucune Connexion avec le serveur de resource! Voulez-vous actualiser')){
-                            window.location.reload();
-                        }
+                        this.api_server_error = true;
                        break;
                      default:
                         localStorage.clear();
