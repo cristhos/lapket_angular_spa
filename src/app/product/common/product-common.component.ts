@@ -20,7 +20,6 @@ export class ProductCommonComponent implements OnInit,AfterViewInit{
   offset = 100;
   product_share_link;
 
-  dealform = false;
   modalActions = new EventEmitter<string>();
   productConversation;
   authent : Boolean;

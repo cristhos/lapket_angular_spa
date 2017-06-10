@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
       this.request = false;
-      this.setTitle("Lapket");
+      this.setTitle("Acceuil");
       this.getInitialUser();
   }
 
