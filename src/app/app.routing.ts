@@ -12,7 +12,6 @@ const appRoutes : Routes = [
   {path: '', loadChildren: "./core/core.module#CoreModule"},
   {path: 'user', loadChildren: "./user/user.module#UserModule"},
   {path: 'product', loadChildren: "./product/product.module#ProductModule"},
-  {path: 'deal', loadChildren: "./deal/deal.module#DealModule", canActivate: [CanActivateViaAuthGuard]},
   {path: 'category', loadChildren: "./category/category.module#CategoryModule"},
   {path: 'notification', loadChildren: "./notification/notification.module#NotificationModule", canActivate: [CanActivateViaAuthGuard]},
   {path: 'search', loadChildren: "./search/search.module#SearchModule"},
