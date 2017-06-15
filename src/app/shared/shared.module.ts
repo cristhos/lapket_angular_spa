@@ -33,9 +33,10 @@ import {
   CategoryListComponent,
   CategoryDescoveryComponent,
   CategorySuggestionComponent,
+  CategoryLastComponent,
   CategoryMenuComponent,
   CategoryFollowComponent,
-  CategoryCommonComponent,
+  CategoryItemComponent,
 } from '../category/category.component';
 
 import {
@@ -75,6 +76,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
 import { ImageCropperModule } from 'ng2-img-cropper';
+//import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
 @NgModule({
   imports:[ 
@@ -88,6 +90,7 @@ import { ImageCropperModule } from 'ng2-img-cropper';
       MetadataModule,
       MaterializeModule,
       ImageCropperModule,
+      //VirtualScrollModule,
       ShareButtonsModule.forRoot(),
       MetadataModule.forRoot({
         provide: MetadataLoader,
@@ -111,9 +114,10 @@ import { ImageCropperModule } from 'ng2-img-cropper';
     CategoryListComponent,
     CategoryDescoveryComponent,
     CategorySuggestionComponent,
+    CategoryLastComponent,
     CategoryMenuComponent,
     CategoryFollowComponent,
-    CategoryCommonComponent,
+    CategoryItemComponent,
     ProductCommonComponent,
     ProductListComponent,
     ProductLastComponent,
@@ -142,9 +146,10 @@ import { ImageCropperModule } from 'ng2-img-cropper';
     CategoryListComponent,
     CategoryDescoveryComponent,
     CategorySuggestionComponent,
+    CategoryLastComponent,
     CategoryMenuComponent,
     CategoryFollowComponent,
-    CategoryCommonComponent,
+    CategoryItemComponent,
     ProductCommonComponent,
     ProductListComponent,
     ProductLastComponent,

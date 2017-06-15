@@ -1,0 +1,20 @@
+<div class="container">
+      <h5 class="site-color">Découvrir</h5>
+      <div class="divider"></div>
+      <div class="row">
+            <span *ngIf="categories != null">
+            <div class="col s12 m3 " *ngFor="let category of categories">
+                  <div class="card hoverable ">
+                        <div class="card-image">
+                              <img src="../../../assets/images/font-ground.jpg">
+                        </div>
+                        <category-item  [category] = "category"></category-item>
+                  </div>
+            </div>
+            </span>
+            <loading *ngIf="categories_loading == true"></loading>
+      </div>
+      <p class="center">
+        <a [routerLink]="['/register']" class="btn-large">JE REVIENDRAIS</a>
+     </p>
+</div>

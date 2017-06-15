@@ -3,7 +3,7 @@
           <li class="collection-header">CATEGORIES <a [routerLink]="['/category']" class="right"><small>Plus</small></a></li>
           <span *ngIf="categories != null">
             <a  *ngFor="let category of categories" [routerLink]="['/category',category.id ]" routerLinkActive="active"   title="{{category.name}}" class="collection-item" >
-                <category-common [category] = "category"></category-common>
+                <category-item [category] = "category"></category-item>
             </a> 
           </span>
           <loading *ngIf="categories_loading == true"></loading>

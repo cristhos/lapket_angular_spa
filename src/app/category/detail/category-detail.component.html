@@ -1,7 +1,10 @@
 <div class="container">
     <div *ngIf="category != null">
     <div  class="card fixed-center">
-        <category-common [category] = "category"></category-common>
+        <div class="card-image">
+            <img src="../../../assets/images/font-ground.jpg">
+        </div>
+        <category-item [category] = "category"></category-item>
     </div>
     <div class="row content-f">
         <core-block-right class="col s12 m3 right"></core-block-right>

@@ -262,3 +262,7 @@ h1,h2,h3,h4,h5,h6{
     background-color: #db4437;
     color:white;
 }
+
+.fa-5x {
+    font-size: 8em;
+}

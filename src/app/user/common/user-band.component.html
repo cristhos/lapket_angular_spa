@@ -1,40 +1,41 @@
-  <div class="card" *ngIf="user_detail != null">
-    <div class="card-content  row">
+<div class="card" *ngIf="user_detail != null">
+    <div class="card-content">
         <div class="col s12 m12">
             <div>
-                  <h2 ><i *ngIf="user_detail.profile_picture == null" class="fa fa-user fa-4x brand-image avatar center"></i></h2>
-                  <img class="brand-image avatar" *ngIf="user_detail.profile_picture != null" [src]="user_detail.profile_picture.web_path" alt="{{user_detail.profile_picture.alt}}"/>
-                  <h4>
-                      {{ user_detail.full_name}}<em> @{{ user_detail.username}}</em>
-                  </h4>
-                  <small ><i class="fa fa-map-marker"></i> {{ user_detail.city.name}}</small>
-                  <br><small >Denière connexion : {{ user_detail.last_login | amTimeAgo}}</small>
-                  <br ><span>{{ user_detail.description }}</span>
-                  <ul >
-                   <li *ngIf="user_detail.is_author == true">
-                     <a materialize="dropdown" href='#'  routerLinkActive="active" class="dropdown-button btn-flat" data-activates='band-drop'><i class="fa fa-cog"></i></a>
-                       <!-- Dropdown Structure -->
-                       <ul id='band-drop' class='dropdown-content'>
-                         <li><a routerLink="/user/s/setting">Parametres</a></li>
-                         <li><a (click)="logout()"><i class="fa fa-off"></i> Déconnexion</a></li>
-                       </ul>
-                   </li>
-                   <span *ngIf="user_detail.is_author == false">
-                      <li>
-                        <a *ngIf="user_detail.is_follow_it == false" (click)="postFollow(user_detail.id)" class="btn ">
-                          <i  class="fa fa-user-plus"></i>
-                          S'abonner
-                          
-                        </a>
-                        <a *ngIf="user_detail.is_follow_it == true" (click)="removeFollow(user_detail.id)" class="btn ">
-                          <i  class="fa fa-check"></i>
-                          Abonné
-                          
-                        </a>
-                      </li>
-                   </span>
-                </ul>
-                <span >
+                  <div class="center">
+                    <i *ngIf="user_detail.profile_picture == null" class="fa fa-user-circle fa-5x center site-color"></i>
+                    <img class="brand-image" *ngIf="user_detail.profile_picture != null" [src]="user_detail.profile_picture.web_path" alt="{{user_detail.profile_picture.alt}}"/>
+                    <br>
+                    <h4>{{ user_detail.full_name }} @{{ user_detail.username }}</h4>
+                    <small ><i class="fa fa-map-marker"></i> {{ user_detail.city.name}} | {{ user_detail.last_login | amTimeAgo}}</small>
+                    <br ><span>{{ user_detail.description }}</span>
+                        <ul >
+                          <li *ngIf="user_detail.is_author == true">
+                            <a materialize="dropdown" href='#'  routerLinkActive="active" class="dropdown-button btn-flat" data-activates='band-drop'><i class="fa fa-cog"></i></a>
+                              <!-- Dropdown Structure -->
+                              <ul id='band-drop' class='dropdown-content'>
+                                <li><a routerLink="/user/s/setting">Parametres</a></li>
+                                <li><a (click)="logout()"><i class="fa fa-off"></i> Déconnexion</a></li>
+                              </ul>
+                          </li>
+                          <span *ngIf="user_detail.is_author == false">
+                              <li>
+                                <a *ngIf="user_detail.is_follow_it == false" (click)="postFollow(user_detail.id)" class="btn ">
+                                  <i  class="fa fa-user-plus"></i>
+                                  S'abonner
+                                  
+                                </a>
+                                <a *ngIf="user_detail.is_follow_it == true" (click)="removeFollow(user_detail.id)" class="btn ">
+                                  <i  class="fa fa-check"></i>
+                                  Abonné
+                                  
+                                </a>
+                              </li>
+                          </span>
+                        </ul>
+                  </div>
+                              
+                 <p class="center" >
                         <a  class="btn-flat" [routerLink]="['/user/products',user_detail.username]" routerLinkActive="active" >
                           <i class="fa fa-list"></i>
                           <span class="hide-on-med-and-down"> Products</span>
@@ -55,7 +56,7 @@
                           <span class="hide-on-med-and-down"> Abonnés</span>
                           <small *ngIf="user_detail.nb_followers > 0"> {{user_detail.nb_followers}}</small>
                        </a>
-                </span>
+                </p>
                     
             </div>
             

@@ -8,5 +8,10 @@
     z-index: 80;
 }
 .content-f{
-    padding-top:50px;
+    padding-top:150px;
+}
+
+.card .card-image img {
+    height: 100px;
+    width: 100%;
 }

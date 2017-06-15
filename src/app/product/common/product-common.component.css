@@ -1,5 +1,11 @@
+figure{
+      margin:0px;
+      padding:0px;
+}
+figure figcaption{
+      margin:5px;
+}
 figure img {
-      border-radius: 10px;
       width : 100%;
       background-size: cover;
 }

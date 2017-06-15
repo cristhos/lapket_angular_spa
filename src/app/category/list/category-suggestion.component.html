@@ -3,7 +3,7 @@
       <div class="row">
             <div class="col s12 m3" *ngFor="let category of categories._embedded.items">
               <div class="card-panel hoverable">
-                <category-common [category] = "category"></category-common>
+                <category-item [category] = "category"></category-item>
               </div>
             </div>
       </div>

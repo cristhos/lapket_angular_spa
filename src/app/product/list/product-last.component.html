@@ -1,9 +1,8 @@
 <div *ngIf="products != null" class="container">
-    <h5 class="site-color">A la une</h5>
+   <h5 class="site-color">A la une</h5>
    <div class="divider"></div>
     <div class="row">
-        
-        <div *ngFor="let product of products " class="col s12 m4">
+        <div *ngFor="let product of products " class="col s12 m3">
         <product-common [product]="product"></product-common>
         </div>
     </div>
