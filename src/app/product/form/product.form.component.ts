@@ -6,7 +6,7 @@ import { FileUploader } from 'ng2-file-upload';
 import { ProductFormModel } from './product.form';
 import { CategoryService } from '../../category/service/category.service';
 import { ProductService } from '../service/product.service';
-import { ApiUrlService } from '../../utils/api-url.service';
+import { environment } from '../../../environments/environment';
 import { ImageResizerService } from '../../utils/image-resizer.service';
 import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
@@ -27,7 +27,7 @@ export class ProductFormComponent implements OnInit{
   file_src;
   request : boolean;
   formElement = false;
-  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
+  public uploader:FileUploader = new FileUploader({url:environment.LAPKET_API_URL+'/api/picture/pictures.json'});
   data: any;
   cropperSettings;
   @ViewChild('cropper', undefined) 
@@ -38,7 +38,6 @@ export class ProductFormComponent implements OnInit{
     private productService: ProductService,
     public router: Router,
     private route: ActivatedRoute,
-    private apiUrlService : ApiUrlService,
     private imageResizerService : ImageResizerService,
   ) {
         

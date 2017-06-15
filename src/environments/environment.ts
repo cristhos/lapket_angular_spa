@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  LAPKET_API_URL : "http://localhost/masta/web/app_pre_prod.php",
+  //LAPKET_API_URL : "http://192.168.43.151/masta/web/app_pre_prod.php",
 };

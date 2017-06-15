@@ -2,10 +2,9 @@ import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { NgForm }    from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
-
+import { environment } from '../../../../environments/environment';
 import {  UserService } from '../../service/user.service';
 import {  ProfileFormModel } from './profile.form';
-import { ApiUrlService } from '../../../utils/api-url.service';
 import { ImageResizerService } from '../../../utils/image-resizer.service';
 import {  CountryService } from '../../../country/service/country.service';
 import {  CityService } from '../../../city/service/city.service';
@@ -25,7 +24,7 @@ export class ProfileFormComponent implements OnInit{
   countries;
   cities;
    // file upluad
-  public uploader:FileUploader = new FileUploader({url:this.apiUrlService.getBaseUrl()+'/api/picture/pictures.json'});
+  public uploader:FileUploader = new FileUploader({url:environment.LAPKET_API_URL+'/api/picture/pictures.json'});
   data: any;
   cropperSettings;
   @ViewChild('cropper', undefined) 
@@ -43,7 +42,6 @@ export class ProfileFormComponent implements OnInit{
   constructor(private userService : UserService, 
               public router: Router, 
               private imageResizerService : ImageResizerService,
-              private apiUrlService : ApiUrlService,
               private countryService : CountryService,
               private cityService : CityService,
               ) {

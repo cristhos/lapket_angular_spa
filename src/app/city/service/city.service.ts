@@ -3,15 +3,14 @@ import { Http, Response} from '@angular/http';
 
 import '../../rxjs-operators';
 
-import { ApiUrlService } from '../../utils/api-url.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class CityService {
-  baseUrl: string;
+  baseUrl: string = environment.LAPKET_API_URL;
   url: any;
 
-  constructor(private http: Http, private apiUrlService : ApiUrlService){
-    this.baseUrl = this.apiUrlService.getBaseUrl();
+  constructor(private http: Http){
     this.baseUrl = this.baseUrl + '/api/user';
   }
 

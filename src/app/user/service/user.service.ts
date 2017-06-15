@@ -3,11 +3,10 @@ import { Http, Response} from '@angular/http';
 import { environment } from '../../../environments/environment';
 import '../../rxjs-operators';
 
-import { ApiUrlService } from '../../utils/api-url.service';
 
 @Injectable()
 export class UserService {
-  baseUrl: string;
+  baseUrl: string = environment.LAPKET_API_URL;
   tokenUrl : string;
   url: any;
   access_token: string ;
@@ -18,8 +17,7 @@ export class UserService {
   client_secret: string;
   request : boolean = false; // avons nous verififier si l'utilisateur et connecté
 
-  constructor(private http: Http, private apiUrlService : ApiUrlService){
-    this.baseUrl = this.apiUrlService.getBaseUrl();
+  constructor(private http: Http){
     this.tokenUrl = this.baseUrl + "/api/oauth/v2/token"
     this.baseUrl = this.baseUrl + '/api/user';
     this.access_token = localStorage.getItem('access_token');
@@ -57,7 +55,7 @@ export class UserService {
   }
 
   facebookConnect(user:any){
-      this.url = this.apiUrlService.getBaseUrl() + '/facebook/check-facebook.json';
+      this.url =  this.baseUrl + '/facebook/check-facebook.json';
       let body = JSON.stringify(user);
       return this.http
                  .post(this.url,body)
@@ -66,7 +64,7 @@ export class UserService {
   }
 
   googleConnect(user:any){
-      this.url = this.apiUrlService.getBaseUrl() + '/google/check-google.json';
+      this.url =  this.baseUrl + '/google/check-google.json';
       let body = JSON.stringify(user);
       return this.http
                  .post(this.url,body)

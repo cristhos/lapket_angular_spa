@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  LAPKET_API_URL : "https://apis.lapket.com",
 };

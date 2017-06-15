@@ -65,7 +65,6 @@ import {
   metadataFactory
 } from '../utils/metadata.factory';
 
-import { ApiUrlService } from '../utils/api-url.service';
 import { ImageResizerService } from '../utils/image-resizer.service';
 import { requestOptionsProvider } from '../utils/default-request-options.service';
 
@@ -174,7 +173,6 @@ import { ImageCropperModule } from 'ng2-img-cropper';
   providers : [
     CityService,
     CountryService,
-    ApiUrlService,
     ImageResizerService,
     CategoryService,
     UserService,

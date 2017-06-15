@@ -2,17 +2,17 @@ import { Injectable,OnInit }    from '@angular/core';
 import {  Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { ApiUrlService } from '../../utils/api-url.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class CategoryService implements OnInit{
-  baseUrl: string;
+ baseUrl: string;
   autherBaseUrl:string;
   url: any;
 
-  constructor(private http: Http, private apiUrlService : ApiUrlService){
-    this.baseUrl = this.apiUrlService.getBaseUrl()+'/api/category';
-    this.autherBaseUrl = this.apiUrlService.getBaseUrl()+'/api/category_follow';
+  constructor(private http: Http){
+    this.baseUrl = environment.LAPKET_API_URL+'/api/category';
+    this.autherBaseUrl = environment.LAPKET_API_URL+'/api/category_follow';
   }
 
   ngOnInit(){

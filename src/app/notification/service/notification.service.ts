@@ -2,15 +2,14 @@ import { Injectable }    from '@angular/core';
 import {  Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { ApiUrlService } from '../../utils/api-url.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class NotificationService {
-  baseUrl: string;
+  baseUrl: string = environment.LAPKET_API_URL;
   url: any;
 
-  constructor(private http: Http, private apiUrlService : ApiUrlService) {
-    this.baseUrl = this.apiUrlService.getBaseUrl();
+  constructor(private http: Http) {
     this.baseUrl = this.baseUrl + '/api/notification';
   }
 
