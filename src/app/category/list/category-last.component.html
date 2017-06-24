@@ -6,7 +6,12 @@
             <div class="col s12 m3 " *ngFor="let category of categories">
                   <div class="card hoverable ">
                         <div class="card-image">
-                              <img src="../../../assets/images/font-ground.jpg">
+                              <span *ngIf="category.picture != null">
+                                    <img [src]="category.picture.web_path">
+                              </span>
+                              <span *ngIf="category.picture == null">
+                                    <img src="../../../assets/images/font-ground.jpg">
+                              </span>
                         </div>
                         <category-item  [category] = "category"></category-item>
                   </div>

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProductService } from '../../product/service/product.service';
-import { MetadataService } from 'ng2-metadata';
+//import { MetadataService } from 'ng2-metadata';
 
 @Component({
   selector: 'product-detail',
@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy{
   constructor(
     private productService : ProductService,
     private route: ActivatedRoute,
-    private metadataService: MetadataService
+    //private metadataService: MetadataService
     ){
   }
 
@@ -36,10 +36,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy{
           data =>{
             this.product_loading = false;
             this.product = data;
-            this.metadataService.setTitle(this.product.description);
+            /*this.metadataService.setTitle(this.product.description);
             this.metadataService.setTag('og:title', this.product.description);
             this.metadataService.setTag('og:image', this.product.picture.web_path);
-          },
+            */  
+        },
           error => {
            this.product_loading = false;
            console.log(error) 

@@ -73,9 +73,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { MaterializeModule } from "angular2-materialize";
 import { FileUploadModule } from 'ng2-file-upload';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
-import { MetadataModule, MetadataService, MetadataLoader } from 'ng2-metadata';
 import { ImageCropperModule } from 'ng2-img-cropper';
-//import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
 @NgModule({
   imports:[ 
@@ -86,15 +84,9 @@ import { ImageCropperModule } from 'ng2-img-cropper';
       LazyLoadImageModule,
       RouterModule,
       FileUploadModule,
-      MetadataModule,
-      MaterializeModule,
       ImageCropperModule,
-      //VirtualScrollModule,
       ShareButtonsModule.forRoot(),
-      MetadataModule.forRoot({
-        provide: MetadataLoader,
-        useFactory: (metadataFactory)
-     })
+      MaterializeModule,
       ],
   declarations: [ 
     CoreDetailComponent,
@@ -177,7 +169,7 @@ import { ImageCropperModule } from 'ng2-img-cropper';
     CategoryService,
     UserService,
     ProductService,
-    MetadataService,
+    //MetadataService,
     CanActivateViaAuthGuard,
     requestOptionsProvider
   ],

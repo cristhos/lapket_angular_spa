@@ -8,6 +8,9 @@ import { CategoryService } from '../service/category.service';
   .card-panel {
       padding: 5px;
   }
+  .card .card-image img {
+    height:150px;
+  }
   `],
 })
 

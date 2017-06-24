@@ -2,16 +2,7 @@
       padding: 5px;
 }
 
-.fixed-center{
-    position:fixed;
-    width: 85%;
-    z-index: 80;
-}
-.content-f{
-    padding-top:150px;
-}
-
 .card .card-image img {
-    height: 100px;
+    height: 150px;
     width: 100%;
 }

@@ -7,7 +7,10 @@ import { CategoryService } from '../service/category.service';
   styles: [`
   .card-panel {
       padding: 5px;
-}
+  }
+  .card .card-image img {
+    height:150px;
+  }
   `],
 })
 
