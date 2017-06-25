@@ -1,5 +1,6 @@
 .btn, .btn-large {
     background:rgb(0,171,107);
+    border-radius:40px;
 }
 .btn:hover,.btn:focus, .btn-large:hover,.btn-large:focus  {
     background:rgba(0,171,107,0.60);
@@ -9,6 +10,7 @@
     background:transparent;
     border: 1px solid rgb(0,171,107);
     color: rgb(0,171,107);
+    border-radius:50px;
 }
 .btn-transparent:hover,.btn-transparent:focus, .btn-transparent:hover,.btn-transparent:focus  {
     background:rgb(0,171,107);
@@ -26,13 +28,13 @@
 
 
 .btn, .btn-flat {
-    border-radius: 3px;
+    border-radius: 50px;
     height: 30px;
     line-height: 30px;
 }
 
 .btn-large{
-    border-radius: 3px;
+    border-radius: 60px;
     line-height: 40px;
     height: 40px;
 }
